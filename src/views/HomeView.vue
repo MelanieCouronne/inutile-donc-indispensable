@@ -1,9 +1,7 @@
-<script setup>
-  // import TheWelcome from "../components/TheWelcome.vue";
-</script>
-
 <template>
-  <main>
-    <!-- <TheWelcome /> -->
-  </main>
+  <ActivityView />
 </template>
+
+<script setup>
+  import ActivityView from "@/components/layouts/ActivityView.vue";
+</script>
