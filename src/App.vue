@@ -1,7 +1,7 @@
 <template>
   <header class="h-full md:flex-[0.2]">
     <nav>
-      <SideBar />
+      <SideBar @selectComponent="activeComponent = $event" />
     </nav>
   </header>
 
@@ -11,9 +11,12 @@
 </template>
 
 <script setup>
+  import { ref, provide } from "vue";
   import { RouterView } from "vue-router";
-
   import SideBar from "@/components/commun/navigation/SideBar.vue";
+
+  const activeComponent = ref("HelloWorld");
+  provide("activeComponent", activeComponent);
 </script>
 
 <style scoped></style>

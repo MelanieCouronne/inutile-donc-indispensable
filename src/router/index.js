@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import HelloWorld from "../components/HelloWorld.vue";
+import ActivityRods from "../components/layouts/ActivityRods.vue";
+import ActivitySquares from "../components/layouts/ActivitySquares.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,6 +11,23 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
+      children: [
+        {
+          path: "hello-world",
+          name: "hello-world",
+          component: HelloWorld,
+        },
+        {
+          path: "activity-rods",
+          name: "activity-rods",
+          component: ActivityRods,
+        },
+        {
+          path: "activity-squares",
+          name: "activity-squares",
+          component: ActivitySquares,
+        },
+      ],
     },
     {
       path: "/about",
