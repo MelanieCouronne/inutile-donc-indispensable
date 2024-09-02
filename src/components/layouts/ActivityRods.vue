@@ -14,18 +14,50 @@
 <script setup>
   import { nextTick, ref, onMounted, onUnmounted } from "vue";
 
-  const greenColorsHexa = ["#9be9a8", "#40c463", "#30a14e", "#216e39"];
-  const blueColorsHexa = ["#c6e6ff", "#76b7ff", "#3a8bff", "#0056b3"];
-  const redColorsHexa = ["#ffcccc", "#ff6666", "#ff3333", "#b20000"];
-  const yellowColorsHexa = ["#fff5cc", "#ffeb99", "#ffdb4d", "#b38f00"];
-  const purpleColorsHexa = ["#e6ccff", "#cc99ff", "#9933ff", "#6600cc"];
+  const greenColorsHexa = [
+    "#22577A",
+    "#38A3A5",
+    "#57CC99",
+    "#80ED99",
+    "#C7F9CC",
+  ];
+  const blueColorsHexa = [
+    "#03045E",
+    "#0077B6",
+    "#00B4D8",
+    "#90E0EF",
+    "#CAF0F8",
+  ];
+  const purpleColorsHexa = [
+    "#3C096C",
+    "#5A189A",
+    "#7B2CBF",
+    "#9D4EDD",
+    "#C77DFF",
+  ];
+  const redColorsHexa = ["#800F2F", "#A4133C", "#C9184A", "#FF4D6D", "#FF758F"];
+  const pinkColorsHexa = [
+    "#FF0A54",
+    "#FF477E",
+    "#FF5C8A",
+    "#FF99AC",
+    "#F7CAD0",
+  ];
+  const yellowColorsHexa = [
+    "#FFF75E",
+    "#FFF056",
+    "#FFE94E",
+    "#FECF3E",
+    "#FDB833",
+  ];
 
   const colorArrays = [
     greenColorsHexa,
     blueColorsHexa,
-    redColorsHexa,
-    yellowColorsHexa,
     purpleColorsHexa,
+    redColorsHexa,
+    pinkColorsHexa,
+    yellowColorsHexa,
   ];
 
   const rods = ref([]);
@@ -66,7 +98,7 @@
     setInterval(() => {
       currentColorArrayIndex.value =
         (currentColorArrayIndex.value + 1) % colorArrays.length;
-    }, 2000);
+    }, 3000);
   });
 
   onUnmounted(() => {
