@@ -1,87 +1,106 @@
 <template>
-  <div id="main-container">
-    <div
-      v-for="(square, index) in squares"
-      :key="index"
-      id="squares-container"
-      class="activity"
-      @mouseover="addColor"
-    ></div>
+  <div id="main-container" ref="containerDimensions">
+    <div id="rods-container">
+      <div
+        v-for="(rod, index) in rods"
+        :key="index"
+        class="rod-activity"
+        @mouseover="addColor"
+      ></div>
+    </div>
   </div>
 </template>
 
 <script setup>
-  import { ref, onMounted, onUnmounted } from "vue";
+  import { nextTick, ref, onMounted, onUnmounted } from "vue";
 
-  const greenColorsHexa = ref(["#9be9a8", "#40c463", "#30a14e", "#216e39"]);
-  const squares = ref([]);
+  const greenColorsHexa = ["#9be9a8", "#40c463", "#30a14e", "#216e39"];
+  const blueColorsHexa = ["#c6e6ff", "#76b7ff", "#3a8bff", "#0056b3"];
+  const redColorsHexa = ["#ffcccc", "#ff6666", "#ff3333", "#b20000"];
+  const yellowColorsHexa = ["#fff5cc", "#ffeb99", "#ffdb4d", "#b38f00"];
+  const purpleColorsHexa = ["#e6ccff", "#cc99ff", "#9933ff", "#6600cc"];
+
+  const colorArrays = [
+    greenColorsHexa,
+    blueColorsHexa,
+    redColorsHexa,
+    yellowColorsHexa,
+    purpleColorsHexa,
+  ];
+
+  const rods = ref([]);
+  const containerDimensions = ref(null);
+  const currentColorArrayIndex = ref(0);
 
   const addColor = (event) => {
-    const color = greenColors();
+    const color = getRandomColor();
     event.target.style.backgroundColor = color;
   };
 
-  const greenColors = () => {
-    return greenColorsHexa.value[
-      Math.floor(Math.random() * greenColorsHexa.value.length)
-    ];
+  const getRandomColor = () => {
+    const currentColors = colorArrays[currentColorArrayIndex.value];
+    return currentColors[Math.floor(Math.random() * currentColors.length)];
   };
 
-  const sidebarWidth = 250; // Largeur de la sidebar en pixels
+  const calculateNumberOfrods = () => {
+    if (!containerDimensions.value) return 0;
 
-  const calculateNumberOfSquares = () => {
-    const containerWidth = window.innerWidth - sidebarWidth - 20;
-    const containerHeight = window.innerHeight - 20;
-    const squareSize = 12;
-    const numberOfSquares =
-      Math.ceil(containerWidth / squareSize) *
-      Math.ceil(containerHeight / squareSize);
-    return numberOfSquares;
+    const containerWidth = containerDimensions.value.clientWidth - 32;
+    const rodWidth = 16;
+
+    const numberOfrods = Math.floor(containerWidth / rodWidth);
+    return numberOfrods;
   };
 
-  const updateSquares = () => {
-    squares.value = Array(calculateNumberOfSquares()).fill(null);
+  const updaterods = () => {
+    rods.value = Array(calculateNumberOfrods()).fill(null);
   };
 
-  onMounted(() => {
-    updateSquares();
-    window.addEventListener("resize", updateSquares);
+  onMounted(async () => {
+    // On attend la mise à jour du DOM avant de calculer le nombre de carrés
+    await nextTick();
+    updaterods();
+    window.addEventListener("resize", updaterods);
+
+    // Changer d'array de couleurs toutes les 10 secondes
+    setInterval(() => {
+      currentColorArrayIndex.value =
+        (currentColorArrayIndex.value + 1) % colorArrays.length;
+    }, 2000);
   });
 
   onUnmounted(() => {
-    window.removeEventListener("resize", updateSquares);
+    window.removeEventListener("resize", updaterods);
   });
 </script>
 
 <style scoped>
   #main-container {
-    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    margin: 0;
   }
 
-  #squares-container {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    grid-template-columns: repeat(auto-fill, 12px);
-    gap: 4px;
-    width: calc(100vw - 10px);
-    height: calc(100vh - 10px);
-    padding: 5px;
-    overflow: hidden;
+  #rods-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
   }
-  .activity {
+
+  .rod-activity {
     background-color: rgb(234, 237, 240);
-    /* box-shadow: 0 0 2px rgb(151, 151, 151); */
     outline: 1px solid rgba(27, 31, 35, 0.06);
     outline-offset: -1px;
-    margin: 1px 2px;
-    height: 12px;
+    margin: 0px 2px;
+    height: 100%;
     width: 12px;
     overflow: hidden;
     border-radius: 2px;
   }
-  .activity:hover {
+  .rod-activity:hover {
     transition: background-color 0.3s;
     overflow: hidden;
   }

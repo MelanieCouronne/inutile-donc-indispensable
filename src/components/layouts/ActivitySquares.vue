@@ -34,8 +34,8 @@
 
     const containerWidth = containerDimensions.value.clientWidth - 32;
     const containerHeight = containerDimensions.value.clientHeight;
-    const squareWidth = 14;
-    const squareHeight = 16;
+    const squareWidth = 16;
+    const squareHeight = 14;
 
     const numberOfSquares =
       Math.floor(containerWidth / squareWidth) *

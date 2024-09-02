@@ -1,7 +1,7 @@
 <template>
-  <ActivitySquares />
+  <ActivityRods />
 </template>
 
 <script setup>
-  import ActivitySquares from "@/components/layouts/ActivitySquares.vue";
+  import ActivityRods from "@/components/layouts/ActivityRods.vue";
 </script>
