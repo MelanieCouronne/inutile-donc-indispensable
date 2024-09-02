@@ -1,7 +1,7 @@
 <template>
-  <ActivityView />
+  <ActivitySquares />
 </template>
 
 <script setup>
-  import ActivityView from "@/components/layouts/ActivityView.vue";
+  import ActivitySquares from "@/components/layouts/ActivitySquares.vue";
 </script>

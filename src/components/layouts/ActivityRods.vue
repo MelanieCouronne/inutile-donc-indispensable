@@ -1,8 +1,9 @@
 <template>
-  <div id="container">
+  <div id="main-container">
     <div
       v-for="(square, index) in squares"
       :key="index"
+      id="squares-container"
       class="activity"
       @mouseover="addColor"
     ></div>
@@ -10,7 +11,7 @@
 </template>
 
 <script setup>
-  import { ref, onMounted } from "vue";
+  import { ref, onMounted, onUnmounted } from "vue";
 
   const greenColorsHexa = ref(["#9be9a8", "#40c463", "#30a14e", "#216e39"]);
   const squares = ref([]);
@@ -26,8 +27,10 @@
     ];
   };
 
+  const sidebarWidth = 250; // Largeur de la sidebar en pixels
+
   const calculateNumberOfSquares = () => {
-    const containerWidth = window.innerWidth - 20;
+    const containerWidth = window.innerWidth - sidebarWidth - 20;
     const containerHeight = window.innerHeight - 20;
     const squareSize = 12;
     const numberOfSquares =
@@ -36,13 +39,26 @@
     return numberOfSquares;
   };
 
-  onMounted(() => {
+  const updateSquares = () => {
     squares.value = Array(calculateNumberOfSquares()).fill(null);
+  };
+
+  onMounted(() => {
+    updateSquares();
+    window.addEventListener("resize", updateSquares);
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener("resize", updateSquares);
   });
 </script>
 
 <style scoped>
-  #container {
+  #main-container {
+    display: flex;
+  }
+
+  #squares-container {
     display: grid;
     align-items: center;
     justify-content: center;

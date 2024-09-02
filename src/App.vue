@@ -1,10 +1,11 @@
 <template>
-  <header class="font-poppins">
+  <header class="h-full md:flex-[0.2]">
     <nav>
       <SideBar />
     </nav>
   </header>
-  <main class="font-poppins">
+
+  <main class="h-full flex-1 container">
     <RouterView />
   </main>
 </template>
