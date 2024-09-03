@@ -62,10 +62,12 @@
   onMounted(() => {
     position.value = setCenter();
     window.addEventListener("mousemove", runAway);
+    window.addEventListener("touchmove", runAway);
   });
 
   onUnmounted(() => {
     window.removeEventListener("mousemove", runAway);
+    window.addEventListener("touchmove", runAway);
   });
 </script>
 
