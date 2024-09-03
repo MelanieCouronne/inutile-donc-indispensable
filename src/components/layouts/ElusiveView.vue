@@ -1,6 +1,7 @@
 <template>
   <div id="main-container" ref="containerDimensions">
     <button
+      ref="buttonDimensions"
       :style="{ left: `${position.x}px`, top: `${position.y}px` }"
       class="absolute text-sm font-medium py-2 px-2 bg-teal-500 text-white rounded-md cursor-pointer"
     >
@@ -10,35 +11,44 @@
 </template>
 
 <script setup>
-  import { ref, nextTick, onMounted } from "vue";
+  import { ref, onMounted } from "vue";
 
   const position = ref({ x: 0, y: 0 });
   const containerDimensions = ref(null);
+  const buttonDimensions = ref(null);
 
   const getContainerDimensions = () => {
     if (!containerDimensions.value) return { width: 0, height: 0 };
-    const containerWidth = containerDimensions.value.clientWidth;
-    const containerHeight = containerDimensions.value.clientHeight;
 
-    console.log(containerWidth, containerHeight);
+    return {
+      width: containerDimensions.value.clientWidth,
+      height: containerDimensions.value.clientHeight,
+    };
+  };
 
-    return { width: containerWidth, height: containerHeight };
+  const getButtonDimensions = () => {
+    if (!buttonDimensions.value) return { buttonWidth: 0, buttonHeight: 0 };
+
+    const w = buttonDimensions.value ? buttonDimensions.value.offsetWidth : 0;
+    const h = buttonDimensions.value ? buttonDimensions.value.offsetHeight : 0;
+
+    return {
+      buttonWidth: w,
+      buttonHeight: h,
+    };
   };
 
   const getPositionCenterAtStart = () => {
     const { width, height } = getContainerDimensions();
-    const buttonWidth = 50;
-    const buttonHeight = 40;
+    const { buttonWidth, buttonHeight } = getButtonDimensions();
+
     const x = (width - buttonWidth) / 2;
     const y = (height - buttonHeight) / 2;
     return { x, y };
   };
 
-  onMounted(async () => {
-    await nextTick();
+  onMounted(() => {
     position.value = getPositionCenterAtStart();
-    console.log("🚀 " + position.value.x);
-    console.log("🚀 " + position.value.y);
   });
 </script>
 
@@ -50,4 +60,8 @@
     padding: 16px;
     margin: 0;
   }
+  /* button {
+    width: 150px;
+    height: 40px;
+  } */
 </style>
