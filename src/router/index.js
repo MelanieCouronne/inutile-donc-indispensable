@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import HelloWorld from "../components/HelloWorld.vue";
+import HelloWorld from "../components/layouts/HelloWorld.vue";
 import ColorfulRods from "../components/layouts/ColorfulRods.vue";
 import ActivitySquares from "../components/layouts/ActivitySquares.vue";
 
