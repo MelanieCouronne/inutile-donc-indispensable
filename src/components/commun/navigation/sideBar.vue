@@ -30,6 +30,7 @@
           <h1 class="hidden md:block font-bold text-sm md:text-xl text-center">
             Couronne<span class="text-teal-600">.</span>
           </h1>
+
           <div id="profile" class="space-y-3">
             <img
               src="/3d1f760087b039387d7e18fa2821ff5b.jpeg"
@@ -47,15 +48,19 @@
               </p>
             </div>
           </div>
+
           <div
             class="flex border-2 border-gray-200 rounded-md focus-within:ring-2 ring-teal-500"
           >
             <input
+              v-model="seachQuery"
               type="text"
               class="w-full rounded-tl-md rounded-bl-md px-2 py-3 text-sm text-gray-600 focus:outline-none"
-              placeholder="Search"
+              placeholder="Recherche"
+              @keyup.enter="emitOnSearch"
             />
             <button
+              @click="emitOnSearch"
               class="rounded-tr-md rounded-br-md px-2 py-3 hidden md:block"
             >
               <svg
@@ -179,6 +184,26 @@
 
   const selectComponent = (componentName) => {
     activeComponent.value = componentName;
+  };
+
+  // const searchQuery = ref("");
+
+  const messages = [
+    "Hello, how are you?",
+    "I am fine, thank you!",
+    "I am fine too!",
+    "Good to hear that!",
+    "Goodbye!",
+    "See you later!",
+  ];
+
+  const emit = defineEmits(["displayNotification"]);
+
+  // Fonction pour gérer l'entrée de recherche et émettre un événement
+  const emitOnSearch = () => {
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    const message = messages[randomIndex];
+    emit("displayNotification", { display: true, message });
   };
 
   // inject : Récupère activeComponent fourni par App.vue sous la clé "activeComponentKey".
