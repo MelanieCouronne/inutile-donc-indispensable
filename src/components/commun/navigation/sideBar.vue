@@ -53,7 +53,7 @@
             class="flex border-2 border-gray-200 rounded-md focus-within:ring-2 ring-teal-500"
           >
             <input
-              v-model="seachQuery"
+              v-model="searchQuery"
               type="text"
               class="w-full rounded-tl-md rounded-bl-md px-2 py-3 text-sm text-gray-600 focus:outline-none"
               placeholder="Recherche"
@@ -180,37 +180,40 @@
   import { computed, inject, onMounted, onUnmounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/boutons/ButtonSideBar.vue";
 
+  const emit = defineEmits(["displayNotification"]);
   const activeComponent = inject("activeComponentKey");
 
   const selectComponent = (componentName) => {
     activeComponent.value = componentName;
   };
 
-  // const searchQuery = ref("");
-
-  const messages = [
-    "Hello, how are you?",
-    "I am fine, thank you!",
-    "I am fine too!",
-    "Good to hear that!",
-    "Goodbye!",
-    "See you later!",
-  ];
-
-  const emit = defineEmits(["displayNotification"]);
+  const searchQuery = ref("");
 
   // Fonction pour gérer l'entrée de recherche et émettre un événement
   const emitOnSearch = () => {
     const randomIndex = Math.floor(Math.random() * messages.length);
     const message = messages[randomIndex];
     emit("displayNotification", { display: true, message });
+    searchQuery.value = "";
   };
 
-  // inject : Récupère activeComponent fourni par App.vue sous la clé "activeComponentKey".
-
-  // selectComponent : Met à jour activeComponent avec le nom du composant à afficher.
-
-  // ButtonSideBar : Utilise le composant ButtonSideBar pour chaque bouton de la barre latérale. Chaque bouton émet un événement buttonClicked avec le nom du composant à afficher.
+  const messages = [
+    "Un biscuit, ça n’a pas de spirit, c’est juste un biscuit. Mais avant c’était du lait, des œufs. Et dans les œufs, il y a la vie potentielle.",
+    "Si tu téléphones à une voyante et qu'elle ne décroche pas avant que ça sonne, raccroche.",
+    "Je suis fasciné par l’air. Si on enlevait l’air du ciel, tous les oiseaux tomberaient par terre… et les avions aussi.",
+    "J'adore les cacahuètes. Tu bois une bière et tu en as marre du goût. Alors tu manges des cacahuètes. Les cacahuètes, c'est doux et salé, fort et tendre, comme une femme.",
+    "Je crois en Dieu. Un plus un égale un, quand tu m’aimes et que je t’aime.",
+    "Une noisette, j’la casse entre mes fesses tu vois…",
+    "J'ai perdu mon père, ma mère, je commence à perdre mes cheveux... Mais c'est pas grave parce que mes racines sont toujours là.",
+    "Le monde est composé de 5 éléments : la terre, l’air, le feu, l’eau et l’électricité.",
+    "Si tu travailles avec un marteau piqueur pendant un séisme, tu risques de travailler beaucoup plus longtemps que prévu.",
+    "La vie est faite de choix, certains faciles, certains difficiles, mais à la fin c’est toi qui choisis.",
+    "Les poissons sont tous des amoureux. Comme nous. Ils s’embrassent avec la bouche.",
+    "Les dinosaures ont disparu parce qu'ils n'avaient pas de programme de protection d'espèces.",
+    "Je suis aware.",
+    "L'oxygène est nécessaire à la vie. Mais quand tu prends une trop grande bouffée, tu t'étouffes.",
+    "Le Kung Fu, c'est un état d'esprit, pas un moyen de frapper.",
+  ];
 
   const showNavigation = ref(true);
 

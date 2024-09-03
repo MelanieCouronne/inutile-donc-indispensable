@@ -29,14 +29,13 @@
   provide("activeComponentKey", activeComponent);
 
   const handleNotification = (payload) => {
-    console.log(payload);
     notification.value = payload;
     if (!notification.value.display) return;
 
     setTimeout(() => {
       notification.value.display = false;
       notification.value.message = "";
-    }, 6000);
+    }, 9000);
   };
 </script>
 
