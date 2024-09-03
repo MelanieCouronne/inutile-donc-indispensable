@@ -5,15 +5,17 @@
 <script setup>
   import { inject } from "vue";
   import HelloWorld from "@/components/HelloWorld.vue";
-  import ActivityRods from "@/components/layouts/ActivityRods.vue";
+  import ColorfulRods from "@/components/layouts/ColorfulRods.vue";
   import ActivitySquares from "@/components/layouts/ActivitySquares.vue";
+  import ElusiveView from "@/components/layouts/ElusiveView.vue";
 
   const activeComponent = inject("activeComponentKey");
 
   const componentsMap = {
     HelloWorld,
-    ActivityRods,
+    ColorfulRods,
     ActivitySquares,
+    ElusiveView,
   };
 </script>
 

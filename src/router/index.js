@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import HelloWorld from "../components/HelloWorld.vue";
-import ActivityRods from "../components/layouts/ActivityRods.vue";
+import ColorfulRods from "../components/layouts/ColorfulRods.vue";
 import ActivitySquares from "../components/layouts/ActivitySquares.vue";
 
 const router = createRouter({
@@ -20,12 +20,17 @@ const router = createRouter({
         {
           path: "activity-rods",
           name: "activity-rods",
-          component: ActivityRods,
+          component: ColorfulRods,
         },
         {
           path: "activity-squares",
           name: "activity-squares",
           component: ActivitySquares,
+        },
+        {
+          path: "elusive-view",
+          name: "elusive-view",
+          component: () => import("../components/layouts/ElusiveView.vue"),
         },
       ],
     },
