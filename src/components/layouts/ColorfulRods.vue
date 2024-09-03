@@ -6,13 +6,16 @@
         :key="index"
         class="rod-activity"
         @mouseover="addColor"
+        @touchstart="addColor"
+        @touchmove="addColor"
       ></div>
     </div>
   </div>
 </template>
 
 <script setup>
-  import { nextTick, ref, onMounted, onUnmounted } from "vue";
+  import { nextTick, ref, onMounted, onUnmounted, watch } from "vue";
+  import eventBus from "@/utils/directives/eventBus.js";
 
   const greenColorsHexa = [
     "#22577A",
@@ -93,6 +96,13 @@
     await nextTick();
     updaterods();
     window.addEventListener("resize", updaterods);
+
+    watch(
+      () => eventBus.sidebarToggled,
+      () => {
+        updaterods();
+      }
+    );
 
     // Changer d'array de couleurs toutes les 10 secondes
     setInterval(() => {

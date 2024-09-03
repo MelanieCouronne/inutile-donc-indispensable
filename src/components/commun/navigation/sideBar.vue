@@ -179,6 +179,7 @@
 <script setup>
   import { computed, inject, onMounted, onUnmounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/boutons/ButtonSideBar.vue";
+  import eventBus from "@/utils/directives/eventBus.js";
 
   const emit = defineEmits(["displayNotification"]);
   const activeComponent = inject("activeComponentKey");
@@ -224,11 +225,13 @@
 
   const toggleNavigation = () => {
     showNavigation.value = !showNavigation.value;
+    eventBus.sidebarToggled = !eventBus.sidebarToggled;
   };
 
   const hideNavigation = () => {
     if (isMobileViewport.value) {
       showNavigation.value = false;
+      eventBus.sidebarToggled = !eventBus.sidebarToggled;
     }
   };
 

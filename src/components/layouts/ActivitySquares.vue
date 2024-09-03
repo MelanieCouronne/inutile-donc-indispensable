@@ -6,15 +6,18 @@
         :key="index"
         class="activity"
         @mouseover="addColor"
+        @touchstart="addColor"
+        @touchmove="addColor"
       ></div>
     </div>
   </div>
 </template>
 
 <script setup>
-  import { nextTick, ref, onMounted, onUnmounted } from "vue";
+  import { nextTick, ref, onMounted, onUnmounted, watch } from "vue";
+  import eventBus from "@/utils/directives/eventBus.js";
 
-  const greenColorsHexa = ref(["#9be9a8", "#40c463", "#30a14e", "#216e39"]);
+  const greenColorsHexa = ["#9be9a8", "#40c463", "#30a14e", "#216e39"];
   const squares = ref([]);
   const containerDimensions = ref(null);
 
@@ -24,9 +27,7 @@
   };
 
   const greenColors = () => {
-    return greenColorsHexa.value[
-      Math.floor(Math.random() * greenColorsHexa.value.length)
-    ];
+    return greenColorsHexa[Math.floor(Math.random() * greenColorsHexa.length)];
   };
 
   const calculateNumberOfSquares = () => {
@@ -52,6 +53,13 @@
     await nextTick();
     updateSquares();
     window.addEventListener("resize", updateSquares);
+
+    watch(
+      () => eventBus.sidebarToggled,
+      () => {
+        updateSquares();
+      }
+    );
   });
 
   onUnmounted(() => {
