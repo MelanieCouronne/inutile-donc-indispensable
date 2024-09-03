@@ -19,4 +19,14 @@
   provide("activeComponentKey", activeComponent);
 </script>
 
+<!--
+ref : Crée une référence réactive activeComponent initialisée à "HelloWorld".
+
+provide : Rend activeComponent disponible à tous les composants enfants sous la clé "activeComponentKey".
+
+SideBar : Inclut le composant SideBar et écoute l'événement selectComponent pour mettre à jour activeComponent.
+
+RouterView : Utilisé pour afficher les composants en fonction de la route active.
+-->
+
 <style scoped></style>

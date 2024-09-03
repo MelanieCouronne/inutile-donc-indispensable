@@ -16,3 +16,10 @@
     ActivitySquares,
   };
 </script>
+
+<!--
+inject : Récupère activeComponent fourni par App.vue sous la clé "activeComponentKey".
+
+componentsMap : Un objet qui mappe les noms des composants à leurs définitions.
+<component :is="componentsMap[activeComponent]" /> : Utilise la directive is pour afficher dynamiquement le composant correspondant à activeComponent.
+-->

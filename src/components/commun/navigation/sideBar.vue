@@ -181,6 +181,12 @@
     activeComponent.value = componentName;
   };
 
+  // inject : Récupère activeComponent fourni par App.vue sous la clé "activeComponentKey".
+
+  // selectComponent : Met à jour activeComponent avec le nom du composant à afficher.
+
+  // ButtonSideBar : Utilise le composant ButtonSideBar pour chaque bouton de la barre latérale. Chaque bouton émet un événement buttonClicked avec le nom du composant à afficher.
+
   const showNavigation = ref(true);
 
   const viewportDimensions = ref({
