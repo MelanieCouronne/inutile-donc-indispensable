@@ -175,13 +175,14 @@
   import { computed, inject, onMounted, onUnmounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/boutons/ButtonSideBar.vue";
 
-  const activeComponent = inject("activeComponent");
+  const activeComponent = inject("activeComponentKey");
 
   const selectComponent = (componentName) => {
     activeComponent.value = componentName;
   };
 
   const showNavigation = ref(true);
+
   const viewportDimensions = ref({
     width: window.innerWidth,
     height: window.innerHeight,

@@ -8,7 +8,7 @@
   import ActivityRods from "@/components/layouts/ActivityRods.vue";
   import ActivitySquares from "@/components/layouts/ActivitySquares.vue";
 
-  const activeComponent = inject("activeComponent");
+  const activeComponent = inject("activeComponentKey");
 
   const componentsMap = {
     HelloWorld,

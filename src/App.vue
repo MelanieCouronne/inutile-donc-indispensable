@@ -16,7 +16,7 @@
   import SideBar from "@/components/commun/navigation/SideBar.vue";
 
   const activeComponent = ref("HelloWorld");
-  provide("activeComponent", activeComponent);
+  provide("activeComponentKey", activeComponent);
 </script>
 
 <style scoped></style>
