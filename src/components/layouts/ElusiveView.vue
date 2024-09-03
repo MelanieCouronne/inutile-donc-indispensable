@@ -56,7 +56,7 @@
 
     buttonRunAway.value.style = `transform: translate(${translateX}px, ${translateY}px);`;
 
-    buttonRunAway.value.innerText = "Not way, Jose!";
+    buttonRunAway.value.innerText = "Nope. No way, Jose! 😏 ";
   };
 
   onMounted(() => {
