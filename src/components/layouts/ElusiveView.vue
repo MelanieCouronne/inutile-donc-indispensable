@@ -1,5 +1,10 @@
 <template>
-  <div id="main-container" ref="containerDimensions" @mousemove="runAway">
+  <div
+    id="main-container"
+    ref="containerDimensions"
+    :class="{ 'mobile-margin-top': isMobile }"
+    @mousemove="runAway"
+  >
     <button
       ref="buttonRunAway"
       :style="{ left: `${position.x}px`, top: `${position.y}px` }"
@@ -12,10 +17,16 @@
 
 <script setup>
   import { ref, onMounted, onUnmounted } from "vue";
+  import { getViewportDimensions } from "@/utils/toolBox.js";
 
   const position = ref({ x: 0, y: 0 });
   const containerDimensions = ref(null);
   const buttonRunAway = ref(null);
+  const isMobile = ref(false);
+
+  const isMobileViewport = () => {
+    return getViewportDimensions().viewportWidth < 768;
+  };
 
   const getContainerDimensions = () => {
     if (!containerDimensions.value) return { width: 0, height: 0 };
@@ -60,6 +71,7 @@
   };
 
   onMounted(() => {
+    isMobile.value = isMobileViewport();
     position.value = setCenter();
     window.addEventListener("mousemove", runAway);
     window.addEventListener("touchmove", runAway);
@@ -77,10 +89,8 @@
     width: 100%;
     height: 100%;
     padding: 16px;
-    margin: 0;
   }
-  /* button {
-    width: 150px;
-    height: 40px;
-  } */
+  .mobile-margin-top {
+    margin-top: 40px;
+  }
 </style>
