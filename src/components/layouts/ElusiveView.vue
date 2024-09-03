@@ -38,7 +38,7 @@
     };
   };
 
-  const getPositionCenterAtStart = () => {
+  const setCenter = () => {
     const { width, height } = getContainerDimensions();
     const { buttonWidth, buttonHeight } = getButtonDimensions();
 
@@ -48,7 +48,7 @@
   };
 
   onMounted(() => {
-    position.value = getPositionCenterAtStart();
+    position.value = setCenter();
   });
 </script>
 
