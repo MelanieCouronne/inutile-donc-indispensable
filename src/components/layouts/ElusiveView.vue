@@ -3,9 +3,9 @@
     <button
       ref="buttonRunAway"
       :style="{ left: `${position.x}px`, top: `${position.y}px` }"
-      class="absolute text-sm font-medium py-2 px-2 bg-teal-500 text-white rounded-md cursor-pointer transition duration-50 ease-in-out"
+      class="absolute text-sm font-medium py-4 px-6 bg-teal-500 text-white rounded-md cursor-pointer transition duration-75 ease-in-out"
     >
-      <span>&nbsp; Un titre</span>
+      <span>Contactez-moi&nbsp;!</span>
     </button>
   </div>
 </template>
@@ -26,7 +26,7 @@
     };
   };
 
-  const getbuttonDimension = () => {
+  const getbuttonDimensions = () => {
     if (!buttonRunAway.value) return { buttonWidth: 0, buttonHeight: 0 };
 
     const w = buttonRunAway.value ? buttonRunAway.value.offsetWidth : 0;
@@ -40,7 +40,7 @@
 
   const setCenter = () => {
     const { width, height } = getContainerDimensions();
-    const { buttonWidth, buttonHeight } = getbuttonDimension();
+    const { buttonWidth, buttonHeight } = getbuttonDimensions();
 
     const x = (width - buttonWidth) / 2;
     const y = (height - buttonHeight) / 2;
@@ -48,9 +48,14 @@
   };
 
   const runAway = () => {
-    buttonRunAway.value.style = `transform: translate(${
-      Math.random() * 80 - 40
-    }vw, ${Math.random() * 80 - 40}vh);`;
+    const { width, height } = getContainerDimensions();
+    const { buttonWidth, buttonHeight } = getbuttonDimensions();
+
+    const translateX = Math.random() * (width - buttonWidth);
+    const translateY = Math.random() * (height - buttonHeight);
+
+    buttonRunAway.value.style = `transform: translate(${translateX}px, ${translateY}px);`;
+
     buttonRunAway.value.innerText = "Not way, Jose !";
   };
 
