@@ -18,8 +18,7 @@
 </template>
 
 <script setup>
-  import { inject, provide, ref } from "vue";
-  import HelloWorld from "@/components/layouts/HelloWorld.vue";
+  import { provide, ref } from "vue";
   import ColorfulRods from "@/components/layouts/ColorfulRods.vue";
   import ActivitySquares from "@/components/layouts/ActivitySquares.vue";
   import ElusiveView from "@/components/layouts/ElusiveView.vue";

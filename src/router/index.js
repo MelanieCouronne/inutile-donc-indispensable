@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import PresentationView from "../components/layouts/PresentationView.vue";
-import ActivitySquares from "../components/layouts/ActivitySquares.vue";
-import ColorfulRods from "../components/layouts/ColorfulRods.vue";
-import ElusiveView from "../components/layouts/ElusiveView.vue";
+import HomeView from "@/views/HomeView.vue";
+import PresentationView from "@/components/layouts/PresentationView.vue";
+import ActivitySquares from "@/components/layouts/ActivitySquares.vue";
+import ColorfulRods from "@/components/layouts/ColorfulRods.vue";
+import ElusiveView from "@/components/layouts/ElusiveView.vue";
 import WelcomeView from "@/views/WelcomeView.vue";
 
 const router = createRouter({
