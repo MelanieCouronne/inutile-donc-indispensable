@@ -82,25 +82,4 @@
       opacity: 0;
     }
   }
-
-  /* @keyframes drop-bounce {
-    0% {
-      transform: translateY(-600%);
-    }
-    70% {
-      transform: translateY(0);
-      animation-timing-function: ease-out;
-    }
-    85% {
-      transform: translateY(-35px);
-      animation-timing-function: ease-in;
-    }
-    95% {
-      transform: rotate(6deg);
-      animation-timing-function: ease-in;
-    }
-    100% {
-      transform: translateY(0);
-    }
-  } */
 </style>
