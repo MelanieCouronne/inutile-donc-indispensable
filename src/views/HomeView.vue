@@ -29,11 +29,9 @@
    *      Activation des coposants          *
    ******************************************/
 
-  // const activeComponent = inject("activeComponentKey");
   const activeComponent = ref("ActivitySquares");
 
   const componentsMap = {
-    HelloWorld,
     ColorfulRods,
     ActivitySquares,
     ElusiveView,

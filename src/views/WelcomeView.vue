@@ -2,40 +2,56 @@
   <div
     class="h-screen w-full flex items-center justify-center overflow-hidden bg-orange-50 font-poppins pb-5"
   >
-    <RouterLink to="/" class="">
-      <div
-        @animationend="hideWelcome"
-        v-if="isWelcomeVisible"
-        id="cartouche"
-        class="border-4 border-black bg-white py-2 px-6 rounded-3xl flex items-center leading-relaxed drop-shadow-custom hinge"
+    <div
+      @animationend="handleAnimationEnd"
+      v-if="isWelcomeVisible"
+      id="cartouche"
+      class="border-4 border-black bg-white py-2 px-6 rounded-3xl flex items-center leading-relaxed drop-shadow-custom hinge"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="#FFF7ED"
+        viewBox="0 0 25 25"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-16 text-black"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="#FFF7ED"
-          viewBox="0 0 25 25"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-16 text-black"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
-          />
-        </svg>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
+        />
+      </svg>
 
-        <h1 class="">&nbsp;Welcome!</h1>
-      </div>
-    </RouterLink>
+      <h1 class="">&nbsp;Welcome!</h1>
+    </div>
   </div>
 </template>
 <script setup>
   import { ref } from "vue";
+  import { useRouter } from "vue-router";
+
+  const router = useRouter();
+
+  /*****************************************
+   *        Actions fin d'animation         *
+   ******************************************/
 
   const isWelcomeVisible = ref(true);
 
+  const handleAnimationEnd = () => {
+    hideWelcome();
+    setTimeout(() => {
+      goToAccueil();
+    }, 700);
+  };
+
   const hideWelcome = () => {
     isWelcomeVisible.value = false;
+  };
+
+  const goToAccueil = () => {
+    router.push({ path: "/accueil/make-my-point" });
   };
 </script>
 
