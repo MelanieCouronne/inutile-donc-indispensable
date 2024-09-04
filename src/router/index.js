@@ -5,6 +5,7 @@ import ActivitySquares from "@/components/layouts/ActivitySquares.vue";
 import ColorfulRods from "@/components/layouts/ColorfulRods.vue";
 import ElusiveView from "@/components/layouts/ElusiveView.vue";
 import WelcomeView from "@/views/WelcomeView.vue";
+import MondrianFrames from "@/components/layouts/MondrianFrames.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
           path: "composant-inutile-3",
           name: "elusive",
           component: ElusiveView,
+        },
+        {
+          path: "composant-inutile-4",
+          name: "mondrian",
+          component: MondrianFrames,
         },
       ],
     },
