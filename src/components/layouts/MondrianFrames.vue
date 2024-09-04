@@ -1,153 +1,105 @@
 <template>
   <div id="main-container" ref="containerDimensions">
-    <div id="rods-container">
+    <div class="mondrian">
       <div
-        v-for="(rod, index) in rods"
+        v-for="(block, index) in blocks"
         :key="index"
-        class="rod-activity"
-        @mouseover="addColor"
-        @touchstart="addColor"
-        @touchmove="addColor"
+        class="mondrian__block"
+        :style="{
+          '--index': index,
+          '--row': block.rowSpan,
+          '--col': block.colSpan,
+          '--color': block.color,
+          '--delay': block.delay,
+        }"
       ></div>
     </div>
   </div>
+  <div class="mondrian__trigger"></div>
 </template>
 
 <script setup>
-  import { nextTick, ref, onMounted, onUnmounted, watch } from "vue";
-  import eventBus from "@/utils/directives/eventBus.js";
+  import { ref, onMounted } from "vue";
 
-  const greenColorsHexa = [
-    "#22577A",
-    "#38A3A5",
-    "#57CC99",
-    "#80ED99",
-    "#C7F9CC",
-  ];
-  const blueColorsHexa = [
-    "#03045E",
-    "#0077B6",
-    "#00B4D8",
-    "#90E0EF",
-    "#CAF0F8",
-  ];
-  const purpleColorsHexa = [
-    "#3C096C",
-    "#5A189A",
-    "#7B2CBF",
-    "#9D4EDD",
-    "#C77DFF",
-  ];
-  const redColorsHexa = ["#800F2F", "#A4133C", "#C9184A", "#FF4D6D", "#FF758F"];
-  const pinkColorsHexa = [
-    "#FF0A54",
-    "#FF477E",
-    "#FF5C8A",
-    "#FF99AC",
-    "#F7CAD0",
-  ];
-  const yellowColorsHexa = [
-    "#FFF75E",
-    "#FFF056",
-    "#FFE94E",
-    "#FECF3E",
-    "#FDB833",
-  ];
-
-  const colorArrays = [
-    greenColorsHexa,
-    blueColorsHexa,
-    purpleColorsHexa,
-    redColorsHexa,
-    pinkColorsHexa,
-    yellowColorsHexa,
-  ];
-
-  const rods = ref([]);
   const containerDimensions = ref(null);
-  const currentColorArrayIndex = ref(0);
+  const blocks = ref([]);
 
-  const addColor = (event) => {
-    const color = getRandomColor();
-    event.target.style.backgroundColor = color;
+  const mondrianColors = [
+    "#FF0000",
+    "#FFFF00",
+    "#0000FF",
+    "#FFFFFF",
+    "#000000",
+  ];
+
+  const generateBlocks = (limit = 3) => {
+    for (let i = 0; i < 5; i++) {
+      const color =
+        mondrianColors[Math.floor(Math.random() * mondrianColors.length)];
+      const rowSpan = Math.floor(Math.random() * limit + 1);
+      const colSpan = Math.floor(Math.random() * limit + 1);
+      blocks.value.push({
+        colSpan,
+        rowSpan,
+        delay: i,
+        hasFace: Math.random() > 0.9 && rowSpan > 2 && colSpan > 2,
+        color,
+      });
+    }
   };
 
-  const getRandomColor = () => {
-    const currentColors = colorArrays[currentColorArrayIndex.value];
-    return currentColors[Math.floor(Math.random() * currentColors.length)];
-  };
-
-  const calculateNumberOfrods = () => {
-    if (!containerDimensions.value) return 0;
-
-    const containerWidth = containerDimensions.value.clientWidth - 22;
-    const rodWidth = 11;
-
-    const numberOfrods = Math.floor(containerWidth / rodWidth);
-    return numberOfrods;
-  };
-
-  const updaterods = () => {
-    rods.value = Array(calculateNumberOfrods()).fill(null);
-  };
-
-  onMounted(async () => {
-    // On attend la mise à jour du DOM avant de calculer le nombre de carrés
-    await nextTick();
-    updaterods();
-    window.addEventListener("resize", updaterods);
-
-    watch(
-      () => eventBus.sidebarToggled,
-      () => {
-        updaterods();
-      }
-    );
-
-    // Changer d'array de couleurs toutes les 10 secondes
-    setInterval(() => {
-      currentColorArrayIndex.value =
-        (currentColorArrayIndex.value + 1) % colorArrays.length;
-    }, 3000);
-  });
-
-  onUnmounted(() => {
-    window.removeEventListener("resize", updaterods);
+  onMounted(() => {
+    generateBlocks(2);
   });
 </script>
 
-<style scoped>
+<style>
+  :root {
+    --black: hsl(150, 13%, 3%);
+    --yellow: hsl(51, 94%, 57%);
+    --white: hsl(105, 17%, 95%);
+    --blue: hsl(211, 87%, 34%);
+    --red: hsl(354, 100%, 42%);
+    --block: 50;
+    --height: calc(var(--block) * 6);
+    --width: calc(var(--block) * 5);
+  }
+
   #main-container {
-    width: 100%;
-    height: 100%;
-    padding: 16px;
-    margin: 0;
-
-    overflow: hidden;
-  }
-
-  #rods-container {
+    min-height: 100%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    /* padding: calc(50vmin - ((var(--initial-height) / 2) * 1px)) 0; */
   }
 
-  .rod-activity {
-    background-color: rgb(234, 237, 240);
-    outline: 1px solid rgba(27, 31, 35, 0.06);
-    outline-offset: -1px;
-    margin: 0px 2px;
-    height: 100%;
-    width: 7px;
-    overflow: hidden;
-    border-radius: 2px;
+  .mondrian__trigger {
+    height: 10px;
   }
-  .rod-activity:hover {
-    transition: background-color 0.3s;
-    overflow: hidden;
+
+  .mondrian {
+    --block-size: calc(var(--block) * 1px);
+    background: var(--black);
+    border: 5px solid var(--black);
+    display: grid;
+    grid-auto-flow: dense;
+    grid-auto-rows: minmax(180px, 10vmin);
+    grid-gap: 5px;
+    grid-template-columns: repeat(4, minmax(50px, 1fr));
+    min-width: calc(var(--width) * 1px);
+    width: calc(90vmin + 60px);
+  }
+
+  .mondrian__block {
+    animation: scaleIn 0.05s calc(var(--delay) * 0.1s) ease both;
+    background-color: var(--color);
+    grid-row: span var(--row);
+    grid-column: span var(--col);
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0);
+    }
   }
 </style>

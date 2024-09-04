@@ -4,8 +4,8 @@ import PresentationView from "@/components/layouts/PresentationView.vue";
 import ActivitySquares from "@/components/layouts/ActivitySquares.vue";
 import ColorfulRods from "@/components/layouts/ColorfulRods.vue";
 import ElusiveView from "@/components/layouts/ElusiveView.vue";
-import WelcomeView from "@/views/WelcomeView.vue";
 import MondrianFrames from "@/components/layouts/MondrianFrames.vue";
+import WelcomeView from "@/views/WelcomeView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
