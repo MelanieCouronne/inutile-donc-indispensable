@@ -33,7 +33,7 @@
 
           <div id="profile" class="space-y-3">
             <img
-              src="/3d1f760087b039387d7e18fa2821ff5b.jpeg"
+              src="/baf30a1701736c9d20c8214fbc31cb84.png"
               alt="Avatar user"
               class="w-10 md:w-16 rounded-full mx-auto"
             />
