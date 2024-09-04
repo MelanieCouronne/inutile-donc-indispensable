@@ -1,11 +1,13 @@
 <template>
   <div
-    class="h-full w-full flex justify-center items-center bg-orange-50 font-poppins"
+    class="h-screen w-full flex items-center justify-center overflow-hidden bg-orange-50 font-poppins pb-5"
   >
-    <RouterLink to="/">
+    <RouterLink to="/" class="">
       <div
+        @animationend="hideWelcome"
+        v-if="isWelcomeVisible"
         id="cartouche"
-        class="border-4 border-black bg-white py-2 px-6 -rotate-6 rounded-3xl flex items-center leading-relaxed drop-shadow-custom"
+        class="border-4 border-black bg-white py-2 px-6 rounded-3xl flex items-center leading-relaxed drop-shadow-custom hinge"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +29,15 @@
     </RouterLink>
   </div>
 </template>
-<script setup></script>
+<script setup>
+  import { ref } from "vue";
+
+  const isWelcomeVisible = ref(true);
+
+  const hideWelcome = () => {
+    isWelcomeVisible.value = false;
+  };
+</script>
 
 <style scoped>
   h1 {
@@ -38,4 +48,59 @@
   .drop-shadow-custom {
     filter: drop-shadow(0 15px 0px rgb(0 0 0 / 0.1));
   }
+
+  .hinge {
+    animation: hinge 2s ease infinite;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+  }
+  @keyframes hinge {
+    0% {
+      transform: rotate(0);
+      transform-origin: top left;
+      animation-timing-function: ease-in-out;
+    }
+    20%,
+    60% {
+      transform: rotate(80deg);
+      transform-origin: top left;
+      animation-timing-function: ease-in-out;
+    }
+    40% {
+      transform: rotate(60deg);
+      transform-origin: top left;
+      animation-timing-function: ease-in-out;
+    }
+    80% {
+      transform: rotate(60deg) translateY(0);
+      opacity: 1;
+      transform-origin: top left;
+      animation-timing-function: ease-in-out;
+    }
+    100% {
+      transform: translateY(700px);
+      opacity: 0;
+    }
+  }
+
+  /* @keyframes drop-bounce {
+    0% {
+      transform: translateY(-600%);
+    }
+    70% {
+      transform: translateY(0);
+      animation-timing-function: ease-out;
+    }
+    85% {
+      transform: translateY(-35px);
+      animation-timing-function: ease-in;
+    }
+    95% {
+      transform: rotate(6deg);
+      animation-timing-function: ease-in;
+    }
+    100% {
+      transform: translateY(0);
+    }
+  } */
 </style>
