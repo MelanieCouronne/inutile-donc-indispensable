@@ -59,15 +59,17 @@
   };
 
   const runAway = () => {
-    const { width, height } = getContainerDimensions();
-    const { buttonWidth, buttonHeight } = getbuttonDimensions();
+    setTimeout(() => {
+      const { width, height } = getContainerDimensions();
+      const { buttonWidth, buttonHeight } = getbuttonDimensions();
 
-    const translateX = Math.random() * (width - buttonWidth);
-    const translateY = Math.random() * (height - buttonHeight);
+      const translateX = Math.random() * (width - buttonWidth);
+      const translateY = Math.random() * (height - buttonHeight);
 
-    buttonRunAway.value.style = `transform: translate(${translateX}px, ${translateY}px);`;
+      buttonRunAway.value.style = `transform: translate(${translateX}px, ${translateY}px);`;
 
-    buttonRunAway.value.innerText = "Nope. No way, Jose! 😏 ";
+      buttonRunAway.value.innerText = "Nope. No way, Jose! 😏 ";
+    }, 1000);
   };
 
   onMounted(() => {

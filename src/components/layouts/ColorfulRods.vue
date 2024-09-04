@@ -80,8 +80,8 @@
   const calculateNumberOfrods = () => {
     if (!containerDimensions.value) return 0;
 
-    const containerWidth = containerDimensions.value.clientWidth - 32;
-    const rodWidth = 16;
+    const containerWidth = containerDimensions.value.clientWidth - 22;
+    const rodWidth = 11;
 
     const numberOfrods = Math.floor(containerWidth / rodWidth);
     return numberOfrods;
@@ -122,6 +122,8 @@
     height: 100%;
     padding: 16px;
     margin: 0;
+
+    overflow: hidden;
   }
 
   #rods-container {
@@ -130,6 +132,8 @@
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
+
+    overflow: hidden;
   }
 
   .rod-activity {
@@ -138,7 +142,7 @@
     outline-offset: -1px;
     margin: 0px 2px;
     height: 100%;
-    width: 12px;
+    width: 7px;
     overflow: hidden;
     border-radius: 2px;
   }
