@@ -35,7 +35,7 @@
             <img
               src="/baf30a1701736c9d20c8214fbc31cb84.png"
               alt="Avatar user"
-              class="w-10 md:w-16 rounded-full mx-auto"
+              class="w-12 md:w-14 rounded-full mx-auto"
             />
             <div>
               <h2
