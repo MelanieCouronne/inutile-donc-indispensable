@@ -59,10 +59,10 @@
                 type="text"
                 class="w-full rounded-tl-md rounded-bl-md px-2 py-3 text-sm text-gray-600 focus:outline-none"
                 placeholder="Notification JCVD"
-                @keyup.enter="emitOnSearch"
+                @keyup.enter="emitMessageOnClick"
               />
               <button
-                @click="emitOnSearch"
+                @click="emitMessageOnClick"
                 class="rounded-tr-md rounded-br-md px-2 py-3 hidden md:block"
               >
                 <svg
@@ -80,7 +80,7 @@
               </button>
             </div>
           </div>
-          <div id="menu" class="flex flex-col space-y-2">
+          <div id="menu" class="flex flex-col items-start space-y-2 text-left">
             <ButtonSideBar
               @buttonClicked="selectComponent"
               svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
@@ -109,9 +109,10 @@
               componentName="MondrianFrames"
             />
 
-            <div
-              @click="emitOnClick"
-              class="relative text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white rounded-md transition duration-150 ease-in-out cursor-pointer"
+            <button
+              :disabled="remainingMessages <= 0"
+              @click="emitMessageOnClick"
+              class="relative w-full text-left text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white rounded-md transition duration-150 ease-in-out cursor-pointer disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200"
             >
               <svg
                 class="w-6 h-6 fill-current inline-block"
@@ -131,8 +132,11 @@
                 class="absolute -top-1 left-4 rounded-full bg-red-500 p-0.5 px-1.5 text-xs text-red-50"
                 >{{ remainingMessages }}</span
               >
-              <span>&nbsp; Messages de JCVD</span>
-            </div>
+              <span
+                >&nbsp; Message{{ remainingMessages <= 1 ? "" : "s" }} de
+                JCVD</span
+              >
+            </button>
           </div>
           <svg
             class="w-6 h-6 fill-current inline-block"
@@ -206,15 +210,13 @@
   };
 
   // Fonction pour gérer l'entrée de recherche et émettre un événement
-  const emitOnSearch = () => {
+  const emitMessageOnClick = () => {
     let randomIndex = getRandomIndex();
 
     while (
       messagesViewedIndex.includes(randomIndex) &&
       messagesViewedIndex.length < datas.length
     ) {
-      console.log("🚀 ~ Deja vu ~ ");
-
       randomIndex = getRandomIndex();
     }
 
