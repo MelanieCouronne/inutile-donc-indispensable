@@ -1,5 +1,5 @@
 <template>
-  <div id="view" class="h-full flex flex-row">
+  <div id="view" class="h-screen flex flex-col">
     <div id="clickZone" v-click-outside="hideNavigation">
       <button
         @click="toggleNavigation"
@@ -20,7 +20,7 @@
       </button>
       <div
         id="sidebar"
-        class="bg-white h-screen md:block shadow-xl px-3 w-30 md:w-60 lg:w-60 overflow-x-hidden transition-transform duration-300 ease-in-out"
+        class="relative bg-white h-screen md:block shadow-xl px-3 w-30 md:w-60 lg:w-60 overflow-x-hidden transition-transform duration-300 ease-in-out"
         v-if="showNavigation"
       >
         <div class="space-y-6 md:space-y-10 mt-10">
@@ -158,20 +158,29 @@
               d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z"
             ></path>
           </svg>
-          <svg
-            class="w-6 h-6 fill-current inline-block"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
-            <path
-              fill-rule="evenodd"
-              d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
         </div>
+        <footer class="absolute inset-x-0 bottom-0 p-4">
+          <p class="text-xs font-light text-gray-500 text-center">
+            Fait avec
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#F43F5E"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#F43F5E"
+                class="size-4 inline-block"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                />
+              </svg>
+            </span>
+            mais surtout avec Vue.js et Tailwind.
+          </p>
+        </footer>
       </div>
     </div>
   </div>
@@ -209,7 +218,6 @@
     return Math.floor(Math.random() * datas.length);
   };
 
-  // Fonction pour gérer l'entrée de recherche et émettre un événement
   const emitMessageOnClick = () => {
     let randomIndex = getRandomIndex();
 
@@ -225,7 +233,6 @@
     remainingMessages.value -= 1;
     emit("displayNotification", { display: true, message });
     searchQuery.value = "";
-    console.log(messagesViewedIndex);
   };
 
   /*****************************************
