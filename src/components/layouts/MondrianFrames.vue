@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-  import { ref, onMounted } from "vue";
+  import { ref, onMounted, onUnmounted } from "vue";
   import ButtonRounded from "../commun/boutons/ButtonRounded.vue";
 
   const containerDimensions = ref(null);
@@ -55,6 +55,7 @@
    *
    */
   const generateFrames = (limit = 2) => {
+    frames.value = [];
     for (let i = 0; i < 5; i++) {
       const color = randomColors();
       const rowSpan = Math.floor(Math.random() * limit + 1);
@@ -66,20 +67,25 @@
         hasFace: Math.random() > 0.9 && rowSpan > 2 && colSpan > 2,
         color,
       });
-
-      // setInterval(() => {
-      //   generateFrames(2);
-      // }, 2000);
     }
   };
 
   const reloadFrames = () => {
-    frames.value = [];
     generateFrames(2);
   };
 
+  let catchSetInterval;
+
   onMounted(() => {
     generateFrames(2);
+    catchSetInterval = setInterval(() => {
+      generateFrames(2);
+    }, 4000);
+  });
+
+  onUnmounted(() => {
+    frames.value = [];
+    clearInterval(catchSetInterval);
   });
 </script>
 

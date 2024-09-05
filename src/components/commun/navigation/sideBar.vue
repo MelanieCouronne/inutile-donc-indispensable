@@ -250,10 +250,6 @@
       width: window.innerWidth,
       height: window.innerHeight,
     };
-    console.log(
-      "resize :" + viewportDimensions.value.width,
-      viewportDimensions.value.height
-    );
   };
 
   const isMobileViewport = computed(() => {

@@ -58,13 +58,18 @@
     return { x, y };
   };
 
+  let catchSetTimeout;
+
   const runAway = () => {
-    setTimeout(() => {
+    catchSetTimeout = setTimeout(() => {
       const { width, height } = getContainerDimensions();
       const { buttonWidth, buttonHeight } = getbuttonDimensions();
 
-      const translateX = Math.random() * (width - buttonWidth);
-      const translateY = Math.random() * (height - buttonHeight);
+      let translateX = Math.random() * (width - buttonWidth) + 1;
+      let translateY = Math.random() * (height - buttonHeight) + 1;
+
+      if (translateX <= 0) translateX = 1;
+      if (translateY <= 0) translateY = 1;
 
       buttonRunAway.value.style = `transform: translate(${translateX}px, ${translateY}px);`;
 
@@ -80,6 +85,7 @@
   });
 
   onUnmounted(() => {
+    clearTimeout(catchSetTimeout);
     window.removeEventListener("mousemove", runAway);
     window.addEventListener("touchmove", runAway);
   });
