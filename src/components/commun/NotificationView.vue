@@ -11,7 +11,12 @@
         <div class="p-4">
           <div class="flex items-start">
             <div class="flex-shrink-0">
-              <svg
+              <img
+                src="/public/sxv3it7fbqsa1gg9bv3rl37jqjhm.png"
+                alt="Avatar JCVD"
+                class="w-10 md:w-12 rounded-full mx-auto"
+              />
+              <!-- <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -24,10 +29,10 @@
                   stroke-linejoin="round"
                   d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
                 />
-              </svg>
+              </svg> -->
             </div>
             <div class="ml-3 w-0 flex-1 pt-0.5">
-              <p class="text-sm font-medium text-gray-900">Notification</p>
+              <p class="text-sm font-medium text-gray-900">Message de JCVD</p>
               <p class="mt-1 text-sm text-gray-500">
                 &#8220;{{ message }}&#8221;
               </p>
