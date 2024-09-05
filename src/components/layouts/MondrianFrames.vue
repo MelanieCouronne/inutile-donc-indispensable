@@ -1,28 +1,26 @@
 <template>
   <div id="main-container" ref="containerDimensions">
-    <div class="mondrian">
+    <div class="mondrian-container">
       <div
-        v-for="(block, index) in blocks"
+        v-for="(frame, index) in frames"
         :key="index"
-        class="mondrian__block"
+        class="mondrian__frame"
         :style="{
-          '--index': index,
-          '--row': block.rowSpan,
-          '--col': block.colSpan,
-          '--color': block.color,
-          '--delay': block.delay,
+          gridRow: `span ${frame.rowSpan}`,
+          gridColumn: `span ${frame.colSpan}`,
+          backgroundColor: frame.color,
+          AnimationDelay: `${frame.delay * 0.1}s`,
         }"
       ></div>
     </div>
   </div>
-  <div class="mondrian__trigger"></div>
 </template>
 
 <script setup>
   import { ref, onMounted } from "vue";
 
   const containerDimensions = ref(null);
-  const blocks = ref([]);
+  const frames = ref([]);
 
   const mondrianColors = [
     "#FF0000",
@@ -32,37 +30,48 @@
     "#000000",
   ];
 
-  const generateBlocks = (limit = 3) => {
+  const randomColors = () => {
+    return mondrianColors[Math.floor(Math.random() * mondrianColors.length)];
+  };
+
+  /**
+   * Génère des blocs avec des propriétés aléatoires et les ajoute au tableau `frames`.
+   * @param {number} [limit=2] - La taille maximale des blocs en termes de lignes (rowSpan) et de colonnes (colSpan).
+   * @property {number} i - Nombre de blocs générés.
+   * @property {number} colSpan - Nombre de colonnes que le bloc occupe. Entre 1 et `limit`.
+   * @property {number} rowSpan - Nombre de lignes que le bloc occupe. Entre 1 et `limit`.
+   * ---------
+   *
+   */
+  const generateFrames = (limit = 2) => {
     for (let i = 0; i < 5; i++) {
-      const color =
-        mondrianColors[Math.floor(Math.random() * mondrianColors.length)];
+      const color = randomColors();
       const rowSpan = Math.floor(Math.random() * limit + 1);
       const colSpan = Math.floor(Math.random() * limit + 1);
-      blocks.value.push({
+      frames.value.push({
         colSpan,
         rowSpan,
         delay: i,
         hasFace: Math.random() > 0.9 && rowSpan > 2 && colSpan > 2,
         color,
       });
+
+      // setInterval(() => {
+      //   generateFrames(2);
+      // }, 2000);
     }
   };
 
   onMounted(() => {
-    generateBlocks(2);
+    generateFrames(2);
   });
 </script>
 
-<style>
+<style scoped>
   :root {
-    --black: hsl(150, 13%, 3%);
-    --yellow: hsl(51, 94%, 57%);
-    --white: hsl(105, 17%, 95%);
-    --blue: hsl(211, 87%, 34%);
-    --red: hsl(354, 100%, 42%);
-    --block: 50;
-    --height: calc(var(--block) * 6);
-    --width: calc(var(--block) * 5);
+    --frame: 50;
+    --height: calc(var(--frame) * 6);
+    --width: calc(var(--frame) * 5);
   }
 
   #main-container {
@@ -73,14 +82,10 @@
     /* padding: calc(50vmin - ((var(--initial-height) / 2) * 1px)) 0; */
   }
 
-  .mondrian__trigger {
-    height: 10px;
-  }
-
-  .mondrian {
-    --block-size: calc(var(--block) * 1px);
-    background: var(--black);
-    border: 5px solid var(--black);
+  .mondrian-container {
+    /* --frame-size: calc(var(--frame) * 1px); */
+    background: #000000;
+    border: 5px solid #000000;
     display: grid;
     grid-auto-flow: dense;
     grid-auto-rows: minmax(180px, 10vmin);
@@ -90,16 +95,17 @@
     width: calc(90vmin + 60px);
   }
 
-  .mondrian__block {
-    animation: scaleIn 0.05s calc(var(--delay) * 0.1s) ease both;
-    background-color: var(--color);
-    grid-row: span var(--row);
-    grid-column: span var(--col);
+  .mondrian__frame {
+    /* animation | name | duration | timing | remplissage */
+    animation: scaleIn 0.05s ease both;
   }
 
   @keyframes scaleIn {
     from {
       transform: scale(0);
+    }
+    to {
+      transform: scale(1);
     }
   }
 </style>

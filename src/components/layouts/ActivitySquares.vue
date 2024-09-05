@@ -22,11 +22,11 @@
   const containerDimensions = ref(null);
 
   const addColor = (event) => {
-    const color = greenColors();
+    const color = randomGreenColors();
     event.target.style.backgroundColor = color;
   };
 
-  const greenColors = () => {
+  const randomGreenColors = () => {
     return greenColorsHexa[Math.floor(Math.random() * greenColorsHexa.length)];
   };
 
