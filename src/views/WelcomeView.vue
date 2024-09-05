@@ -67,7 +67,7 @@
 
   .hinge {
     animation: hinge 2s ease infinite;
-    animation-delay: 1s;
+    animation-delay: 2s;
     animation-iteration-count: 1;
   }
   @keyframes hinge {
