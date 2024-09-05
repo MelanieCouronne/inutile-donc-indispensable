@@ -21,7 +21,7 @@
     <ButtonRounded
       @click="reloadFrames"
       svgPath="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
-      class="flex mx-auto my-4"
+      class="flex mx-auto my-5"
     />
   </div>
 </template>
@@ -47,8 +47,8 @@
 
   /**
    * Génère des blocs avec des propriétés aléatoires et les ajoute au tableau `frames`.
-   * @param {number} [limit=2] - La taille maximale des blocs en termes de lignes (rowSpan) et de colonnes (colSpan).
-   * @property {number} i - Nombre de blocs générés.
+   * @param {number} [limit=2] - La taille maximale des blocs en termes de spans lignes (rowSpan) et de spans colonnes (colSpan).
+   * @property {number} i - Nombre de blocs générés (le reste étant un fonds noir ;).
    * @property {number} colSpan - Nombre de colonnes que le bloc occupe. Entre 1 et `limit`.
    * @property {number} rowSpan - Nombre de lignes que le bloc occupe. Entre 1 et `limit`.
    * ---------
@@ -56,6 +56,7 @@
    */
   const generateFrames = (limit = 2) => {
     frames.value = [];
+
     for (let i = 0; i < 5; i++) {
       const color = randomColors();
       const rowSpan = Math.floor(Math.random() * limit + 1);
@@ -64,10 +65,10 @@
         colSpan,
         rowSpan,
         delay: i,
-        hasFace: Math.random() > 0.9 && rowSpan > 2 && colSpan > 2,
         color,
       });
     }
+    console.log(frames.value);
   };
 
   const reloadFrames = () => {
@@ -90,23 +91,15 @@
 </script>
 
 <style scoped>
-  :root {
-    --frame: 50;
-    --height: calc(var(--frame) * 6);
-    --width: calc(var(--frame) * 5);
-  }
-
   .mondrian-container {
-    /* --frame-size: calc(var(--frame) * 1px); */
     background: #000000;
     border: 5px solid #000000;
     display: grid;
     grid-auto-flow: dense;
-    grid-auto-rows: minmax(180px, 10vmin);
+    grid-auto-rows: minmax(120px, 10%);
     grid-gap: 5px;
-    grid-template-columns: repeat(4, minmax(50px, 1fr));
-    min-width: calc(var(--width) * 1px);
-    width: calc(90vmin + 60px);
+    grid-template-columns: repeat(5, minmax(50px, 1fr));
+    width: 60%;
   }
 
   .mondrian__frame {
