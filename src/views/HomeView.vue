@@ -48,6 +48,7 @@
    ******************************************/
 
   const activeComponent = ref("ActivitySquares");
+  provide("activeComponentKey", activeComponent);
 
   const componentsMap = {
     ColorfulRods,
@@ -61,7 +62,6 @@
    ******************************************/
 
   const notification = ref({ display: false, message: "" });
-  provide("activeComponentKey", activeComponent);
 
   const handleNotification = (payload) => {
     notification.value = payload;
