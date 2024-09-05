@@ -22,7 +22,15 @@
         @closeNotification="handleNotification"
       />
     </Transition>
-    <component :is="componentsMap[activeComponent]" />
+
+    <Transition
+      enter-from-class="translate-x-full opacity-0"
+      enter-active-class="transition ease-in duration-1000"
+      leave-to-class="translate-x-full opacity-0"
+      leave-active-class="transition ease-in duration-700"
+    >
+      <component :is="componentsMap[activeComponent]" />
+    </Transition>
   </main>
 </template>
 
