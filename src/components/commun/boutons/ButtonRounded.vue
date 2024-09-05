@@ -1,28 +1,26 @@
 <template>
-  <div
-    @click="emitOnClick"
-    class="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white rounded transition duration-150 ease-in-out cursor-pointer"
+  <button
+    class="z-50 text-sm font-medium text-gray-400 bg-white p-3 hover:bg-teal-500 hover:text-white rounded-full transition duration-150 ease-in-out cursor-pointer flex items-center justify-center border border-gray-400 hover:border-white"
   >
     <svg
-      class="w-6 h-6 fill-current inline-block"
-      fill="currentColor"
-      viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.3"
+      stroke="currentColor"
+      class="size-6"
     >
-      <path :d="props.svgPath"></path>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        :d="props.svgPath"
+      ></path>
     </svg>
-  </div>
+  </button>
 </template>
 
 <script setup>
   const props = defineProps({
     svgPath: { String, required: true },
-    actionName: { String, required: true },
   });
-
-  const emit = defineEmits(["buttonClicked"]);
-
-  const emitOnClick = () => {
-    emit("buttonClicked", props.actionName);
-  };
 </script>

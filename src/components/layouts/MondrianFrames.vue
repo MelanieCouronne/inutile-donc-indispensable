@@ -1,5 +1,9 @@
 <template>
-  <div id="main-container" ref="containerDimensions">
+  <div
+    id="main-container"
+    ref="containerDimensions"
+    class="min-h-full max-h-full flex justify-center flex-col items-center"
+  >
     <div class="mondrian-container">
       <div
         v-for="(frame, index) in frames"
@@ -13,11 +17,18 @@
         }"
       ></div>
     </div>
+
+    <ButtonRounded
+      @click="reloadFrames"
+      svgPath="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+      class="flex mx-auto my-4"
+    />
   </div>
 </template>
 
 <script setup>
   import { ref, onMounted } from "vue";
+  import ButtonRounded from "../commun/boutons/ButtonRounded.vue";
 
   const containerDimensions = ref(null);
   const frames = ref([]);
@@ -62,6 +73,11 @@
     }
   };
 
+  const reloadFrames = () => {
+    frames.value = [];
+    generateFrames(2);
+  };
+
   onMounted(() => {
     generateFrames(2);
   });
@@ -72,14 +88,6 @@
     --frame: 50;
     --height: calc(var(--frame) * 6);
     --width: calc(var(--frame) * 5);
-  }
-
-  #main-container {
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* padding: calc(50vmin - ((var(--initial-height) / 2) * 1px)) 0; */
   }
 
   .mondrian-container {
