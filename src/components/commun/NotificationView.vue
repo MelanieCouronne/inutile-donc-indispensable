@@ -12,7 +12,7 @@
           <div class="flex items-start">
             <div class="flex-shrink-0">
               <img
-                src="/public/sxv3it7fbqsa1gg9bv3rl37jqjhm.png"
+                src="/sxv3it7fbqsa1gg9bv3rl37jqjhm.png"
                 alt="Avatar JCVD"
                 class="w-10 md:w-12 rounded-full mx-auto"
               />

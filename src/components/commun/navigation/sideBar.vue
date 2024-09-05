@@ -109,9 +109,9 @@
               componentName="MondrianFrames"
             />
 
-            <a
-              href=""
-              class="relative text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
+            <div
+              @click="emitOnClick"
+              class="relative text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white rounded-md transition duration-150 ease-in-out cursor-pointer"
             >
               <svg
                 class="w-6 h-6 fill-current inline-block"
@@ -127,11 +127,12 @@
                 ></path>
               </svg>
               <span
-                class="absolute -top-2 left-4 rounded-full bg-red-500 p-0.5 px-1.5 text-sm text-red-50"
-                >15</span
+                v-if="remainingMessages > 0"
+                class="absolute -top-1 left-4 rounded-full bg-red-500 p-0.5 px-1.5 text-xs text-red-50"
+                >{{ remainingMessages }}</span
               >
-              <span class="">&nbsp; Messages de JCVD</span>
-            </a>
+              <span>&nbsp; Messages de JCVD</span>
+            </div>
           </div>
           <svg
             class="w-6 h-6 fill-current inline-block"
@@ -194,16 +195,35 @@
 
   const emit = defineEmits(["displayNotification"]);
 
-  const searchQuery = ref("");
-
   const datas = citations.datas;
+  const searchQuery = ref("");
+  const remainingMessages = ref(datas.length);
+
+  let messagesViewedIndex = [];
+
+  const getRandomIndex = () => {
+    return Math.floor(Math.random() * datas.length);
+  };
 
   // Fonction pour gérer l'entrée de recherche et émettre un événement
   const emitOnSearch = () => {
-    const randomIndex = Math.floor(Math.random() * datas.length);
+    let randomIndex = getRandomIndex();
+
+    while (
+      messagesViewedIndex.includes(randomIndex) &&
+      messagesViewedIndex.length < datas.length
+    ) {
+      console.log("🚀 ~ Deja vu ~ ");
+
+      randomIndex = getRandomIndex();
+    }
+
     const message = datas[randomIndex].citation;
+    messagesViewedIndex.push(randomIndex);
+    remainingMessages.value -= 1;
     emit("displayNotification", { display: true, message });
     searchQuery.value = "";
+    console.log(messagesViewedIndex);
   };
 
   /*****************************************
