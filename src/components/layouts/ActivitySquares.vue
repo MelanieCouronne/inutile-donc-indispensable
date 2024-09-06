@@ -1,5 +1,5 @@
 <template>
-  <div id="main-container" ref="containerDimensions">
+  <div id="main-container" ref="mainContainer">
     <div id="squares-container">
       <div
         v-for="(square, index) in squares"
@@ -16,39 +16,33 @@
 <script setup>
   import { nextTick, ref, onMounted, onUnmounted, watch } from "vue";
   import eventBus from "@/utils/directives/eventBus.js";
-  import { getContainerDimensions } from "@/utils/toolsBox";
+  import { getContainerDimensions, getRandomItem } from "@/utils/toolsBox";
 
-  const greenColorsHexa = ["#9be9a8", "#40c463", "#30a14e", "#216e39"];
+  const greenColors = ["#9be9a8", "#40c463", "#30a14e", "#216e39"];
   const squares = ref([]);
-  const containerDimensions = ref(null);
+  const mainContainer = ref(null);
 
   const addColor = (event) => {
-    const color = randomGreenColors();
+    const color = getRandomItem(greenColors);
     event.target.style.backgroundColor = color;
   };
 
-  const randomGreenColors = () => {
-    return greenColorsHexa[Math.floor(Math.random() * greenColorsHexa.length)];
-  };
+  const getTotalSquares = () => {
+    const { containerWidth, containerHeight } =
+      getContainerDimensions(mainContainer);
 
-  const calculateNumberOfSquares = () => {
-    if (!containerDimensions.value) return 0;
-
-    // const containerWidth = containerDimensions.value.clientWidth - 32;
-    // const containerHeight = containerDimensions.value.clientHeight;
-    const containerWidth = getContainerDimensions() - 32;
-    const containerHeight = getContainerDimensions();
     const squareWidth = 16;
     const squareHeight = 14;
 
     const numberOfSquares =
-      Math.floor(containerWidth / squareWidth) *
+      Math.floor((containerWidth - 32) / squareWidth) *
       Math.floor(containerHeight / squareHeight);
+
     return numberOfSquares;
   };
 
   const updateSquares = () => {
-    squares.value = Array(calculateNumberOfSquares()).fill(null);
+    squares.value = Array(getTotalSquares()).fill(null);
   };
 
   onMounted(async () => {

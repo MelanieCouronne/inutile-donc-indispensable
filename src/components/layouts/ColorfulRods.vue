@@ -1,5 +1,5 @@
 <template>
-  <div id="main-container" ref="containerDimensions">
+  <div id="main-container" ref="mainContainer">
     <div id="rods-container">
       <div
         v-for="(rod, index) in rods"
@@ -16,79 +16,51 @@
 <script setup>
   import { nextTick, ref, onMounted, onUnmounted, watch } from "vue";
   import eventBus from "@/utils/directives/eventBus.js";
+  import { getRandomItem, getContainerDimensions } from "@/utils/toolsBox";
 
-  const greenColorsHexa = [
-    "#22577A",
-    "#38A3A5",
-    "#57CC99",
-    "#80ED99",
-    "#C7F9CC",
-  ];
-  const blueColorsHexa = [
-    "#03045E",
-    "#0077B6",
-    "#00B4D8",
-    "#90E0EF",
-    "#CAF0F8",
-  ];
-  const purpleColorsHexa = [
-    "#3C096C",
-    "#5A189A",
-    "#7B2CBF",
-    "#9D4EDD",
-    "#C77DFF",
-  ];
-  const redColorsHexa = ["#800F2F", "#A4133C", "#C9184A", "#FF4D6D", "#FF758F"];
-  const pinkColorsHexa = [
-    "#FF0A54",
-    "#FF477E",
-    "#FF5C8A",
-    "#FF99AC",
-    "#F7CAD0",
-  ];
-  const yellowColorsHexa = [
-    "#FFF75E",
-    "#FFF056",
-    "#FFE94E",
-    "#FECF3E",
-    "#FDB833",
-  ];
+  const greenColors = ["#22577A", "#38A3A5", "#57CC99", "#80ED99", "#C7F9CC"];
+  const blueColors = ["#03045E", "#0077B6", "#00B4D8", "#90E0EF", "#CAF0F8"];
+  const purpleColors = ["#3C096C", "#5A189A", "#7B2CBF", "#9D4EDD", "#C77DFF"];
+  const redColors = ["#800F2F", "#A4133C", "#C9184A", "#FF4D6D", "#FF758F"];
+  const pinkColors = ["#FF0A54", "#FF477E", "#FF5C8A", "#FF99AC", "#F7CAD0"];
+  const yellowColors = ["#FFF75E", "#FFF056", "#FFE94E", "#FECF3E", "#FDB833"];
 
   const colorArrays = [
-    greenColorsHexa,
-    blueColorsHexa,
-    purpleColorsHexa,
-    redColorsHexa,
-    pinkColorsHexa,
-    yellowColorsHexa,
+    greenColors,
+    blueColors,
+    purpleColors,
+    redColors,
+    pinkColors,
+    yellowColors,
   ];
 
   const rods = ref([]);
-  const containerDimensions = ref(null);
-  const currentColorArrayIndex = ref(0);
+  const mainContainer = ref(null);
+
+  let currentColorArrayIndex = 0;
+
+  const getRandomColor = () => {
+    const currentColors = colorArrays[currentColorArrayIndex];
+    return getRandomItem(currentColors);
+  };
 
   const addColor = (event) => {
     const color = getRandomColor();
     event.target.style.backgroundColor = color;
   };
 
-  const getRandomColor = () => {
-    const currentColors = colorArrays[currentColorArrayIndex.value];
-    return currentColors[Math.floor(Math.random() * currentColors.length)];
-  };
+  const getTotalRods = () => {
+    const { containerWidth } = getContainerDimensions(mainContainer);
 
-  const calculateNumberOfrods = () => {
-    if (!containerDimensions.value) return 0;
-
-    const containerWidth = containerDimensions.value.clientWidth - 22;
     const rodWidth = 11;
 
-    const numberOfrods = Math.floor(containerWidth / rodWidth);
+    const numberOfrods = Math.floor((containerWidth - 22) / rodWidth);
+
     return numberOfrods;
   };
 
   const updaterods = () => {
-    rods.value = Array(calculateNumberOfrods()).fill(null);
+    rods.value = Array(getTotalRods()).fill(null);
   };
 
   onMounted(async () => {
@@ -106,8 +78,8 @@
 
     // Changer d'array de couleurs toutes les 10 secondes
     setInterval(() => {
-      currentColorArrayIndex.value =
-        (currentColorArrayIndex.value + 1) % colorArrays.length;
+      currentColorArrayIndex =
+        (currentColorArrayIndex + 1) % colorArrays.length;
     }, 3000);
   });
 

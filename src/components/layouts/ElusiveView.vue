@@ -1,7 +1,7 @@
 <template>
   <div
     id="main-container"
-    ref="containerDimensions"
+    ref="mainContainerToRunAway"
     :class="{ 'mobile-margin-top': isMobile }"
     @mousemove="runAway"
   >
@@ -23,30 +23,25 @@
   } from "@/utils/toolsBox.js";
 
   const position = ref({ x: 0, y: 0 });
-  const containerDimensions = ref(null);
+  const mainContainerToRunAway = ref(null);
   const buttonRunAway = ref(null);
   const isMobile = ref(false);
 
-  const isMobileViewport = () => {
-    return getViewportDimensions().viewportWidth < 768;
-  };
-
   const getbuttonDimensions = () => {
-    if (!buttonRunAway.value) return { buttonWidth: 0, buttonHeight: 0 };
-
-    const w = buttonRunAway.value ? buttonRunAway.value.offsetWidth : 0;
-    const h = buttonRunAway.value ? buttonRunAway.value.offsetHeight : 0;
+    const buttonWidth = buttonRunAway?.value.offsetWidth || 0;
+    const buttonHeight = buttonRunAway?.value.offsetHeight || 0;
 
     return {
-      buttonWidth: w,
-      buttonHeight: h,
+      buttonWidth,
+      buttonHeight,
     };
   };
 
   const setCenter = () => {
     const { buttonWidth, buttonHeight } = getbuttonDimensions();
-    const { containerWidth, containerHeight } =
-      getContainerDimensions(containerDimensions);
+    const { containerWidth, containerHeight } = getContainerDimensions(
+      mainContainerToRunAway
+    );
 
     const x = (containerWidth - buttonWidth) / 2;
     const y = (containerHeight - buttonHeight) / 2;
@@ -56,8 +51,9 @@
   // let catchSetTimeout;
 
   const runAway = () => {
-    const { containerWidth, containerHeight } =
-      getContainerDimensions(containerDimensions);
+    const { containerWidth, containerHeight } = getContainerDimensions(
+      mainContainerToRunAway
+    );
     const { buttonWidth, buttonHeight } = getbuttonDimensions();
 
     let translateX = Math.random() * (containerWidth - buttonWidth) + 1;
@@ -72,7 +68,7 @@
   };
 
   onMounted(() => {
-    isMobile.value = isMobileViewport();
+    isMobile.value = getViewportDimensions().viewportWidth < 768;
     position.value = setCenter();
     window.addEventListener("mousemove", runAway);
     window.addEventListener("touchmove", runAway);
