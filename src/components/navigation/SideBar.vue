@@ -111,7 +111,7 @@
 
             <button
               :disabled="remainingMessages <= 0"
-              @click="emitMessageOnClick"
+              @click="emitMessageOnClick()"
               class="relative w-full text-left text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white rounded-md transition duration-150 ease-in-out cursor-pointer disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200"
             >
               <svg
@@ -170,6 +170,7 @@
   import ButtonSideBar from "@/components/commun/buttons/ButtonSideBar.vue";
   import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
   import eventBus from "@/utils/directives/eventBus.js";
+  import { getRandomItem } from "@/utils/toolsBox";
 
   import citations from "@/datas/sagesse_jcvd.json";
 
@@ -188,28 +189,35 @@
 
   const emit = defineEmits(["displayNotification"]);
 
-  const datas = citations.datas;
   const searchQuery = ref("");
+
+  let messagesViewedId = [];
+
+  /**
+   * @param {Array} datas les données à parcourir
+   */
+
+  const datas = citations.datas; // import du fichier JSON
   const remainingMessages = ref(datas.length);
 
-  let messagesViewedIndex = [];
-
-  const getRandomIndex = () => {
-    return Math.floor(Math.random() * datas.length);
-  };
-
   const emitMessageOnClick = () => {
-    let randomIndex = getRandomIndex();
+    let randomItem = getRandomItem(datas);
 
     while (
-      messagesViewedIndex.includes(randomIndex) &&
-      messagesViewedIndex.length < datas.length
+      messagesViewedId.includes(randomItem.id) &&
+      messagesViewedId.length < datas.length
     ) {
-      randomIndex = getRandomIndex();
+      console.log("🚀 ~ Deja vu ~ ");
+
+      randomItem = getRandomItem(datas);
     }
 
-    const message = datas[randomIndex].citation;
-    messagesViewedIndex.push(randomIndex);
+    console.log(messagesViewedId);
+
+    const message = randomItem.citation;
+
+    messagesViewedId.push(randomItem.id);
+
     remainingMessages.value -= 1;
     emit("displayNotification", { display: true, message });
     searchQuery.value = "";
