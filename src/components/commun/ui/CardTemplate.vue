@@ -62,7 +62,7 @@
 <style scoped>
   .conference-card {
     display: flex;
-    width: 600px;
+    width: 630px;
     background-color: #ffffff;
     border-radius: 14px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -97,9 +97,11 @@
   h2 {
     font-size: 18px;
     font-weight: 700;
+    line-height: 1.3;
   }
 
   h5 {
+    margin-top: 5px;
     font-size: 14px;
     color: #6c6c6c;
   }
@@ -110,7 +112,8 @@
     background-color: var(--main-color-2);
     border-radius: 8px;
     color: var(--main-color-1);
-    padding: 12px 10px;
+    padding: 14px 12px;
+    text-align: center;
   }
 
   .conference-card__month {
