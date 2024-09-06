@@ -1,9 +1,9 @@
 <template>
-  <div class="flex w-3/4 bg-white rounded-xl shadow m-6 p-5">
+  <div class="flex w-8/12 bg-white rounded-xl shadow m-6 p-5">
     <img
       :src="`${conference.conference.urlPhoto}`"
       alt=""
-      class="w-44 rounded-2xl"
+      class="w-44 rounded-3xl"
     />
     <div class="mx-5 my-0">
       <div class="flex justify-between items-start">
@@ -37,12 +37,12 @@
           class="z-20 absolute left-5 w-12 rounded-full speaker-animation"
         />
 
-        <p class="text-md font-bold ml-20 speaker-animation">
+        <p class="text-md font-bold text-secondary ml-20 speaker-animation">
           <span class="material-symbols-outlined">keyboard_voice</span>
           {{ conference.conference.speaker }}
         </p>
       </div>
-      <div class="flex flex-row justify-between items-center mt-8">
+      <div class="flex justify-end mt-8">
         <p
           class="text-sm font-light text-white bg-secondary rounded-full m-0 py-1.5 pl-1.5 pr-4"
         >

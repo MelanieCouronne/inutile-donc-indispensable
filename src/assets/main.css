@@ -42,6 +42,18 @@
 /* --main-color-1: #002442;
   --main-color-2: #6ba292; */
 
+/* CSS RESET */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 /* reset button */
 button {
   background: none;
