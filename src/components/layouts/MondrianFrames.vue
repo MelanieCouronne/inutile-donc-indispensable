@@ -1,7 +1,7 @@
 <template>
   <div
     id="main-container"
-    ref="containerDimensions"
+    ref="mainFrameContainer"
     class="min-h-full max-h-full flex justify-center flex-col items-center"
   >
     <div class="mondrian-container">
@@ -19,7 +19,7 @@
     </div>
 
     <ButtonRounded
-      @click="reloadFrames"
+      @click="generateFrames(2)"
       svgPath="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
       class="flex mx-auto my-5"
     />
@@ -29,8 +29,9 @@
 <script setup>
   import { ref, onMounted, onUnmounted } from "vue";
   import ButtonRounded from "@/components/commun/buttons/ButtonRounded.vue";
+  import { getRandomItem } from "@/utils/toolsBox";
 
-  const containerDimensions = ref(null);
+  const mainFrameContainer = ref(null);
   const frames = ref([]);
 
   const mondrianColors = [
@@ -40,10 +41,6 @@
     "#FFFFFF",
     "#000000",
   ];
-
-  const randomColors = () => {
-    return mondrianColors[Math.floor(Math.random() * mondrianColors.length)];
-  };
 
   /**
    * Function qui génére des blocs avec des propriétés aléatoires et les ajoute au tableau `frames`.
@@ -57,7 +54,7 @@
     frames.value = [];
 
     for (let i = 0; i < 5; i++) {
-      const color = randomColors();
+      const color = getRandomItem(mondrianColors);
       const rowSpan = Math.floor(Math.random() * limit + 1);
       const colSpan = Math.floor(Math.random() * limit + 1);
       frames.value.push({
@@ -67,10 +64,6 @@
         color,
       });
     }
-  };
-
-  const reloadFrames = () => {
-    generateFrames(2);
   };
 
   let catchSetInterval;
@@ -84,6 +77,7 @@
 
   onUnmounted(() => {
     frames.value = [];
+    mainFrameContainer.value = null;
     clearInterval(catchSetInterval);
   });
 </script>
@@ -103,6 +97,13 @@
   .mondrian__frame {
     /* animation | name | duration | timing | remplissage */
     animation: scaleIn 0.05s ease both;
+  }
+
+  @media (max-width: 768px) {
+    .mondrian-container {
+      grid-auto-rows: minmax(60px, 10%);
+      grid-template-columns: repeat(3, minmax(20px, 1fr));
+    }
   }
 
   @keyframes scaleIn {
