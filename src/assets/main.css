@@ -41,9 +41,9 @@
 }
 
 :root {
-  --main-color-2: #21294d;
-  --main-color-1: #bcd5ed;
-  --main-color-3: #ecc9a7;
+  --main-color-1: 188 213 237;
+  --main-color-2: 33 41 77;
+  --main-color-3: 236 201 167;
 }
 
 /* --main-color-1: #002442;

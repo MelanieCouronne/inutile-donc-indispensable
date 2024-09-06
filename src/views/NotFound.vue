@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-  import CardTemplate from "@/components/commun/ui/CardTemplate.vue";
+  import CardTemplate from "@/components/commun/ui/CardTemplateVsTail.vue";
 
   let conferences = [
     {
