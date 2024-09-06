@@ -159,28 +159,7 @@
             ></path>
           </svg>
         </div>
-        <footer class="absolute inset-x-0 bottom-0 p-4">
-          <p class="text-xs font-light text-gray-500 text-center">
-            Fait avec
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="#F43F5E"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="#F43F5E"
-                class="size-4 inline-block"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                />
-              </svg>
-            </span>
-            mais surtout avec Vue.js et Tailwind.
-          </p>
-        </footer>
+        <FooterLayout />
       </div>
     </div>
   </div>
@@ -188,7 +167,8 @@
 
 <script setup>
   import { computed, inject, onMounted, onUnmounted, ref } from "vue";
-  import ButtonSideBar from "@/components/commun/boutons/ButtonSideBar.vue";
+  import ButtonSideBar from "@/components/commun/buttons/ButtonSideBar.vue";
+  import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
   import eventBus from "@/utils/directives/eventBus.js";
 
   import citations from "@/datas/sagesse_jcvd.json";

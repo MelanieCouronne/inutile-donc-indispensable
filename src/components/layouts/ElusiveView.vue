@@ -17,7 +17,10 @@
 
 <script setup>
   import { ref, onMounted, onUnmounted } from "vue";
-  import { getViewportDimensions } from "@/utils/toolBox.js";
+  import {
+    getViewportDimensions,
+    getContainerDimensions,
+  } from "@/utils/toolsBox.js";
 
   const position = ref({ x: 0, y: 0 });
   const containerDimensions = ref(null);
@@ -26,15 +29,6 @@
 
   const isMobileViewport = () => {
     return getViewportDimensions().viewportWidth < 768;
-  };
-
-  const getContainerDimensions = () => {
-    if (!containerDimensions.value) return { width: 0, height: 0 };
-
-    return {
-      width: containerDimensions.value.clientWidth,
-      height: containerDimensions.value.clientHeight,
-    };
   };
 
   const getbuttonDimensions = () => {
@@ -50,31 +44,31 @@
   };
 
   const setCenter = () => {
-    const { width, height } = getContainerDimensions();
     const { buttonWidth, buttonHeight } = getbuttonDimensions();
+    const { containerWidth, containerHeight } =
+      getContainerDimensions(containerDimensions);
 
-    const x = (width - buttonWidth) / 2;
-    const y = (height - buttonHeight) / 2;
+    const x = (containerWidth - buttonWidth) / 2;
+    const y = (containerHeight - buttonHeight) / 2;
     return { x, y };
   };
 
-  let catchSetTimeout;
+  // let catchSetTimeout;
 
   const runAway = () => {
-    catchSetTimeout = setTimeout(() => {
-      const { width, height } = getContainerDimensions();
-      const { buttonWidth, buttonHeight } = getbuttonDimensions();
+    const { containerWidth, containerHeight } =
+      getContainerDimensions(containerDimensions);
+    const { buttonWidth, buttonHeight } = getbuttonDimensions();
 
-      let translateX = Math.random() * (width - buttonWidth) + 1;
-      let translateY = Math.random() * (height - buttonHeight) + 1;
+    let translateX = Math.random() * (containerWidth - buttonWidth) + 1;
+    let translateY = Math.random() * (containerHeight - buttonHeight) + 1;
 
-      if (translateX <= 0) translateX = 1;
-      if (translateY <= 0) translateY = 1;
+    if (translateX <= 0) translateX = 1;
+    if (translateY <= 0) translateY = 1;
 
-      buttonRunAway.value.style = `transform: translate(${translateX}px, ${translateY}px);`;
+    buttonRunAway.value.style = `transform: translate(${translateX}px, ${translateY}px);`;
 
-      buttonRunAway.value.innerText = "Nope. No way, Jose! 😏 ";
-    }, 1000);
+    buttonRunAway.value.innerText = "Nope. No way, Jose! 😏 ";
   };
 
   onMounted(() => {
@@ -85,7 +79,7 @@
   });
 
   onUnmounted(() => {
-    clearTimeout(catchSetTimeout);
+    // clearTimeout(catchSetTimeout);
     window.removeEventListener("mousemove", runAway);
     window.addEventListener("touchmove", runAway);
   });

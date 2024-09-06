@@ -16,6 +16,7 @@
 <script setup>
   import { nextTick, ref, onMounted, onUnmounted, watch } from "vue";
   import eventBus from "@/utils/directives/eventBus.js";
+  import { getContainerDimensions } from "@/utils/toolsBox";
 
   const greenColorsHexa = ["#9be9a8", "#40c463", "#30a14e", "#216e39"];
   const squares = ref([]);
@@ -33,8 +34,10 @@
   const calculateNumberOfSquares = () => {
     if (!containerDimensions.value) return 0;
 
-    const containerWidth = containerDimensions.value.clientWidth - 32;
-    const containerHeight = containerDimensions.value.clientHeight;
+    // const containerWidth = containerDimensions.value.clientWidth - 32;
+    // const containerHeight = containerDimensions.value.clientHeight;
+    const containerWidth = getContainerDimensions() - 32;
+    const containerHeight = getContainerDimensions();
     const squareWidth = 16;
     const squareHeight = 14;
 

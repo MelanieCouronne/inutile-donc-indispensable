@@ -40,8 +40,8 @@
   import ActivitySquares from "@/components/layouts/ActivitySquares.vue";
   import ElusiveView from "@/components/layouts/ElusiveView.vue";
   import MondrianFrames from "@/components/layouts/MondrianFrames.vue";
-  import SideBar from "@/components/commun/navigation/SideBar.vue";
-  import NotificationView from "@/components/commun/NotificationView.vue";
+  import SideBar from "@/components/navigation/SideBar.vue";
+  import NotificationView from "@/components/commun/ui/NotificationView.vue";
 
   /*****************************************
    *      Activation des coposants          *

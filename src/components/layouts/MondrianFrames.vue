@@ -28,7 +28,7 @@
 
 <script setup>
   import { ref, onMounted, onUnmounted } from "vue";
-  import ButtonRounded from "../commun/boutons/ButtonRounded.vue";
+  import ButtonRounded from "@/components/commun/buttons/ButtonRounded.vue";
 
   const containerDimensions = ref(null);
   const frames = ref([]);
@@ -46,13 +46,12 @@
   };
 
   /**
-   * Génère des blocs avec des propriétés aléatoires et les ajoute au tableau `frames`.
-   * @param {number} [limit=2] - La taille maximale des blocs en termes de spans lignes (rowSpan) et de spans colonnes (colSpan).
-   * @property {number} i - Nombre de blocs générés (le reste étant un fonds noir ;).
-   * @property {number} colSpan - Nombre de colonnes que le bloc occupe. Entre 1 et `limit`.
-   * @property {number} rowSpan - Nombre de lignes que le bloc occupe. Entre 1 et `limit`.
-   * ---------
-   *
+   * Function qui génére des blocs avec des propriétés aléatoires et les ajoute au tableau `frames`.
+   * @param {Number} [limit=2] - La taille maximale des blocs en termes de spans lignes (rowSpan) et de spans colonnes (colSpan).
+   * @property {Number} i - Nombre de blocs générés (le reste étant un fonds noir ;).
+   * @property {Number} colSpan - Nombre de colonnes que le bloc occupe. Entre 1 et `limit`.
+   * @property {Number} rowSpan - Nombre de lignes que le bloc occupe. Entre 1 et `limit`.
+
    */
   const generateFrames = (limit = 2) => {
     frames.value = [];
@@ -68,7 +67,6 @@
         color,
       });
     }
-    console.log(frames.value);
   };
 
   const reloadFrames = () => {
