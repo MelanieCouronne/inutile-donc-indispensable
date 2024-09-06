@@ -19,7 +19,7 @@ const getRandomNumber = (min, max) =>
 
 const getContainerDimensions = (refContainer) => {
   if (!refContainer || !refContainer.value) {
-    console.error("La ref est null ou undefined");
+    // console.error("La ref est null ou undefined");
     return { containerWidth: 0, containerHeight: 0 };
   }
   const containerWidth = refContainer.value.clientWidth || 0;

@@ -29,7 +29,7 @@
 
   const getbuttonDimensions = () => {
     if (!buttonRunAway.value) {
-      console.error("buttonRunAway est null ou undefined");
+      // console.error("buttonRunAway est null ou undefined");
       return { buttonWidth: 0, buttonHeight: 0 };
     }
     const buttonWidth = buttonRunAway.value.offsetWidth || 0;

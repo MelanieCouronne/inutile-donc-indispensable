@@ -14,7 +14,14 @@
 </template>
 
 <script setup>
-  import { nextTick, ref, onMounted, onUnmounted, watch } from "vue";
+  import {
+    nextTick,
+    ref,
+    onMounted,
+    onBeforeUnmount,
+    onUnmounted,
+    watch,
+  } from "vue";
   import eventBus from "@/utils/directives/eventBus.js";
   import { getRandomItem, getContainerDimensions } from "@/utils/toolsBox";
 
@@ -60,8 +67,14 @@
   };
 
   const updateRods = () => {
+    const numberOfRods = getTotalRods();
+    // console.log("🚀 ~ Total ~ " + numberOfRods);
+
+    if (numberOfRods < 1) return;
     rods.value = Array(getTotalRods()).fill(null);
   };
+
+  let catchWatcher;
 
   onMounted(async () => {
     // On attend la mise à jour du DOM avant de calculer le nombre de carrés
@@ -70,18 +83,19 @@
 
     window.addEventListener("resize", updateRods);
 
-    watch(
-      () => eventBus.sidebarToggled,
-      () => {
-        updateRods();
-      }
-    );
+    // On surveille le changement de la sidebar pour mettre à jour les barres
+    catchWatcher = watch(() => eventBus.sidebarToggled, updateRods);
 
     // Changer d'array de couleurs toutes les 10 secondes
     setInterval(() => {
       currentColorArrayIndex =
         (currentColorArrayIndex + 1) % colorArrays.length;
     }, 3000);
+  });
+
+  onBeforeUnmount(() => {
+    mainRodsContainer.value = null;
+    catchWatcher();
   });
 
   onUnmounted(() => {

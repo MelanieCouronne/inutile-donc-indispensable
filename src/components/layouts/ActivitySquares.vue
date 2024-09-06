@@ -14,7 +14,14 @@
 </template>
 
 <script setup>
-  import { nextTick, ref, onMounted, onUnmounted, watch } from "vue";
+  import {
+    nextTick,
+    ref,
+    onMounted,
+    onBeforeUnmount,
+    onUnmounted,
+    watch,
+  } from "vue";
   import eventBus from "@/utils/directives/eventBus.js";
   import { getContainerDimensions, getRandomItem } from "@/utils/toolsBox";
 
@@ -68,6 +75,10 @@
         updateSquares();
       }
     );
+  });
+
+  onBeforeUnmount(() => {
+    mainContainer.value = null;
   });
 
   onUnmounted(() => {
