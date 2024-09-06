@@ -67,9 +67,9 @@
     notification.value = payload;
     if (!notification.value.display) return;
 
-    setTimeout(() => {
-      notification.value.display = false;
-      notification.value.message = "";
-    }, 9000);
+    // setTimeout(() => {
+    //   notification.value.display = false;
+    //   notification.value.message = "";
+    // }, 9000);
   };
 </script>
