@@ -28,7 +28,7 @@
       </div>
       <div class="relative flex justify-items-center items-center mt-8">
         <div
-          class="z-10 absolute w-12 h-12 rounded-full bg-gradient-to-r from-blue-950 to-blue-600 speaker-animation"
+          class="z-10 absolute w-12 h-12 rounded-full bg-gradient-to-r to-primary from-secondary speaker-animation"
         ></div>
 
         <img
@@ -44,7 +44,7 @@
       </div>
       <div class="flex flex-row justify-between items-center mt-8">
         <p
-          class="text-sm font-light text-white bg-secondary/1 rounded-full m-0 py-1.5 pl-1.5 pr-4"
+          class="text-sm font-light text-white bg-secondary rounded-full m-0 py-1.5 pl-1.5 pr-4"
         >
           <span
             class="text-secondary bg-primary rounded-full mr-1 py-0.5 px-3"
