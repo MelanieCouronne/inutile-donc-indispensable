@@ -3,7 +3,7 @@
     <div id="clickZone" v-click-outside="hideNavigation">
       <button
         @click="toggleNavigation"
-        class="p-2 border-2 bg-white rounded-md border-gray-200 shadow-lg text-gray-500 focus:bg-teal-500 focus:outline-none focus:text-white absolute top-0 left-0 sm:hidden"
+        class="p-2 m-4 border-2 bg-white rounded-md border-gray-200 shadow-lg text-gray-500 focus:bg-teal-500 focus:outline-none focus:text-white absolute top-0 left-0 sm:hidden"
       >
         <svg
           class="w-5 h-5 fill-current"

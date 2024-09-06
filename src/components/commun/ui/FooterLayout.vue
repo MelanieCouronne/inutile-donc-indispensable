@@ -7,7 +7,7 @@
           xmlns="http://www.w3.org/2000/svg"
           fill="#F43F5E"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          stroke-width="1.4"
           stroke="#F43F5E"
           class="size-4 inline-block"
         >
@@ -18,7 +18,17 @@
           />
         </svg>
       </span>
-      mais surtout avec Vue.js et Tailwind.
+      mais aussi avec
+      <span><img src="/logos/vuejs-icon.svg" alt="Vue.js" /></span> et
+      <span><img src="/logos/tailwindcss-icon.svg" alt="TailwindCSS" /></span>
     </p>
   </footer>
 </template>
+
+<style scoped>
+  img {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+</style>
