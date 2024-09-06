@@ -41,7 +41,7 @@
   import ElusiveView from "@/components/layouts/ElusiveView.vue";
   import MondrianFrames from "@/components/layouts/MondrianFrames.vue";
   import SideBar from "@/components/navigation/SideBar.vue";
-  import NotificationView from "@/components/commun/ui/NotificationView.vue";
+  import NotificationView from "@/components/commun/ui/NotificationTemplate.vue";
 
   /*****************************************
    *      Activation des coposants          *
