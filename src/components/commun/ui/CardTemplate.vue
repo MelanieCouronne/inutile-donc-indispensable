@@ -1,21 +1,21 @@
 <template>
-  <div class="agenda-card">
+  <div class="conference-card raleway-bold">
     <img
       :src="`${conference.conference.urlPhoto}`"
       alt=""
-      class="agenda-card__image"
+      class="conference-card__image"
     />
-    <div class="agenda-card__content">
-      <div class="agenda-card__header">
-        <div class="agenda-card__date">
-          <span class="agenda-card__month">{{
+    <div class="conference-card__content">
+      <div class="conference-card__header">
+        <div class="conference-card__date">
+          <span class="conference-card__month">{{
             conference.conference.mois
           }}</span
-          ><br /><span class="agenda-card__day">{{
+          ><br /><span class="conference-card__day">{{
             conference.conference.jour
           }}</span>
         </div>
-        <div class="agenda-card__title">
+        <div class="conference-card__title">
           <h2>{{ conference.conference.intitule }}</h2>
           <h5>
             <span class="material-symbols-outlined">schedule</span>
@@ -26,31 +26,29 @@
           </h5>
         </div>
       </div>
-      <p class="agenda-card__description">
-        {{ conference.conference.description }}
-      </p>
-      <div class="agenda-card__speaker">
+      <div class="conference-card__speaker">
         <div
-          class="agenda-card__speaker-avatar avatar--shadow speaker-animation"
+          class="conference-card__speaker-avatar avatar--shadow speaker-animation"
         ></div>
         <img
           :src="`${conference.conference.urlAvatar}`"
           alt=""
-          class="agenda-card__speaker-avatar speaker-animation"
+          class="conference-card__speaker-avatar speaker-animation"
         />
-        <div class="agenda-card__speaker-infos speaker-animation">
-          <p class="agenda-card__speaker-name">
+        <div class="conference-card__speaker-infos speaker-animation">
+          <p class="conference-card__speaker-name">
             <span class="material-symbols-outlined">keyboard_voice</span>
             {{ conference.conference.speaker }}
           </p>
-          <p class="agenda-card__speaker-function">
+          <p class="conference-card__speaker-function">
             {{ conference.conference.fonction }}
           </p>
         </div>
       </div>
-      <div class="agenda-card__footer">
-        <p class="agenda-card__participants">
-          <span>{{ conference.conference.quota }}</span> Places
+      <div class="conference-card__footer">
+        <p class="conference-card__participants">
+          <span>{{ conference.conference.quota }}</span
+          >&nbsp;&nbsp;Places
         </p>
       </div>
     </div>
@@ -62,9 +60,9 @@
 </script>
 
 <style scoped>
-  .agenda-card {
+  .conference-card {
     display: flex;
-    width: 805px;
+    width: 600px;
     background-color: #ffffff;
     border-radius: 14px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -73,24 +71,24 @@
     padding: 15px;
   }
 
-  .agenda-card__image {
-    max-width: 300px;
-    max-height: 300px;
+  .conference-card__image {
+    max-width: 180px;
+    max-height: 180px;
     border-radius: 26px;
   }
 
-  .agenda-card__content {
+  .conference-card__content {
     margin: 0px 20px 0px 20px;
     background-color: transparent;
   }
 
-  .agenda-card__header {
+  .conference-card__header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
 
-  .agenda-card__title {
+  .conference-card__title {
     color: var(--main-color-2);
     text-align: left;
     margin: 0 0 0 10px;
@@ -106,7 +104,7 @@
     color: #6c6c6c;
   }
 
-  .agenda-card__date {
+  .conference-card__date {
     text-transform: uppercase;
     line-height: 1.1;
     background-color: var(--main-color-2);
@@ -115,32 +113,24 @@
     padding: 12px 10px;
   }
 
-  .agenda-card__month {
+  .conference-card__month {
     font-size: 16px;
     font-weight: 700;
   }
 
-  .agenda-card__day {
+  .conference-card__day {
     font-size: 24px;
     font-weight: 800;
   }
 
-  .agenda-card__description {
-    font-size: 14px;
-    line-height: 1.7;
-    color: #6c6c6c;
-    text-align: left;
-
-    margin: 15px 0;
-  }
-
-  .agenda-card__speaker {
+  .conference-card__speaker {
     position: relative;
     display: flex;
     text-align: left;
+    margin-top: 20px;
   }
 
-  .agenda-card__speaker-avatar {
+  .conference-card__speaker-avatar {
     position: absolute;
     top: 0;
     left: 15px;
@@ -151,11 +141,11 @@
   }
 
   .speaker-animation {
-    animation-duration: 3s;
+    /* animation-duration: 3s;
     animation-name: slidein;
     animation-direction: normal;
     animation-delay: 1s;
-    animation-fill-mode: backwards;
+    animation-fill-mode: backwards; */
   }
 
   .speaker-animation:nth-child(2) {
@@ -178,44 +168,44 @@
     z-index: 1;
   }
 
-  .agenda-card__speaker-infos {
+  .conference-card__speaker-infos {
     margin-left: 75px;
   }
 
-  .agenda-card__speaker-name {
+  .conference-card__speaker-name {
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 0;
   }
 
-  .agenda-card__speaker-function {
+  .conference-card__speaker-function {
     font-size: 14px;
     color: #6c6c6c;
     margin-bottom: 0;
   }
 
-  .agenda-card__footer {
+  .conference-card__footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0 0 0;
+    margin-top: 20px;
 
     font-size: 14px;
   }
 
-  .agenda-card__participants {
+  .conference-card__participants {
     color: #ffffff;
-    background-color: var(--main-color-1);
+    background-color: var(--main-color-2);
     border-radius: 20px;
 
     margin: 0;
     padding: 4px 15px 4px 3px;
   }
 
-  .agenda-card__participants span {
-    color: #ffffff;
-    background-color: var(--main-color-2);
+  .conference-card__participants span {
+    color: var(--main-color-2);
+    background-color: var(--main-color-1);
     border-radius: inherit;
     line-height: 100%;
 
@@ -230,12 +220,7 @@
     font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
   }
 
-  /* Style du bouton ics */
-  button.atcb-button {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-  }
-
-  @keyframes slidein {
+  /* @keyframes slidein {
     0% {
       opacity: 0;
       transform: translateX(60px);
@@ -245,16 +230,16 @@
       opacity: 1;
       transform: translateX(0);
     }
-  }
+  } */
 
   @media screen and (max-width: 576px) {
-    .agenda-card {
+    .conference-card {
       flex-direction: column;
       align-items: center;
       width: inherit;
     }
 
-    .agenda-card__image {
+    .conference-card__image {
       margin-bottom: 20px;
     }
   }
