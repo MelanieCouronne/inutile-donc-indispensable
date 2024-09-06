@@ -58,6 +58,7 @@
     // On attend la mise à jour du DOM avant de calculer le nombre de carrés
     await nextTick();
     updateSquares();
+
     window.addEventListener("resize", updateSquares);
 
     // On écoute le changement de la variable `sidebarToggled` (sur Mobile) pour mettre à jour les carrés

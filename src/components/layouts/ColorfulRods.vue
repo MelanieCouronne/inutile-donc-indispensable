@@ -1,5 +1,5 @@
 <template>
-  <div id="main-container" ref="mainContainer">
+  <div id="main-container" ref="mainRodsContainer">
     <div id="rods-container">
       <div
         v-for="(rod, index) in rods"
@@ -35,7 +35,7 @@
   ];
 
   const rods = ref([]);
-  const mainContainer = ref(null);
+  const mainRodsContainer = ref(null);
 
   let currentColorArrayIndex = 0;
 
@@ -50,7 +50,7 @@
   };
 
   const getTotalRods = () => {
-    const { containerWidth } = getContainerDimensions(mainContainer);
+    const { containerWidth } = getContainerDimensions(mainRodsContainer);
 
     const rodWidth = 11;
 
@@ -59,20 +59,21 @@
     return numberOfrods;
   };
 
-  const updaterods = () => {
+  const updateRods = () => {
     rods.value = Array(getTotalRods()).fill(null);
   };
 
   onMounted(async () => {
     // On attend la mise à jour du DOM avant de calculer le nombre de carrés
     await nextTick();
-    updaterods();
-    window.addEventListener("resize", updaterods);
+    updateRods();
+
+    window.addEventListener("resize", updateRods);
 
     watch(
       () => eventBus.sidebarToggled,
       () => {
-        updaterods();
+        updateRods();
       }
     );
 
@@ -84,7 +85,7 @@
   });
 
   onUnmounted(() => {
-    window.removeEventListener("resize", updaterods);
+    window.removeEventListener("resize", updateRods);
   });
 </script>
 

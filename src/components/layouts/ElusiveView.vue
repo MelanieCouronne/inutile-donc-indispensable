@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-  import { ref, onMounted, onUnmounted } from "vue";
+  import { ref, onMounted, onUnmounted, onBeforeUnmount } from "vue";
   import {
     getViewportDimensions,
     getContainerDimensions,
@@ -28,8 +28,12 @@
   const isMobile = ref(false);
 
   const getbuttonDimensions = () => {
-    const buttonWidth = buttonRunAway?.value.offsetWidth || 0;
-    const buttonHeight = buttonRunAway?.value.offsetHeight || 0;
+    if (!buttonRunAway.value) {
+      console.error("buttonRunAway est null ou undefined");
+      return { buttonWidth: 0, buttonHeight: 0 };
+    }
+    const buttonWidth = buttonRunAway.value.offsetWidth || 0;
+    const buttonHeight = buttonRunAway.value.offsetHeight || 0;
 
     return {
       buttonWidth,
@@ -72,6 +76,11 @@
     position.value = setCenter();
     window.addEventListener("mousemove", runAway);
     window.addEventListener("touchmove", runAway);
+  });
+
+  onBeforeUnmount(() => {
+    mainContainerToRunAway.value = null;
+    buttonRunAway.value = null;
   });
 
   onUnmounted(() => {

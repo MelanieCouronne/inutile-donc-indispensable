@@ -14,12 +14,16 @@ const getRandomNumber = (min, max) =>
 /***
  * Helper function pour récupérer les dimensions d'un container en ref dans le DOM
  * @param {Variable} refContainer nom du container en ref
- * @returns {Object} dimensions du container (width, height)
+ * @returns {Object} dimensions du container (containerWidth, containerHeight)
  */
 
 const getContainerDimensions = (refContainer) => {
-  const containerWidth = refContainer?.value.clientWidth || 0;
-  const containerHeight = refContainer?.value.clientHeight || 0;
+  if (!refContainer || !refContainer.value) {
+    console.error("La ref est null ou undefined");
+    return { containerWidth: 0, containerHeight: 0 };
+  }
+  const containerWidth = refContainer.value.clientWidth || 0;
+  const containerHeight = refContainer.value.clientHeight || 0;
   // console.log(
   //   "🚀 ~ Container ~ w: " + containerWidth + " - h: " + containerHeight
   // );
