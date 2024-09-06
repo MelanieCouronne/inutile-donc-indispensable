@@ -88,7 +88,8 @@
     border: 5px solid #000000;
     display: grid;
     grid-auto-flow: dense;
-    grid-auto-rows: minmax(120px, 10%);
+    /* taille d'une ligne de grille créée de façon implicite c-a-d non définit par template-row */
+    grid-auto-rows: 120px;
     grid-gap: 5px;
     grid-template-columns: repeat(5, minmax(50px, 1fr));
     width: 60%;
@@ -101,7 +102,7 @@
 
   @media (max-width: 768px) {
     .mondrian-container {
-      grid-auto-rows: minmax(60px, 10%);
+      grid-auto-rows: 60px;
       grid-template-columns: repeat(3, minmax(20px, 1fr));
     }
   }
