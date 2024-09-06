@@ -19,6 +19,7 @@
   import { getContainerDimensions, getRandomItem } from "@/utils/toolsBox";
 
   const greenColors = ["#9be9a8", "#40c463", "#30a14e", "#216e39"];
+
   const squares = ref([]);
   const mainContainer = ref(null);
 
@@ -27,6 +28,7 @@
     event.target.style.backgroundColor = color;
   };
 
+  // Calcul du nombre de carrés à afficher
   const getTotalSquares = () => {
     const { containerWidth, containerHeight } =
       getContainerDimensions(mainContainer);
@@ -41,6 +43,13 @@
     return numberOfSquares;
   };
 
+  /**
+   * Fonction qui met à jour le tableau réactif `squares` avec un nouveau tableau de longueur
+   * déterminée par la largeur du conteneur.
+   *
+   * Chaque élément du tableau est fill avec `null` pour initialisé une valeur et
+   * ne pas avoir un tableau vide.
+   */
   const updateSquares = () => {
     squares.value = Array(getTotalSquares()).fill(null);
   };
@@ -51,6 +60,7 @@
     updateSquares();
     window.addEventListener("resize", updateSquares);
 
+    // On écoute le changement de la variable `sidebarToggled` (sur Mobile) pour mettre à jour les carrés
     watch(
       () => eventBus.sidebarToggled,
       () => {
