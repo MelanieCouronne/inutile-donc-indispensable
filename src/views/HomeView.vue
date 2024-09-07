@@ -32,6 +32,7 @@
       <component :is="componentsMap[activeComponent]" />
     </Transition>
   </main>
+  <footer><FooterLayout /></footer>
 </template>
 
 <script setup>
@@ -42,6 +43,7 @@
   import MondrianFrames from "@/components/layouts/MondrianFrames.vue";
   import SideBar from "@/components/navigation/SideBar.vue";
   import NotificationView from "@/components/commun/ui/NotificationTemplate.vue";
+  import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
 
   /*****************************************
    *      Activation des coposants          *

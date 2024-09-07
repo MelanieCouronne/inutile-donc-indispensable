@@ -1,15 +1,15 @@
 <template>
-  <footer class="absolute inset-x-0 bottom-0 p-4">
-    <p class="text-xs font-light text-gray-500 text-center">
+  <footer class="absolute bottom-0 right-0 px-5">
+    <p class="text-xs font-light text-gray-400 text-center">
       Fait avec
       <span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="#F43F5E"
+          fill="#FDA4AF"
           viewBox="0 0 24 24"
           stroke-width="1.4"
-          stroke="#F43F5E"
-          class="size-4 inline-block"
+          stroke="#FDA4AF"
+          class="size-4 inline-block animate-pulse"
         >
           <path
             stroke-linecap="round"
@@ -19,8 +19,23 @@
         </svg>
       </span>
       mais aussi avec
-      <span><img src="/logos/vuejs-icon.svg" alt="Vue.js" /></span> et
-      <span><img src="/logos/tailwindcss-icon.svg" alt="TailwindCSS" /></span>
+      <span
+        ><a href="https://router.vuejs.org/installation.html" target="_blank"
+          ><img
+            src="/logos/vuejs-icon.svg"
+            alt="Vue.js"
+            title="Vue.js"
+            class="grayscale hover:filter-none" /></a
+      ></span>
+      et
+      <span
+        ><a href="https://tailwindcss.com/docs/installation" target="_blank"
+          ><img
+            src="/logos/tailwindcss-icon.svg"
+            alt="TailwindCSS"
+            title="TailwindCSS"
+            class="grayscale hover:filter-none" /></a
+      ></span>
     </p>
   </footer>
 </template>

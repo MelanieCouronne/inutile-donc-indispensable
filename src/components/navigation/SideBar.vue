@@ -138,7 +138,6 @@
             </button>
           </div>
         </div>
-        <FooterLayout />
       </div>
     </div>
   </div>
@@ -147,7 +146,6 @@
 <script setup>
   import { computed, inject, onMounted, onUnmounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/buttons/ButtonSideBar.vue";
-  import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
   import eventBus from "@/utils/directives/eventBus.js";
   import { getRandomItem } from "@/utils/toolsBox";
 
