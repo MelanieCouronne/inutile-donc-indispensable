@@ -16,12 +16,45 @@
           }}</span>
         </div>
         <div class="text-secondary text-left ml-2.5">
-          <h2>{{ conference.conference.intitule }}</h2>
+          <h2>{{ conference.conference.titre }}</h2>
           <h5>
-            <span class="material-symbols-outlined">schedule</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-3"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
+            </svg>
+
             {{ conference.conference.journee }}
             {{ conference.conference.heureDebut }} |
-            <span class="material-symbols-outlined">location_on</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+              />
+            </svg>
+
             {{ conference.conference.lieu }}
           </h5>
         </div>
@@ -32,14 +65,28 @@
         ></div>
 
         <img
-          :src="`${conference.conference.urlAvatar}`"
+          :src="`${conference.conference.urlPhotoAuteur}`"
           alt=""
           class="z-20 absolute left-5 w-12 rounded-full speaker-animation"
         />
 
         <p class="text-md font-bold text-secondary ml-20 speaker-animation">
-          <span class="material-symbols-outlined">keyboard_voice</span>
-          {{ conference.conference.speaker }}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
+            />
+          </svg>
+
+          {{ conference.conference.auteur }}
         </p>
       </div>
       <div class="flex justify-end mt-8">
@@ -75,11 +122,11 @@
   }
 
   .speaker-animation {
-    /* animation-duration: 3s;
+    animation-duration: 3s;
     animation-name: slidein;
     animation-direction: normal;
     animation-delay: 1s;
-    animation-fill-mode: backwards; */
+    animation-fill-mode: backwards;
   }
 
   .speaker-animation:nth-child(2) {
