@@ -27,6 +27,22 @@
 
   const conferences = ref([]);
 
+  const listeRedirections = [
+    { name: "Code du travail", path: "/" },
+    { name: "Code pénal", path: "/" },
+    { name: "Code civil", path: "/" },
+    { name: "Code de la sécurité sociale", path: "/" },
+    { name: "Code de la santé publique", path: "/" },
+    { name: "Code de l'éducation", path: "/" },
+    { name: "Code de l'environnement", path: "/" },
+    { name: "Code de la construction et de l'habitation", path: "/" },
+    { name: "Code de l'urbanisme", path: "/" },
+    { name: "Code de la route", path: "/" },
+    { name: "Code de la propriété intellectuelle", path: "/" },
+    { name: "Code de la consommation", path: "/" },
+    { name: "Code de la famille", path: "/" },
+  ];
+
   conferences.value = datas.datas
     .sort(() => Math.random() - Math.random())
     .slice(0, 4);
