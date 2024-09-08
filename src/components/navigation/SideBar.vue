@@ -3,7 +3,7 @@
     <div id="clickZone" v-click-outside="hideNavigation">
       <button
         @click="toggleNavigation"
-        class="p-2 m-4 border-2 bg-white rounded-md border-gray-200 shadow-lg text-gray-500 focus:bg-teal-500 focus:outline-none focus:text-white absolute top-0 left-0 sm:hidden"
+        class="p-2 m-4 border-2 bg-white dark:bg-slate-800 rounded-md border-gray-200 shadow-lg text-gray-500 dark:text-white focus:bg-teal-500 focus:outline-none focus:text-white absolute top-0 left-0 sm:hidden"
       >
         <svg
           class="w-5 h-5 fill-current"
@@ -20,14 +20,16 @@
       </button>
       <div
         id="sidebar"
-        class="relative bg-white h-screen md:block shadow-xl px-3 w-30 md:w-60 lg:w-60 overflow-x-hidden transition-transform duration-300 ease-in-out"
+        class="relative bg-white dark:bg-slate-800 h-screen md:block shadow-xl px-3 w-30 md:w-60 lg:w-60 overflow-x-hidden transition-transform duration-300 ease-in-out"
         v-if="showNavigation"
       >
         <div class="space-y-6 md:space-y-10 mt-10">
           <h1 class="font-bold text-4xl text-center md:hidden">
             D<span class="text-teal-600">.</span>
           </h1>
-          <h1 class="hidden md:block font-bold text-sm md:text-xl text-center">
+          <h1
+            class="hidden md:block font-bold text-sm md:text-xl text-center dark:text-white"
+          >
             Couronne<span class="text-teal-600">.</span>
           </h1>
 
@@ -43,7 +45,7 @@
               >
                 Mélanie Couronne
               </h2>
-              <p class="text-xs text-gray-500 text-center">
+              <p class="text-xs text-gray-500 dark:text-gray-400 text-center">
                 Développeuse Fullstack
               </p>
             </div>
@@ -51,7 +53,7 @@
 
           <div id="search">
             <div
-              class="flex border-2 border-gray-200 rounded-md focus-within:ring-2 ring-teal-500"
+              class="flex border-2 dark:border border-gray-200 rounded-md focus-within:ring-2 ring-teal-500 dark:ring-teal-400"
             >
               <input
                 v-model="searchQuery"
@@ -62,7 +64,7 @@
               />
               <button
                 @click="emitMessageOnClick"
-                class="rounded-tr-md rounded-br-md px-2 py-3 hidden md:block"
+                class="rounded-tr-md rounded-br-md px-2 py-3 hidden md:block dark:bg-white"
               >
                 <svg
                   class="w-4 h-4 fill-current"
@@ -111,7 +113,7 @@
             <button
               :disabled="remainingMessages <= 0"
               @click="emitMessageOnClick()"
-              class="relative w-full text-left text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white rounded-md transition duration-150 ease-in-out cursor-pointer disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200"
+              class="relative w-full text-left text-sm font-medium text-gray-700 dark:text-gray-600 py-2 px-2 hover:bg-teal-500 hover:text-white rounded-md transition duration-150 ease-in-out cursor-pointer disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200"
             >
               <svg
                 class="w-6 h-6 fill-current inline-block"

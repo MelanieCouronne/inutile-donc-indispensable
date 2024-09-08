@@ -1,14 +1,14 @@
 <template>
   <footer class="absolute bottom-0 right-0 px-5">
-    <p class="text-xs font-light text-gray-400 text-center">
+    <p class="text-xs font-light text-gray-400 dark:text-gray-400 text-center">
       Fait avec
       <span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="#FDA4AF"
+          fill="#F87171"
           viewBox="0 0 24 24"
           stroke-width="1.4"
-          stroke="#FDA4AF"
+          stroke="#F87171"
           class="size-4 inline-block animate-pulse"
         >
           <path
