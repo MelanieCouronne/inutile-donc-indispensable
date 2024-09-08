@@ -6,8 +6,11 @@
       "auteur": "Paul Watson",
       "date": "2020-01-01",
       "lieu": "Paris",
-
-      "quota": 402
+      "journee": "Monday",
+      "heure": "14h00",
+      "quota": 402,
+      "urlAuteur": "/images/portraits/2387345324582372373272452458.png",
+      "urlConference": "/images/conferences/conference.jpg"
     },
     {
       "id": 2,
@@ -15,8 +18,11 @@
       "auteur": "Guillaume Canette",
       "date": "2020-01-01",
       "lieu": "Montpellier",
-
-      "quota": 200
+      "journee": "Tuesday",
+      "heure": "15h00",
+      "quota": 200,
+      "urlAuteur": "/images/portraits/123786782453786245237837.png",
+      "urlConference": "/images/conferences/cemetery.jpg"
     },
     {
       "id": 3,
@@ -24,17 +30,23 @@
       "auteur": "Juliette Binocle",
       "date": "2020-01-01",
       "lieu": "Strasbourg",
-
-      "quota": 200
+      "journee": "Wednesday",
+      "heure": "16h00",
+      "quota": 200,
+      "urlAuteur": "/images/portraits/234586578642268678.png",
+      "urlConference": "/images/conferences/anastasiya-badun-EbLYbIy4jAQ-unsplash.jpg"
     },
     {
       "id": 4,
       "titre": "How to mess up something good by looking for something better to end up with something worse",
-      "auteur": "Linda",
+      "auteur": "Jae Hogan",
       "date": "2020-01-01",
-      "lieu": "Paris",
-
-      "quota": 300
+      "lieu": "Lille",
+      "journee": "Thursday",
+      "heure": "12h12",
+      "quota": 300,
+      "urlAuteur": "/images/portraits/7536743248964524584.png",
+      "urlConference": "/images/conferences/igor-omilaev-4KFAGIu-Abk-unsplash.jpg"
     },
     {
       "id": 5,
@@ -42,71 +54,95 @@
       "auteur": "Hubert Bonisseur de la Bath",
       "date": "2020-01-01",
       "lieu": "Paris",
-
-      "quota": 102
+      "journee": "Friday",
+      "heure": "17h00",
+      "quota": 102,
+      "urlAuteur": "/images/portraits/11234834832486483467867.png",
+      "urlConference": "/images/conferences/timothy-dykes-yd4ubMUNTG0-unsplash.jpg"
     },
     {
       "id": 6,
       "titre": "How to spend your whole life worrying about what other people think about you only to realize when you're old that nobody was thinking about you in the first place",
-      "auteur": "Linda",
+      "auteur": "Polly Cameron",
       "date": "2020-01-01",
-      "lieu": "Paris",
-
-      "quota": 403
+      "lieu": "Lyon",
+      "journee": "Saturday",
+      "heure": "18h00",
+      "quota": 403,
+      "urlAuteur": "/images/portraits/36967823452348248245.png",
+      "urlConference": "/images/conferences/austin-chan-ukzHlkoz1IE-unsplash.jpg"
     },
     {
       "id": 7,
       "titre": "How to always do what you have always done and therefore always get what you have always got",
-      "auteur": "Linda",
+      "auteur": "Elinor Bray",
       "date": "2020-01-01",
       "lieu": "Paris",
-
-      "quota": 103
+      "journee": "Sunday",
+      "heure": "14h30",
+      "quota": 103,
+      "urlAuteur": "/images/portraits/123798696562456786764.png",
+      "urlConference": "/images/conferences/tim-mossholder-vdhNO4mGQ14-unsplash.jpg"
     },
     {
       "id": 8,
       "titre": "How to sit back, do nothing and criticize everybody else",
-      "auteur": "Catherine and Liliane",
+      "auteur": "Ralph Gould",
       "date": "2020-01-01",
       "lieu": "Metz",
-
-      "quota": 409
+      "journee": "Monday",
+      "heure": "15h00",
+      "quota": 409,
+      "urlAuteur": "/images/portraits/4537893452782.png",
+      "urlConference": "/images/conferences/harli-marten-M9jrKDXOQoU-unsplash.jpg"
     },
     {
       "id": 9,
       "titre": "How to want it when you can't have it and get it when you don't want it",
-      "auteur": "Linda",
+      "auteur": "Santa Claus",
       "date": "2020-01-01",
-      "lieu": "Paris",
-
-      "quota": 417
+      "lieu": "Marseille",
+      "journee": "Tuesday",
+      "heure": "16h15",
+      "quota": 417,
+      "urlAuteur": "/images/portraits/453483645278278237.png",
+      "urlConference": "/images/conferences/charlesdeluvio-_p-DIj5LJKc-unsplash.jpg"
     },
     {
       "id": 10,
       "titre": "How to make your parents sad with your poor choices",
-      "auteur": "Linda",
+      "auteur": "Ivan Chaney",
       "date": "2020-01-01",
       "lieu": "Paris",
-
-      "quota": 451
+      "journee": "Wednesday",
+      "heure": "18h00",
+      "quota": 451,
+      "urlAuteur": "/images/portraits/239876978678687324567867345.png",
+      "urlConference": "/images/conferences/pineapple-supply-co-qWlkCwBnwOE-unsplash.jpg"
     },
     {
       "id": 11,
       "titre": "How to be sorry but not sorry enough not to do it again",
-      "auteur": "Linda",
+      "auteur": "Johnnie Pitts",
       "date": "2020-01-01",
       "lieu": "Paris",
-
-      "quota": 425
+      "journee": "Thursday",
+      "heure": "10h00",
+      "quota": 425,
+      "urlAuteur": "/images/portraits/4787753827525735732786724.png",
+      "urlConference": "/images/conferences/vadim-bogulov-MfBnqUOz_qY-unsplash.jpg"
     },
     {
       "id": 12,
       "titre": "How to avoid problems by not being born",
       "auteur": "Marion Cotillon",
       "date": "2020-01-01",
-      "lieu": "Salle Pleyel",
-
-      "quota": 407
+      "lieu": "Bordeaux",
+      "journee": "Friday",
+      "heure": "11h00",
+      "quota": 407,
+      "urlAuteur": "/images/portraits/9678234537752453286578248.png",
+      "urlConference": "/images/conferences/jeshoots-com-fzOITuS1DIQ-unsplash.jpg"
     },
     {
       "id": 13,
@@ -114,17 +150,23 @@
       "auteur": "Paul Hush",
       "date": "2020-01-01",
       "lieu": "Paris",
-
-      "quota": 426
+      "journee": "Saturday",
+      "heure": "10h30",
+      "quota": 426,
+      "urlAuteur": "/images/portraits/134863453248678876786.png",
+      "urlConference": "/images/conferences/smart.jpg"
     },
     {
       "id": 14,
       "titre": "How to play by the rules and end up poor",
-      "auteur": "Robin Hood",
+      "auteur": "Paul Hammer",
       "date": "2020-01-01",
       "lieu": "Sherwood",
-
-      "quota": 502
+      "journee": "Sunday",
+      "heure": "13h00",
+      "quota": 502,
+      "urlAuteur": "/images/portraits/4234536453245836783782.png",
+      "urlConference": "/images/conferences/ian-talmacs-4kuAvNfHEzI-unsplash.jpg"
     }
   ]
 }

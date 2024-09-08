@@ -3,7 +3,7 @@
     <CardTemplateTail
       v-for="conference in conferences"
       :key="conference.id"
-      :datas="conference"
+      :conference="conference"
       :lien="getRandomItem(listeRedirections)"
     />
   </div>
@@ -22,8 +22,6 @@
     { name: "Code pénal", url: "http://www.google.fr" },
     { name: "Code civil", url: "http://www.google.fr" },
     { name: "Code de la sécurité sociale", url: "http://www.google.fr" },
-    { name: "Code de la santé publique", url: "http://www.google.fr" },
-    { name: "Code de l'éducation", url: "http://www.google.fr" },
     { name: "Code de l'environnement", url: "http://www.google.fr" },
     {
       name: "Code de la construction et de l'habitation",
@@ -35,8 +33,6 @@
       name: "Code de la propriété intellectuelle",
       url: "http://www.google.fr",
     },
-    { name: "Code de la consommation", url: "http://www.google.fr" },
-    { name: "Code de la famille", url: "http://www.google.fr" },
   ];
 
   conferences.value = datasImported.datas

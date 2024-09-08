@@ -11,6 +11,13 @@ const getRandomIndex = (array) => {
 const getRandomNumber = (min, max) =>
   Math.floor(Math.random() * (max - min + 1) + min);
 
+// Tronquer un texte trop long
+const getTruncateText = (text, maxLength) => {
+  if (text.length <= maxLength) return text;
+
+  return text.slice(0, maxLength) + "...";
+};
+
 /***
  * Helper function pour récupérer les dimensions d'un container en ref dans le DOM
  * @param {Variable} refContainer nom du container en ref
@@ -52,6 +59,7 @@ export {
   getRandomItem,
   getRandomIndex,
   getRandomNumber,
+  getTruncateText,
   getContainerDimensions,
   getViewportDimensions,
 };

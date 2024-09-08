@@ -2,7 +2,7 @@
   <a :href="`${lien.url}`" target="_blank" rel="noopener noreferrer">
     <div class="flex w-auto bg-white rounded-xl shadow m-3 p-5">
       <img
-        :src="`${conference.datas.urlPhoto}`"
+        :src="`${conference.urlConference}`"
         alt=""
         class="w-44 rounded-3xl"
       />
@@ -11,13 +11,13 @@
           <div
             class="uppercase text-primary bg-secondary rounded-lg text-center py-2 px-2.5 leading-6"
           >
-            <span class="text-sm font-bold">{{ conference.datas.mois }}</span
+            <span class="text-sm font-bold">{{ conference.mois }}</span
             ><br /><span class="text-2xl leading-3 font-extrabold">{{
-              conference.datas.jour
+              conference.jour
             }}</span>
           </div>
           <div class="text-secondary text-left ml-2.5">
-            <h2>{{ conference.datas.titre }}</h2>
+            <h2>{{ getTruncateText(conference.titre, 70) }}</h2>
             <h5>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -34,8 +34,8 @@
                 />
               </svg>
 
-              {{ conference.datas.journee }}
-              {{ conference.datas.heureDebut }} |
+              {{ conference.journee }}
+              {{ conference.heure }} |
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -56,7 +56,7 @@
                 />
               </svg>
 
-              {{ conference.datas.lieu }}
+              {{ conference.lieu }}
             </h5>
           </div>
         </div>
@@ -66,7 +66,7 @@
           ></div>
 
           <img
-            :src="`${conference.datas.urlPhotoAuteur}`"
+            :src="`${conference.urlAuteur}`"
             alt=""
             class="z-20 absolute left-5 w-12 rounded-full speaker-animation"
           />
@@ -87,7 +87,7 @@
               />
             </svg>
 
-            {{ conference.datas.auteur }}
+            {{ conference.auteur }}
           </p>
         </div>
         <div class="flex justify-end mt-8">
@@ -96,7 +96,7 @@
           >
             <span
               class="text-secondary bg-primary rounded-full mr-1 py-0.5 px-3"
-              >{{ conference.datas.quota }}</span
+              >{{ conference.quota }}</span
             >
             Places
           </p>
@@ -107,13 +107,14 @@
 </template>
 
 <script setup>
-  const conference = defineProps(["datas", "lien"]);
+  import { getTruncateText } from "@/utils/toolsBox";
+  const { conference, lien } = defineProps(["conference", "lien"]);
 </script>
 
 <style scoped>
   h2 {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
     line-height: 1.1;
   }
 
