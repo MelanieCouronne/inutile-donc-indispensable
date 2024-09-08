@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import PresentationView from "@/components/layouts/PresentationView.vue";
-import ActivitySquares from "@/components/layouts/ActivitySquares.vue";
+import GitHubActivity from "@/components/layouts/GithubActivity.vue";
 import ColorfulRods from "@/components/layouts/ColorfulRods.vue";
 import ElusiveView from "@/components/layouts/ElusiveView.vue";
 import MondrianFrames from "@/components/layouts/MondrianFrames.vue";
@@ -28,7 +28,7 @@ const router = createRouter({
         {
           path: "composant-inutile-1",
           name: "squares",
-          component: ActivitySquares,
+          component: GitHubActivity,
         },
         {
           path: "composant-inutile-2",

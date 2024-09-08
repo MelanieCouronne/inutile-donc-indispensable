@@ -86,7 +86,7 @@
               @buttonClicked="selectComponent"
               svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
               title="Composant inutile n°1"
-              componentName="ActivitySquares"
+              componentName="GitHubActivity"
             />
 
             <ButtonSideBar
@@ -130,7 +130,7 @@
               </svg>
               <span
                 v-if="remainingMessages > 0"
-                class="absolute -top-1 left-4 rounded-full bg-red-500 p-0.5 px-1.5 text-xs text-red-50"
+                class="absolute -top-1 left-4 rounded-full bg-red-500 dark:bg-rose-700 p-0.5 px-1.5 text-xs text-red-50 dark:text-rose-300"
                 >{{ remainingMessages }}</span
               >
               <span

@@ -4,7 +4,7 @@
       <div
         v-for="(rod, index) in rods"
         :key="index"
-        class="rod-activity"
+        class="rod-activity bg-gray-200 dark:bg-slate-800"
         @mouseover="addColor"
         @touchstart="addColor"
         @touchmove="addColor"
@@ -124,7 +124,6 @@
   }
 
   .rod-activity {
-    background-color: rgb(234, 237, 240);
     outline: 1px solid rgba(27, 31, 35, 0.06);
     outline-offset: -1px;
     margin: 0px 2px;

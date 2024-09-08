@@ -38,7 +38,7 @@
 <script setup>
   import { provide, ref } from "vue";
   import ColorfulRods from "@/components/layouts/ColorfulRods.vue";
-  import ActivitySquares from "@/components/layouts/ActivitySquares.vue";
+  import GitHubActivity from "@/components/layouts/GithubActivity.vue";
   import ElusiveView from "@/components/layouts/ElusiveView.vue";
   import MondrianFrames from "@/components/layouts/MondrianFrames.vue";
   import SideBar from "@/components/navigation/SideBar.vue";
@@ -49,12 +49,12 @@
    *      Activation des coposants          *
    ******************************************/
 
-  const activeComponent = ref("ActivitySquares");
+  const activeComponent = ref("GitHubActivity");
   provide("activeComponentKey", activeComponent);
 
   const componentsMap = {
     ColorfulRods,
-    ActivitySquares,
+    GitHubActivity,
     ElusiveView,
     MondrianFrames,
   };
