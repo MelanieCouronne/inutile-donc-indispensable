@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-screen w-full flex items-center justify-center overflow-hidden bg-orange-50 font-poppins pb-5"
+    class="h-screen w-full flex items-center justify-center overflow-hidden bg-orange-50 dark:bg-slate-600 font-poppins pb-5"
   >
     <div
       @animationend="handleAnimationEnd"

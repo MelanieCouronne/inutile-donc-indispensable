@@ -57,6 +57,7 @@
             >
               <input
                 v-model="searchQuery"
+                id="search"
                 type="text"
                 class="w-full rounded-tl-md rounded-bl-md px-2 py-3 text-sm text-gray-600 focus:outline-none"
                 placeholder="Notification JCVD"

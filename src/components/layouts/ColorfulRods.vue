@@ -61,16 +61,16 @@
 
     const rodWidth = 11;
 
-    const numberOfrods = Math.floor((containerWidth - 22) / rodWidth);
+    const totalRods = Math.floor((containerWidth - 22) / rodWidth);
 
-    return numberOfrods;
+    return totalRods;
   };
 
   const updateRods = () => {
-    const numberOfRods = getTotalRods();
-    // console.log("🚀 ~ Total ~ " + numberOfRods);
+    const totalRods = getTotalRods();
+    // console.log("🚀 ~ Total ~ " + totalRods);
 
-    if (numberOfRods < 1) return;
+    if (totalRods < 1) return;
     rods.value = Array(getTotalRods()).fill(null);
   };
 
