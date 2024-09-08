@@ -6,9 +6,9 @@
   >
     <div class="flex w-full flex-col items-center space-y-4 sm:items-end">
       <div
-        class="pointer-events-auto w-full max-w-sm md:max-w-md overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+        class="pointer-events-auto w-full max-w-sm md:max-w-md overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black dark:ring-white ring-opacity-5"
       >
-        <div class="p-4">
+        <div class="p-5">
           <div class="flex items-start">
             <div class="flex-shrink-0">
               <img
@@ -32,8 +32,10 @@
               </svg> -->
             </div>
             <div class="ml-3 w-0 flex-1 pt-0.5">
-              <p class="text-sm font-medium text-gray-900">Message de JCVD</p>
-              <p class="mt-1 text-sm text-gray-500">
+              <p class="text-sm font-medium text-gray-900 dark:text-white">
+                Message de JCVD
+              </p>
+              <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
                 &#8220;{{ message }}&#8221;
               </p>
             </div>
@@ -42,7 +44,7 @@
                 @click="emitToCloseNotification"
                 type="button"
                 id="closeNotification"
-                class="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                class="inline-flex rounded-full bg-white dark:bg-slate-800 text-gray-400 dark:text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:ring-teal-400 focus:ring-offset-1"
               >
                 <span class="sr-only">Close</span>
                 <svg
