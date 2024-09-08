@@ -1,23 +1,77 @@
 <template>
-  <div class="flex w-8/12 bg-white rounded-xl shadow m-6 p-5">
-    <img
-      :src="`${conference.conference.urlPhoto}`"
-      alt=""
-      class="w-44 rounded-3xl"
-    />
-    <div class="mx-5 my-0">
-      <div class="flex justify-between items-start">
-        <div
-          class="uppercase text-primary bg-secondary rounded-lg text-center py-2 px-2.5 leading-6"
-        >
-          <span class="text-sm font-bold">{{ conference.conference.mois }}</span
-          ><br /><span class="text-2xl leading-3 font-extrabold">{{
-            conference.conference.jour
-          }}</span>
+  <a :href="`${lien.url}`" target="_blank" rel="noopener noreferrer">
+    <div class="flex w-auto bg-white rounded-xl shadow m-3 p-5">
+      <img
+        :src="`${conference.datas.urlPhoto}`"
+        alt=""
+        class="w-44 rounded-3xl"
+      />
+      <div class="mx-5 my-0">
+        <div class="flex justify-between items-start">
+          <div
+            class="uppercase text-primary bg-secondary rounded-lg text-center py-2 px-2.5 leading-6"
+          >
+            <span class="text-sm font-bold">{{ conference.datas.mois }}</span
+            ><br /><span class="text-2xl leading-3 font-extrabold">{{
+              conference.datas.jour
+            }}</span>
+          </div>
+          <div class="text-secondary text-left ml-2.5">
+            <h2>{{ conference.datas.titre }}</h2>
+            <h5>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-4 inline-block"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                />
+              </svg>
+
+              {{ conference.datas.journee }}
+              {{ conference.datas.heureDebut }} |
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-4 inline-block"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                />
+              </svg>
+
+              {{ conference.datas.lieu }}
+            </h5>
+          </div>
         </div>
-        <div class="text-secondary text-left ml-2.5">
-          <h2>{{ conference.conference.titre }}</h2>
-          <h5>
+        <div class="relative flex justify-items-center items-center mt-8">
+          <div
+            class="z-10 absolute w-12 h-12 rounded-full bg-gradient-to-r to-primary from-secondary speaker-animation"
+          ></div>
+
+          <img
+            :src="`${conference.datas.urlPhotoAuteur}`"
+            alt=""
+            class="z-20 absolute left-5 w-12 rounded-full speaker-animation"
+          />
+
+          <p class="text-md font-base text-secondary ml-20 speaker-animation">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -29,83 +83,31 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
               />
             </svg>
 
-            {{ conference.conference.journee }}
-            {{ conference.conference.heureDebut }} |
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-4 inline-block"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-              />
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-              />
-            </svg>
-
-            {{ conference.conference.lieu }}
-          </h5>
+            {{ conference.datas.auteur }}
+          </p>
         </div>
-      </div>
-      <div class="relative flex justify-items-center items-center mt-8">
-        <div
-          class="z-10 absolute w-12 h-12 rounded-full bg-gradient-to-r to-primary from-secondary speaker-animation"
-        ></div>
-
-        <img
-          :src="`${conference.conference.urlPhotoAuteur}`"
-          alt=""
-          class="z-20 absolute left-5 w-12 rounded-full speaker-animation"
-        />
-
-        <p class="text-md font-bold text-secondary ml-20 speaker-animation">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-2"
+        <div class="flex justify-end mt-8">
+          <p
+            class="text-sm font-light text-white bg-secondary rounded-full m-0 py-1.5 pl-1.5 pr-4"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
-            />
-          </svg>
-
-          {{ conference.conference.auteur }}
-        </p>
-      </div>
-      <div class="flex justify-end mt-8">
-        <p
-          class="text-sm font-light text-white bg-secondary rounded-full m-0 py-1.5 pl-1.5 pr-4"
-        >
-          <span
-            class="text-secondary bg-primary rounded-full mr-1 py-0.5 px-3"
-            >{{ conference.conference.quota }}</span
-          >
-          Places
-        </p>
+            <span
+              class="text-secondary bg-primary rounded-full mr-1 py-0.5 px-3"
+              >{{ conference.datas.quota }}</span
+            >
+            Places
+          </p>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </template>
 
 <script setup>
-  const conference = defineProps(["conference"]);
+  const conference = defineProps(["datas", "lien"]);
 </script>
 
 <style scoped>

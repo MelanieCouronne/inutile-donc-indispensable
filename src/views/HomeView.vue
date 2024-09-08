@@ -7,7 +7,7 @@
       />
     </nav>
   </header>
-  <main class="h-full flex-1">
+  <main class="h-full flex-1 w-full">
     <Transition
       enter-active-class="transform ease-out duration-300 transition"
       enter-from-class="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
@@ -41,6 +41,7 @@
   import GitHubActivity from "@/components/layouts/GithubActivity.vue";
   import ElusiveView from "@/components/layouts/ElusiveView.vue";
   import MondrianFrames from "@/components/layouts/MondrianFrames.vue";
+  import ListView from "@/components/layouts/ListView.vue";
   import SideBar from "@/components/navigation/SideBar.vue";
   import NotificationView from "@/components/commun/ui/NotificationTemplate.vue";
   import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
@@ -57,6 +58,7 @@
     GitHubActivity,
     ElusiveView,
     MondrianFrames,
+    ListView,
   };
 
   /*****************************************

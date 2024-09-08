@@ -86,7 +86,7 @@
     // On surveille le changement de la sidebar pour mettre à jour les barres
     catchWatcher = watch(() => eventBus.sidebarToggled, updateRods);
 
-    // Changer d'array de couleurs toutes les 10 secondes
+    // Changer d'array de couleurs toutes les 3 secondes
     setInterval(() => {
       currentColorArrayIndex =
         (currentColorArrayIndex + 1) % colorArrays.length;

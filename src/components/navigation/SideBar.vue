@@ -61,10 +61,10 @@
                 type="text"
                 class="w-full rounded-tl-md rounded-bl-md px-2 py-3 text-sm text-gray-600 focus:outline-none"
                 placeholder="Notification JCVD"
-                @keyup.enter="emitMessageOnClick"
+                @keyup.enter="selectComponent"
               />
               <button
-                @click="emitMessageOnClick"
+                @click="selectComponent('ListView')"
                 class="rounded-tr-md rounded-br-md px-2 py-3 hidden md:block dark:bg-white"
               >
                 <svg
@@ -82,6 +82,7 @@
               </button>
             </div>
           </div>
+
           <div id="menu" class="flex flex-col items-start space-y-2 text-left">
             <ButtonSideBar
               @buttonClicked="selectComponent"
@@ -200,7 +201,6 @@
 
     remainingMessages.value -= 1;
     emit("displayNotification", { display: true, message });
-    searchQuery.value = "";
   };
 
   /*****************************************
@@ -249,6 +249,7 @@
 
 <script>
   import clickOutside from "@/utils/directives/clickOutside.js";
+  import ListView from "../layouts/ListView.vue";
 
   export default {
     directives: {
