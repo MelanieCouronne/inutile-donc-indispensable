@@ -1,6 +1,6 @@
 <template>
   <button
-    class="z-50 text-sm font-medium text-gray-400 bg-white p-3 hover:bg-teal-500 hover:text-white rounded-full transition duration-150 ease-in-out cursor-pointer flex items-center justify-center border border-gray-400 hover:border-white"
+    class="z-50 text-sm font-medium text-gray-400 dark:text-gray-600 bg-white dark:bg-slate-800 p-3 hover:bg-teal-500 hover:text-white rounded-full transition duration-150 ease-in-out cursor-pointer flex items-center justify-center border border-gray-400 dark:border-gray-600 hover:border-white"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
