@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="(isMobile && isSidebarToggled) || !isMobile"
-    class="grid gap-2 grid-cols-1 md:grid-cols-2 bg-slate-100 dark:bg-slate-900 mt-12 md:mt-0"
+    class="relative grid gap-2 grid-cols-1 md:grid-cols-2 bg-slate-100 dark:bg-slate-900 mt-12 md:mt-0"
   >
     <ConferenceCard
       v-for="(conference, index) in conferences"
@@ -10,17 +10,29 @@
       :lien="listeRedirections[index]"
     />
   </div>
+
+  <!-- MODAL -->
+  <ModalSimple v-show="showModal" @closeModal="handleCloseModal">
+    <template #titre> Super 👍🏻 ! Mais non... </template>
+    <template #texte>
+      Ce que vous cherchiez était sûrement intéressant, mais voilà des
+      conférences qui pourraient bien révolutionner votre vie pour devenir la
+      meilleure version de vous-même, ou presque.
+    </template>
+  </ModalSimple>
 </template>
 
 <script setup>
   import ConferenceCard from "@/components/commun/ui/ConferenceCard.vue";
+  import ModalSimple from "@/components/commun/ui/ModalSimple.vue";
   import datasImported from "@/datas/conferences.json";
-  import { getViewportDimensions } from "@/utils/toolsBox";
-  import eventBus from "@/utils/directives/eventBus.js";
   import { computed, onMounted, ref } from "vue";
+  import eventBus from "@/utils/directives/eventBus.js";
+  import { getViewportDimensions } from "@/utils/toolsBox";
 
   const conferences = ref([]);
   const isMobile = ref(false);
+  const showModal = ref(true);
 
   const listeRedirections = [
     {
@@ -55,7 +67,16 @@
 
   const isSidebarToggled = computed(() => eventBus.sidebarToggled);
 
+  /*****************************************
+   *               Modal                 *
+   ******************************************/
+
+  const handleCloseModal = () => {
+    showModal.value = false;
+  };
+
   onMounted(() => {
     isMobile.value = getViewportDimensions().viewportWidth < 768;
+    showModal.value = true;
   });
 </script>
