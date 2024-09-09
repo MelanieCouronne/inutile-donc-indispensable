@@ -13,9 +13,9 @@
           <div
             class="uppercase text-primary bg-secondary rounded-lg text-center py-2 px-2.5 leading-6"
           >
-            <span class="text-sm font-bold">{{ conference.mois }}</span
+            <span class="text-sm font-bold">{{ mois }}</span
             ><br /><span class="text-2xl leading-3 font-extrabold">{{
-              conference.jour
+              jour
             }}</span>
           </div>
           <div class="text-secondary text-left ml-2.5">
@@ -38,8 +38,8 @@
                 />
               </svg>
 
-              {{ conference.journee }}
-              {{ conference.heure }} |
+              {{ journee }}
+              {{ heure }} |
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -112,13 +112,25 @@
 
 <script setup>
   import { getTruncateText } from "@/utils/toolsBox";
+  import moment from "moment";
+
   const { conference, lien } = defineProps(["conference", "lien"]);
+
+  /*****************************************
+   *         Définition de la date            *
+   ******************************************/
+  // console.log("🚀 ~ date ~ ");
+  const journee = moment(conference.date).format("dddd");
+  // console.log("🚀 ~ journee ~ " + journee);
+  const jour = moment(conference.date).format("DD");
+  // console.log("🚀 ~ jour ~ " + jour);
+  const mois = moment(conference.date).format("MMM");
+  // console.log("🚀 ~ mois ~ " + mois);
+  const heure = moment(conference.date).format("kk:mm");
+  // console.log("🚀 ~ heure ~ " + heure);
 </script>
 
 <style scoped>
-  h5 {
-  }
-
   .speaker-animation {
     animation-duration: 3s;
     animation-name: slidein;
@@ -133,13 +145,6 @@
 
   .speaker-animation:nth-child(3) {
     animation-delay: 3s;
-  }
-
-  .material-symbols-outlined {
-    vertical-align: -2px;
-    font-size: inherit;
-    color: var(--main-color-2);
-    font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
   }
 
   @keyframes slidein {
