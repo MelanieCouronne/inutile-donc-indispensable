@@ -32,7 +32,7 @@
       Cette page n'existe pas
     </p>
     <RouterLink
-      class="mt-3 text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
+      class="mt-3 text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
       :to="{ name: 'accueil' }"
     >
       <p class="p-0">
