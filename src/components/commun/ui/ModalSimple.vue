@@ -4,7 +4,7 @@
       class="relative max-w-xl flex flex-col rounded-xl bg-gray-50 dark:bg-slate-700 text-gray-900 dark:text-white shadow-md border border-gray-300 dark:border-gray-700"
     >
       <div class="p-6">
-        <div class="flex w-full justify-end">
+        <div v-if="showCloseBtn" class="flex w-full justify-end">
           <button
             @click="emitToCloseModal"
             type="button"
@@ -49,6 +49,10 @@
 </template>
 
 <script setup>
+  const props = defineProps({
+    showCloseBtn: { type: Boolean, default: true },
+  });
+
   const emit = defineEmits(["closeModal"]);
 
   const emitToCloseModal = () => {

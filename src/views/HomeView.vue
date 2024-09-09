@@ -46,15 +46,17 @@
   import NotificationView from "@/components/commun/ui/NotificationTemplate.vue";
   import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
   import { getViewportDimensions } from "@/utils/toolsBox";
+  import PresentationView from "@/components/layouts/PresentationView.vue";
 
   /*****************************************
    *      Activation des composants          *
    ******************************************/
 
-  const activeComponent = ref("GitHubActivity");
+  const activeComponent = ref("PresentationView");
   provide("activeComponentKey", activeComponent);
 
   const componentsMap = {
+    PresentationView,
     ColorfulRods,
     GitHubActivity,
     ElusiveView,
