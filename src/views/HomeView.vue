@@ -41,7 +41,7 @@
   import GitHubActivity from "@/components/layouts/GithubActivity.vue";
   import ElusiveView from "@/components/layouts/ElusiveView.vue";
   import MondrianFrames from "@/components/layouts/MondrianFrames.vue";
-  import ListView from "@/components/layouts/ListView.vue";
+  import ConferenceGallery from "@/components/layouts/ConferenceGallery.vue";
   import SideBar from "@/components/navigation/SideBar.vue";
   import NotificationView from "@/components/commun/ui/NotificationTemplate.vue";
   import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
@@ -59,7 +59,7 @@
     GitHubActivity,
     ElusiveView,
     MondrianFrames,
-    ListView,
+    ConferenceGallery,
   };
 
   /*****************************************

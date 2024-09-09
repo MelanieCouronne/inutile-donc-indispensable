@@ -3,7 +3,7 @@
     v-show="(isMobile && isSidebarToggled) || !isMobile"
     class="grid gap-2 grid-cols-1 md:grid-cols-2 bg-slate-100 dark:bg-slate-900 mt-12 md:mt-0"
   >
-    <CardTemplateTail
+    <ConferenceCard
       v-for="(conference, index) in conferences"
       :key="conference.id"
       :conference="conference"
@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-  import CardTemplateTail from "@/components/commun/ui/CardTemplateVsTail.vue";
+  import ConferenceCard from "@/components/commun/ui/ConferenceCard.vue";
   import datasImported from "@/datas/conferences.json";
   import { getViewportDimensions } from "@/utils/toolsBox";
   import eventBus from "@/utils/directives/eventBus.js";

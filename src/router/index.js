@@ -6,7 +6,7 @@ import ColorfulRods from "@/components/layouts/ColorfulRods.vue";
 import ElusiveView from "@/components/layouts/ElusiveView.vue";
 import MondrianFrames from "@/components/layouts/MondrianFrames.vue";
 import WelcomeView from "@/views/WelcomeView.vue";
-import ListView from "@/components/layouts/ListView.vue";
+import ConferenceGallery from "@/components/layouts/ConferenceGallery.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,8 +48,8 @@ const router = createRouter({
         },
         {
           path: "composant-inutile-5",
-          name: "liste-importante",
-          component: ListView,
+          name: "conferences",
+          component: ConferenceGallery,
         },
       ],
     },

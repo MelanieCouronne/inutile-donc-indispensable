@@ -99,11 +99,11 @@
                 id="search"
                 type="text"
                 class="w-full rounded-tl-md rounded-bl-md px-2 py-3 text-sm text-gray-600 focus:outline-none"
-                placeholder="Notification JCVD"
-                @keyup.enter="selectComponent"
+                placeholder="Recherche"
+                @keyup.enter="selectComponent('ConferenceGallery')"
               />
               <button
-                @click="selectComponent('ListView')"
+                @click="selectComponent('ConferenceGallery')"
                 class="rounded-tr-md rounded-br-md px-2 py-3 md:block dark:bg-white"
               >
                 <svg
@@ -194,6 +194,8 @@
 
   import citations from "@/datas/sagesse_jcvd.json";
 
+  const searchQuery = ref("");
+
   /*****************************************
    *       Activation des composants       *
    ******************************************/
@@ -208,8 +210,6 @@
    ******************************************/
 
   const emit = defineEmits(["displayNotification"]);
-
-  const searchQuery = ref("");
 
   let messagesViewedId = [];
 
@@ -227,7 +227,7 @@
       messagesViewedId.includes(randomItem.id) &&
       messagesViewedId.length < datas.length
     ) {
-      console.log("🚀 ~ Deja vu ~ ");
+      // console.log("🚀 ~ Deja vu ~ ");
 
       randomItem = getRandomItem(datas);
     }
@@ -275,6 +275,10 @@
   const isMobileViewport = computed(() => {
     return viewportDimensions.value.width <= 768;
   });
+
+  /*****************************************
+   *                Search                  *
+   ******************************************/
 
   onMounted(() => {
     updateViewportDimensions();
