@@ -1,10 +1,13 @@
 <template>
-  <div class="grid gap-2 grid-cols-2">
+  <div
+    v-show="(isMobile && isSidebarToggled) || !isMobile"
+    class="grid gap-2 grid-cols-1 md:grid-cols-2"
+  >
     <CardTemplateTail
-      v-for="conference in conferences"
+      v-for="(conference, index) in conferences"
       :key="conference.id"
       :conference="conference"
-      :lien="getRandomItem(listeRedirections)"
+      :lien="listeRedirections[index]"
     />
   </div>
 </template>
@@ -12,30 +15,47 @@
 <script setup>
   import CardTemplateTail from "@/components/commun/ui/CardTemplateVsTail.vue";
   import datasImported from "@/datas/conferences.json";
-  import { getRandomItem } from "@/utils/toolsBox";
-  import { ref } from "vue";
+  import { getViewportDimensions } from "@/utils/toolsBox";
+  import eventBus from "@/utils/directives/eventBus.js";
+  import { computed, onMounted, ref } from "vue";
 
   const conferences = ref([]);
+  const isMobile = ref(false);
 
   const listeRedirections = [
-    { name: "Code du travail", url: "http://www.google.fr" },
-    { name: "Code pénal", url: "http://www.google.fr" },
-    { name: "Code civil", url: "http://www.google.fr" },
-    { name: "Code de la sécurité sociale", url: "http://www.google.fr" },
-    { name: "Code de l'environnement", url: "http://www.google.fr" },
     {
-      name: "Code de la construction et de l'habitation",
-      url: "http://www.google.fr",
+      name: "Code du travail",
+      url: "https://www.boutique-dalloz.fr/code-du-travail-p.html",
     },
-    { name: "Code de l'urbanisme", url: "http://www.google.fr" },
-    { name: "Code de la route", url: "http://www.google.fr" },
+    {
+      name: "Code pénal",
+      url: "https://www.boutique-dalloz.fr/code-penal-p.html",
+    },
+    {
+      name: "Code civil",
+      url: "https://www.boutique-dalloz.fr/code-civil-p.html",
+    },
+    {
+      name: "Code de la sécurité sociale",
+      url: "https://www.boutique-dalloz.fr/code-de-la-securite-sociale-p.html",
+    },
+    {
+      name: "Code de la route",
+      url: "https://www.boutique-dalloz.fr/code-de-la-route-p.html",
+    },
     {
       name: "Code de la propriété intellectuelle",
-      url: "http://www.google.fr",
+      url: "https://www.boutique-dalloz.fr/code-de-la-propriete-intellectuelle-p.html",
     },
   ];
 
   conferences.value = datasImported.datas
     .sort(() => Math.random() - Math.random())
     .slice(0, 6);
+
+  const isSidebarToggled = computed(() => eventBus.sidebarToggled);
+
+  onMounted(() => {
+    isMobile.value = getViewportDimensions().viewportWidth < 768;
+  });
 </script>

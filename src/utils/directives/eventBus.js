@@ -1,5 +1,5 @@
 import { reactive } from "vue";
 
-const eventBus = reactive({});
+const eventBus = reactive({ sidebarToggled: false });
 
 export default eventBus;

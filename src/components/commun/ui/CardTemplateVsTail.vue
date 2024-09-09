@@ -1,10 +1,12 @@
 <template>
   <a :href="`${lien.url}`" target="_blank" rel="noopener noreferrer">
-    <div class="flex w-auto bg-white rounded-xl shadow m-3 p-5">
+    <div
+      class="flex flex-col md:flex-row w-auto items-center bg-white rounded-xl shadow m-3 p-5"
+    >
       <img
         :src="`${conference.urlConference}`"
         alt=""
-        class="w-44 rounded-3xl"
+        class="w-auto md:w-44 mb-5 md:mb-0 rounded-3xl"
       />
       <div class="mx-5 my-0">
         <div class="flex justify-between items-start">
@@ -17,8 +19,10 @@
             }}</span>
           </div>
           <div class="text-secondary text-left ml-2.5">
-            <h2>{{ getTruncateText(conference.titre, 70) }}</h2>
-            <h5>
+            <h2 class="text-md font-bold text-left leading-tight">
+              {{ getTruncateText(conference.titre, 70) }}
+            </h2>
+            <h5 class="text-gray-500 text-sm mt-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -112,16 +116,7 @@
 </script>
 
 <style scoped>
-  h2 {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.1;
-  }
-
   h5 {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #6c6c6c;
   }
 
   .speaker-animation {

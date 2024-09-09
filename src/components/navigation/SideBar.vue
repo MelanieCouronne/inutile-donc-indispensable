@@ -104,7 +104,7 @@
               />
               <button
                 @click="selectComponent('ListView')"
-                class="rounded-tr-md rounded-br-md px-2 py-3 hidden md:block dark:bg-white"
+                class="rounded-tr-md rounded-br-md px-2 py-3 md:block dark:bg-white"
               >
                 <svg
                   class="w-4 h-4 fill-current"
@@ -288,7 +288,6 @@
 
 <script>
   import clickOutside from "@/utils/directives/clickOutside.js";
-  import ListView from "../layouts/ListView.vue";
 
   export default {
     directives: {
