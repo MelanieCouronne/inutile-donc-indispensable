@@ -1,7 +1,7 @@
 <template>
   <a :href="`${lien.url}`" target="_blank" rel="noopener noreferrer">
     <div
-      class="flex flex-col md:flex-row w-auto items-center bg-white rounded-xl shadow m-4 md:m-3 px-5 py-4 md:p-5"
+      class="flex flex-col md:flex-row w-auto items-center bg-white dark:bg-slate-800 rounded-xl shadow dark:shadow-gray-700 m-4 md:m-3 px-5 py-4 md:p-5"
     >
       <img
         :src="`${conference.urlConference}`"
@@ -11,23 +11,23 @@
       <div class="mx-5 my-0">
         <div class="flex justify-between items-start">
           <div
-            class="uppercase text-primary bg-secondary rounded-lg text-center py-2 px-2.5 leading-6"
+            class="uppercase text-primary dark:text-slate-800 bg-secondary dark:bg-emerald-400 rounded-lg text-center py-2 px-2.5 leading-6"
           >
             <span class="text-sm font-bold">{{ mois }}</span
             ><br /><span class="text-2xl leading-3 font-extrabold">{{
               jour
             }}</span>
           </div>
-          <div class="text-secondary text-left ml-2.5">
+          <div class="text-secondary dark:text-gray-200 text-left ml-2.5">
             <h2 class="text-md font-bold text-left leading-tight">
               {{ getTruncateText(conference.titre, 70) }}
             </h2>
-            <h5 class="text-secondary text-sm mt-1">
+            <h5 class="text-secondary dark:text-gray-400 text-sm mt-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                class="size-4 inline-block fill-secondary align-text-top"
+                class="size-4 inline-block fill-secondary dark:fill-emerald-400 align-text-top"
               >
                 <path
                   fill-rule="evenodd"
@@ -42,7 +42,7 @@
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill=""
-                class="size-4 inline-block fill-secondary align-text-top"
+                class="size-4 inline-block fill-secondary dark:fill-emerald-400 align-text-top"
               >
                 <path
                   fill-rule="evenodd"
@@ -65,7 +65,9 @@
             class="z-20 absolute left-5 w-12 rounded-full speaker-animation"
           />
 
-          <p class="text-md font-base text-secondary ml-20 speaker-animation">
+          <p
+            class="text-md font-base text-secondary dark:text-gray-200 ml-20 speaker-animation"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -86,10 +88,10 @@
         </div>
         <div class="flex justify-end mt-8">
           <p
-            class="text-sm font-light text-white bg-secondary rounded-full m-0 py-1.5 pl-1.5 pr-4"
+            class="text-sm font-light text-white dark:text-slate-800 bg-secondary dark:bg-emerald-400 rounded-full m-0 py-1.5 pl-1.5 pr-4"
           >
             <span
-              class="text-secondary bg-primary rounded-full mr-1 py-0.5 px-3"
+              class="text-secondary dark:text-gray-200 bg-primary dark:bg-slate-800 rounded-full mr-1 py-0.5 px-3"
               >{{ conference.quota }}</span
             >
             Places
