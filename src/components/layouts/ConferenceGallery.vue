@@ -18,7 +18,13 @@
     leave-to-class="opacity-0"
     leave-active-class="transition ease-in duration-700"
   >
-    <ModalSimple v-show="showModal" @closeModal="handleCloseModal">
+    <ModalSimple
+      v-show="
+        (isMobile && isSidebarToggled && showModal) || (!isMobile && showModal)
+      "
+      class="absolute w-80 md:w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center"
+      @closeModal="handleCloseModal"
+    >
       <template #titre> Super 👍🏻 ! Mais non... </template>
       <template #texte>
         Ce que vous cherchiez était sûrement intéressant, mais voilà des

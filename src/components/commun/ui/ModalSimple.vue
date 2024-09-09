@@ -1,9 +1,7 @@
 <template>
-  <div
-    class="z-50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-  >
+  <div class="z-50">
     <div
-      class="relative flex flex-col rounded-xl bg-gray-50 dark:bg-slate-700 text-gray-900 dark:text-white shadow-md max-w-xl border border-gray-300 dark:border-gray-700"
+      class="relative max-w-xl flex flex-col rounded-xl bg-gray-50 dark:bg-slate-700 text-gray-900 dark:text-white shadow-md border border-gray-300 dark:border-gray-700"
     >
       <div class="p-6">
         <div class="flex w-full justify-end">
