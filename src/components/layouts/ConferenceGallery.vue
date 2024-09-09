@@ -12,14 +12,21 @@
   </div>
 
   <!-- MODAL -->
-  <ModalSimple v-show="showModal" @closeModal="handleCloseModal">
-    <template #titre> Super 👍🏻 ! Mais non... </template>
-    <template #texte>
-      Ce que vous cherchiez était sûrement intéressant, mais voilà des
-      conférences qui pourraient bien révolutionner votre vie pour devenir la
-      meilleure version de vous-même, ou presque.
-    </template>
-  </ModalSimple>
+  <Transition
+    enter-from-class="opacity-0"
+    enter-active-class="transition ease-in duration-900"
+    leave-to-class="opacity-0"
+    leave-active-class="transition ease-in duration-700"
+  >
+    <ModalSimple v-show="showModal" @closeModal="handleCloseModal">
+      <template #titre> Super 👍🏻 ! Mais non... </template>
+      <template #texte>
+        Ce que vous cherchiez était sûrement intéressant, mais voilà des
+        conférences qui pourraient bien révolutionner votre vie pour devenir la
+        meilleure version de vous-même, ou presque.
+      </template>
+    </ModalSimple>
+  </Transition>
 </template>
 
 <script setup>
@@ -32,7 +39,7 @@
 
   const conferences = ref([]);
   const isMobile = ref(false);
-  const showModal = ref(true);
+  const showModal = ref(false);
 
   const listeRedirections = [
     {
@@ -77,6 +84,8 @@
 
   onMounted(() => {
     isMobile.value = getViewportDimensions().viewportWidth < 768;
-    showModal.value = true;
+    setTimeout(() => {
+      showModal.value = true;
+    }, 2000);
   });
 </script>

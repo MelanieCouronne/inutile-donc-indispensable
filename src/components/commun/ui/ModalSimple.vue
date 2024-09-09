@@ -30,17 +30,12 @@
           <h4
             class="block antialiased tracking-normal text-2xl font-semibold leading-snug text-gray-900 dark:text-white mb-6 mt-4"
           >
-            <slot name="titre">Coucou</slot>
+            <slot name="titre"></slot>
           </h4>
           <p
             class="block antialiased text-base font-light leading-relaxed text-inherit text-[20px] text-gray-500 dark:text-gray-400"
           >
-            <slot name="texte"
-              >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor
-              culpa quae voluptatibus, fugiat, possimus nostrum deserunt
-              provident in officiis illo quidem, odit amet quo impedit dolorem
-              ipsam vitae neque aperiam?</slot
-            >
+            <slot name="texte"></slot>
           </p>
           <!-- <button
               class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm py-3.5 px-7 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none bg-gray-900 gap-3 mt-8"
