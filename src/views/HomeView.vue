@@ -32,11 +32,11 @@
       <component :is="componentsMap[activeComponent]" />
     </Transition>
   </main>
-  <footer><FooterLayout /></footer>
+  <footer v-show="!isMobile"><FooterLayout /></footer>
 </template>
 
 <script setup>
-  import { provide, ref } from "vue";
+  import { computed, provide, ref } from "vue";
   import ColorfulRods from "@/components/layouts/ColorfulRods.vue";
   import GitHubActivity from "@/components/layouts/GithubActivity.vue";
   import ElusiveView from "@/components/layouts/ElusiveView.vue";
@@ -45,9 +45,10 @@
   import SideBar from "@/components/navigation/SideBar.vue";
   import NotificationView from "@/components/commun/ui/NotificationTemplate.vue";
   import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
+  import { getViewportDimensions } from "@/utils/toolsBox";
 
   /*****************************************
-   *      Activation des coposants          *
+   *      Activation des composants          *
    ******************************************/
 
   const activeComponent = ref("GitHubActivity");
@@ -76,4 +77,10 @@
       notification.value.message = "";
     }, 9000);
   };
+
+  /*****************************************
+   *            Mobile Viewport              *
+   ******************************************/
+
+  const isMobile = computed(() => getViewportDimensions().viewportWidth < 768);
 </script>
