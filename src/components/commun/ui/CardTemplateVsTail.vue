@@ -1,7 +1,7 @@
 <template>
   <a :href="`${lien.url}`" target="_blank" rel="noopener noreferrer">
     <div
-      class="flex flex-col md:flex-row w-auto items-center bg-white dark:bg-slate-800 rounded-xl shadow dark:shadow-gray-700 m-4 md:m-3 px-5 py-4 md:p-5"
+      class="flex flex-col md:flex-row w-auto items-center bg-white dark:bg-slate-800 rounded-xl shadow dark:shadow-gray-700 m-4 md:m-3 px-5 py-6 md:p-5"
     >
       <img
         :src="`${conference.urlConference}`"

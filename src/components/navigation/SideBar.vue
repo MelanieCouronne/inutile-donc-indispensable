@@ -3,7 +3,7 @@
     <div id="clickZone" v-click-outside="hideNavigation">
       <button
         @click="toggleNavigation"
-        class="p-2 m-4 border-2 bg-white dark:bg-slate-800 rounded-md border-gray-200 shadow-lg text-gray-500 dark:text-white focus:bg-teal-500 focus:outline-none focus:text-white absolute top-0 left-0 sm:hidden"
+        class="p-2 m-4 border-2 bg-white dark:bg-slate-800 rounded-md border-gray-200 shadow-lg text-gray-500 dark:text-white focus:bg-teal-500 dark:focus:bg-emerald-400 focus:outline-none focus:text-white absolute top-0 left-0 sm:hidden"
       >
         <svg
           class="w-5 h-5 fill-current"
@@ -24,13 +24,13 @@
         v-if="showNavigation"
       >
         <div class="space-y-6 md:space-y-10 mt-10">
-          <h1 class="font-bold text-4xl text-center md:hidden">
-            D<span class="text-teal-600">.</span>
+          <h1 class="font-bold text-4xl text-center md:hidden dark:text-white">
+            C<span class="text-teal-600 dark:text-emerald-400">.</span>
           </h1>
           <h1
             class="hidden md:block font-bold text-sm md:text-xl text-center dark:text-white"
           >
-            Couronne<span class="text-teal-600">.</span>
+            Couronne<span class="text-teal-600 dark:text-emerald-400">.</span>
           </h1>
 
           <div id="profile" class="space-y-3">
@@ -41,7 +41,7 @@
             />
             <div>
               <h2
-                class="font-medium text-xs md:text-sm text-center text-teal-500"
+                class="font-medium text-xs md:text-sm text-center text-teal-500 dark:text-emerald-400"
               >
                 Mélanie Couronne
               </h2>
@@ -58,7 +58,7 @@
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="size-5 inline-block fill-gray-400 hover:fill-gray-800 dark:fill-gray-400 dark:hover:fill-gray-100"
+                    class="size-6 inline-block fill-gray-400 hover:fill-gray-800 dark:fill-gray-400 dark:hover:fill-emerald-400"
                     fill="#9CA3AF"
                     viewBox="-74.4 -120.90175 644.8 725.4105"
                   >
@@ -74,7 +74,7 @@
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="size-5 inline-block fill-gray-400 hover:fill-gray-800 dark:fill-gray-400 dark:hover:fill-gray-100"
+                    class="size-6 inline-block fill-gray-400 hover:fill-gray-800 dark:fill-gray-400 dark:hover:fill-emerald-400"
                     fill="#9CA3AF"
                     viewBox="-11.493675 -16.3118 99.61185 97.8708"
                   >
@@ -154,7 +154,7 @@
             <button
               :disabled="remainingMessages <= 0"
               @click="emitMessageOnClick()"
-              class="relative w-full text-left text-sm font-medium text-gray-700 dark:text-gray-600 py-2 px-2 hover:bg-teal-500 hover:text-white rounded-md transition duration-150 ease-in-out cursor-pointer disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200"
+              class="relative w-full text-left text-sm font-medium text-gray-700 dark:text-gray-600 py-2 px-2 hover:bg-teal-500 dark:hover:bg-emerald-400 hover:text-white dark:hover:text-slate-800 rounded-md transition duration-150 ease-in-out cursor-pointer disabled:bg-slate-50 dark:disabled:bg-slate-900 disabled:text-slate-500 dark:disabled:text-slate-800 disabled:border-slate-200 dark:disabled:border-slate-800"
             >
               <svg
                 class="w-6 h-6 fill-current inline-block"
