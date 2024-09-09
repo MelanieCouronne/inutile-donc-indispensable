@@ -24,6 +24,17 @@
     </Transition>
 
     <Transition
+      v-if="activeComponent === 'PresentationView'"
+      enter-from-class="opacity-0"
+      leave-to-class="opacity-0"
+      enter-active-class="transition duration-1000"
+      leave-active-class="transition duration-800"
+    >
+      <component :is="componentsMap.PresentationView" />
+    </Transition>
+
+    <Transition
+      v-else
       enter-from-class="translate-x-full opacity-0"
       enter-active-class="transition ease-in duration-1000"
       leave-to-class="translate-x-full opacity-0"
