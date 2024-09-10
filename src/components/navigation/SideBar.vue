@@ -3,6 +3,7 @@
     <div id="sidebar" class="relative">
       <button
         @click="toggleNavigation"
+        @toggleSideBar="toggleNavigation"
         class="z-50 p-2 border-2 bg-white dark:bg-slate-800 rounded-md border-gray-200 shadow-lg text-gray-500 dark:text-white focus:bg-teal-500 dark:focus:bg-emerald-400 focus:outline-none focus:text-white absolute top-3 left-3 md:hidden"
       >
         <svg
@@ -253,13 +254,6 @@
   const toggleNavigation = () => {
     showNavigation.value = !showNavigation.value;
     eventBus.sidebarToggled = !eventBus.sidebarToggled;
-  };
-
-  const hideNavigation = () => {
-    if (isMobileViewport.value) {
-      showNavigation.value = false;
-      eventBus.sidebarToggled = !eventBus.sidebarToggled;
-    }
   };
 
   const updateViewportDimensions = () => {
