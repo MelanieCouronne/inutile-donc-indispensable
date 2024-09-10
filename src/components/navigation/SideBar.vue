@@ -98,10 +98,10 @@
               type="text"
               class="w-full rounded-tl-md rounded-bl-md px-2 py-3 text-sm text-gray-600 focus:outline-none"
               placeholder="Recherche"
-              @keyup.enter="selectComponent('ConferenceGallery')"
+              @keyup.enter="handleSearchClick"
             />
             <button
-              @click="selectComponent('ConferenceGallery')"
+              @click="handleSearchClick"
               class="rounded-tr-md rounded-br-md px-2 py-3 md:block dark:bg-white"
             >
               <svg
@@ -188,10 +188,10 @@
 </template>
 
 <script setup>
-  import { inject, onMounted, onUnmounted, ref } from "vue";
+  import { computed, inject, onMounted, onUnmounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/buttons/ButtonSideBar.vue";
   import eventBus from "@/utils/directives/eventBus.js";
-  import { getRandomItem } from "@/utils/toolsBox";
+  import { getRandomItem, getViewportDimensions } from "@/utils/toolsBox";
 
   import citations from "@/datas/sagesse_jcvd.json";
 
@@ -269,6 +269,15 @@
   /*****************************************
    *                Search                  *
    ******************************************/
+
+  const handleSearchClick = () => {
+    selectComponent("ConferenceGallery");
+    if (isMobile.value) {
+      toggleNavigation();
+    }
+  };
+
+  const isMobile = computed(() => getViewportDimensions().viewportWidth < 768);
 
   onMounted(() => {
     updateViewportDimensions();
