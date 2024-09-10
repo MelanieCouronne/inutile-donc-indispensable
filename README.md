@@ -1,5 +1,3 @@
-💬 README template
-
 ![Readme banniere (1)](https://github.com/user-attachments/assets/32ca5569-774b-4a2f-a292-74a593d16c8a)
 
 <br><br>
