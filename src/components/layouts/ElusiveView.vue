@@ -9,7 +9,7 @@
     <button
       ref="buttonRunAway"
       :style="{ left: `${position.x}px`, top: `${position.y}px` }"
-      class="absolute text-base font-medium py-4 px-6 bg-teal-500 text-white rounded-md cursor-pointer transition ease-in-out"
+      class="absolute text-base font-medium py-4 px-6 bg-teal-500 dark:bg-emerald-400 text-white dark:text-slate-800 rounded-md cursor-pointer transition ease-in-out"
     >
       <span>Contactez-moi&nbsp;!</span>
     </button>
