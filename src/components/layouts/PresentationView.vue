@@ -1,11 +1,9 @@
 <template>
-  <div id="main-container" class="flex flex-col items-center justify-center">
-    <ModalSimple
-      v-show="
-        (isMobile && isSidebarToggled && showModal) || (!isMobile && showModal)
-      "
-      :showCloseBtn="false"
-    >
+  <div
+    id="main-container"
+    class="flex flex-col items-center justify-center p-6 md:p-4"
+  >
+    <ModalSimple v-show="showModal" :showCloseBtn="false">
       <template #titre>🫶🏻 Merci de votre visite !</template>
       <template #texte>
         Ci-gît la page fantôme de mon CV, où auraient dû trôner mes compétences
@@ -26,15 +24,15 @@
 </template>
 
 <script setup>
-  import { computed, onMounted, ref } from "vue";
+  import { onMounted, ref } from "vue";
   import ModalSimple from "@/components/commun/ui/ModalSimple.vue";
-  import eventBus from "@/utils/directives/eventBus.js";
+  // import eventBus from "@/utils/directives/eventBus.js";
   import { getViewportDimensions } from "@/utils/toolsBox";
 
   const isMobile = ref(false);
   const showModal = ref(false);
 
-  const isSidebarToggled = computed(() => eventBus.sidebarToggled);
+  // const isSidebarToggled = computed(() => eventBus.sidebarToggled);
 
   onMounted(() => {
     isMobile.value = getViewportDimensions().viewportWidth < 768;
@@ -46,7 +44,7 @@
   #main-container {
     width: 100%;
     height: 100%;
-    padding: 16px;
+    /* padding: 16px; */
     margin: 0;
 
     overflow: hidden;

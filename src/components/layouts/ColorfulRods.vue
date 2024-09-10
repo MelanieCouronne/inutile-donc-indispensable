@@ -61,7 +61,7 @@
 
     const rodWidth = 11;
 
-    const totalRods = Math.floor((containerWidth - 22) / rodWidth);
+    const totalRods = Math.floor((containerWidth - 24) / rodWidth);
 
     return totalRods;
   };
@@ -107,7 +107,8 @@
   #main-container {
     width: 100%;
     height: 100%;
-    padding: 16px;
+    max-height: calc(100vh - 15px);
+    padding: 20px;
     margin: 0;
 
     overflow: hidden;
@@ -119,6 +120,7 @@
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
+    max-height: 100%;
 
     overflow: hidden;
   }
@@ -128,6 +130,7 @@
     outline-offset: -1px;
     margin: 0px 2px;
     height: 100%;
+    max-height: 100%;
     width: 7px;
     overflow: hidden;
     border-radius: 2px;
