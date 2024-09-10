@@ -48,6 +48,7 @@
 
 <script setup>
   import { computed, provide, ref } from "vue";
+
   import ColorfulRods from "@/components/layouts/ColorfulRods.vue";
   import GitHubActivity from "@/components/layouts/GithubActivity.vue";
   import ElusiveView from "@/components/layouts/ElusiveView.vue";

@@ -92,6 +92,6 @@
     isMobile.value = getViewportDimensions().viewportWidth < 768;
     setTimeout(() => {
       showModal.value = true;
-    }, 1800);
+    }, 1200);
   });
 </script>
