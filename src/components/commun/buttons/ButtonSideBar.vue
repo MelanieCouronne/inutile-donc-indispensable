@@ -25,14 +25,14 @@
     componentName: { String, required: true },
   });
 
-  const emit = defineEmits(["buttonClicked", "toggleSidebar"]);
+  const emit = defineEmits(["buttonClicked", "toggleSideBar"]);
 
   const isMobile = computed(() => getViewportDimensions().viewportWidth < 768);
 
   const emitOnClick = () => {
     emit("buttonClicked", props.componentName);
     if (isMobile.value) {
-      emit("toggleSidebar");
+      emit("toggleSideBar");
     }
   };
 </script>

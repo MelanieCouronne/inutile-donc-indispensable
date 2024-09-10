@@ -3,7 +3,6 @@
     <div id="sidebar" class="relative">
       <button
         @click="toggleNavigation"
-        @toggleSideBar="toggleNavigation"
         class="z-50 p-2 border-2 bg-white dark:bg-slate-800 rounded-md border-gray-200 shadow-lg text-gray-500 dark:text-white focus:bg-teal-500 dark:focus:bg-emerald-400 focus:outline-none focus:text-white absolute top-3 left-3 md:hidden"
       >
         <svg
@@ -124,6 +123,7 @@
         <div id="menu" class="flex flex-col items-start space-y-2 text-left">
           <ButtonSideBar
             @buttonClicked="selectComponent"
+            @toggleSideBar="toggleNavigation"
             svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
             title="Composant inutile n°1"
             componentName="GitHubActivity"
@@ -131,6 +131,7 @@
 
           <ButtonSideBar
             @buttonClicked="selectComponent"
+            @toggleSideBar="toggleNavigation"
             svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
             title="Composant inutile n°2"
             componentName="ColorfulRods"
@@ -138,6 +139,7 @@
 
           <ButtonSideBar
             @buttonClicked="selectComponent"
+            @toggleSideBar="toggleNavigation"
             svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
             title="Composant inutile n°3"
             componentName="ElusiveView"
@@ -145,6 +147,7 @@
 
           <ButtonSideBar
             @buttonClicked="selectComponent"
+            @toggleSideBar="toggleNavigation"
             svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
             title="Composant inutile n°4"
             componentName="MondrianFrames"
@@ -185,7 +188,7 @@
 </template>
 
 <script setup>
-  import { computed, inject, onMounted, onUnmounted, ref } from "vue";
+  import { inject, onMounted, onUnmounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/buttons/ButtonSideBar.vue";
   import eventBus from "@/utils/directives/eventBus.js";
   import { getRandomItem } from "@/utils/toolsBox";
@@ -263,10 +266,6 @@
     };
   };
 
-  const isMobileViewport = computed(() => {
-    return viewportDimensions.value.width <= 768;
-  });
-
   /*****************************************
    *                Search                  *
    ******************************************/
@@ -279,14 +278,4 @@
   onUnmounted(() => {
     window.removeEventListener("resize", updateViewportDimensions);
   });
-</script>
-
-<script>
-  import clickOutside from "@/utils/directives/clickOutside.js";
-
-  export default {
-    directives: {
-      clickOutside,
-    },
-  };
 </script>
