@@ -1,6 +1,7 @@
 <template>
   <div
     id="main-container"
+    class="md:p-4"
     ref="mainContainerToRunAway"
     :class="{ 'mobile-margin-top': isMobile }"
     @mousemove="runAway"
@@ -95,7 +96,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 16px;
+    /* padding: 16px; */
   }
   .mobile-margin-top {
     margin-top: 40px;

@@ -1,5 +1,5 @@
 <template>
-  <div id="main-container" ref="mainContainer">
+  <div id="main-container" class="md:p-4" ref="mainContainer">
     <div id="squares-container">
       <div
         v-for="(square, index) in squares"
@@ -90,7 +90,7 @@
   #main-container {
     width: 100%;
     height: 100%;
-    padding: 16px;
+    /* padding: 16px; */
     margin: 0;
 
     overflow: hidden;

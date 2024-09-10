@@ -1,5 +1,8 @@
 <template>
-  <div id="main-container" class="flex flex-col items-center justify-center">
+  <div
+    id="main-container"
+    class="flex flex-col items-center justify-center md:p-4"
+  >
     <ModalSimple
       v-show="
         (isMobile && isSidebarToggled && showModal) || (!isMobile && showModal)
@@ -46,7 +49,7 @@
   #main-container {
     width: 100%;
     height: 100%;
-    padding: 16px;
+    /* padding: 16px; */
     margin: 0;
 
     overflow: hidden;

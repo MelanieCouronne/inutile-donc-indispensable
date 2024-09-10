@@ -1,5 +1,5 @@
 <template>
-  <div id="main-container" ref="mainRodsContainer">
+  <div id="main-container" class="md:p-4" ref="mainRodsContainer">
     <div id="rods-container">
       <div
         v-for="(rod, index) in rods"
@@ -107,7 +107,7 @@
   #main-container {
     width: 100%;
     height: 100%;
-    padding: 16px;
+    /* padding: 16px; */
     margin: 0;
 
     overflow: hidden;

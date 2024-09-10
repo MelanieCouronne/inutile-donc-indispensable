@@ -1,5 +1,5 @@
 <template>
-  <header class="h-full flex-none md:flex-[0.2]">
+  <header class="w-screen h-screen md:h-auto md:flex-[0.2]">
     <nav>
       <SideBar
         @selectComponent="activeComponent = $event"
@@ -7,7 +7,7 @@
       />
     </nav>
   </header>
-  <main class="h-full flex-1 w-full">
+  <main class="md:max-h-screen md:flex-1 md:w-full">
     <Transition
       enter-active-class="transform ease-out duration-300 transition"
       enter-from-class="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
