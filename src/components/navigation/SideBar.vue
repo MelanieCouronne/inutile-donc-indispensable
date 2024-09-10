@@ -283,6 +283,7 @@
     if (isMobile.value) {
       toggleNavigation();
     }
+    searchQuery.value = "";
   };
 
   const isMobile = computed(() => getViewportDimensions().viewportWidth < 768);

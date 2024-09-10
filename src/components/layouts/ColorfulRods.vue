@@ -107,7 +107,7 @@
   #main-container {
     width: 100%;
     height: 100%;
-    max-height: calc(100vh - 20px);
+    max-height: calc(100vh - 15px);
     padding: 20px;
     margin: 0;
 
