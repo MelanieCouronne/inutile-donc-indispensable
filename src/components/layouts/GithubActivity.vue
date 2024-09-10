@@ -1,5 +1,9 @@
 <template>
-  <div id="main-container" class="md:p-4" ref="mainContainer">
+  <div
+    id="main-container"
+    class="pt-4 pr-2 pb-4 pl-4 md:p-4"
+    ref="mainContainer"
+  >
     <div id="squares-container">
       <div
         v-for="(square, index) in squares"
@@ -39,12 +43,12 @@
     const { containerWidth, containerHeight } =
       getContainerDimensions(mainContainer);
 
-    const squareWidth = 16;
-    const squareHeight = 14;
+    const squareWidth = 16; /* w 12 + ml 2 + mr 2 */
+    const squareHeight = 14; /* 12 + 1 + 1 */
 
     const totalSquares =
-      Math.floor((containerWidth - 32) / squareWidth) *
-      Math.floor(containerHeight / squareHeight);
+      Math.floor((containerWidth - 24) / squareWidth) *
+      Math.floor(containerHeight - 32 / squareHeight);
 
     return totalSquares;
   };
@@ -89,7 +93,7 @@
   #main-container {
     width: 100%;
     height: 100%;
-    /* padding: 16px; */
+    max-height: 100vh;
     margin: 0;
 
     overflow: hidden;
