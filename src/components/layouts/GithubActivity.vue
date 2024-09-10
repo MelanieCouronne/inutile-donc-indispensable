@@ -6,7 +6,6 @@
         :key="index"
         class="activity bg-gray-200 dark:bg-slate-800"
         @mouseover="addColor"
-        @touchstart="addColor"
         @touchmove="addColor"
       ></div>
     </div>

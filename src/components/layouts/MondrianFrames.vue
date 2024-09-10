@@ -2,7 +2,7 @@
   <div
     id="main-container"
     ref="mainFrameContainer"
-    class="min-h-full max-h-full flex justify-center flex-col items-center md:p-4"
+    class="min-h-full max-h-full flex justify-center flex-col items-center"
   >
     <div class="mondrian-container">
       <div

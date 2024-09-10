@@ -1,5 +1,5 @@
 <template>
-  <header class="w-screen h-screen md:h-auto md:flex-[0.2]">
+  <header class="md:h-auto md:flex-[0.2]">
     <nav>
       <SideBar
         @selectComponent="activeComponent = $event"
@@ -7,7 +7,7 @@
       />
     </nav>
   </header>
-  <main class="md:max-h-screen md:flex-1 md:w-full">
+  <main class="md:max-h-screen flex-1 md:w-full">
     <Transition
       enter-active-class="transform ease-out duration-300 transition"
       enter-from-class="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
@@ -43,7 +43,7 @@
       <component :is="componentsMap[activeComponent]" />
     </Transition>
   </main>
-  <footer v-show="!isMobile"><FooterLayout /></footer>
+  <footer v-if="!isMobile"><FooterLayout /></footer>
 </template>
 
 <script setup>
