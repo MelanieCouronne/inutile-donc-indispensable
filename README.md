@@ -30,16 +30,16 @@
 
 ### Prérequis
 
-- **Node.js & npm** : Node.js est requis pour exécuter Vite. [Lien d'installation Node.js](https://nodejs.org/)
+**Node.js & npm** : Node.js est requis pour exécuter Vite. [Lien d'installation Node.js](https://nodejs.org/)
 
 ### Installation
 
 1.  **Cloner le dépôt** :
 
-        ```bash
+       
         git clone git@github.com:MelanieCouronne/inutile-donc-indispensable.git
         cd inutile-donc-indispensable
-        ```
+ 
 
 2.  **Configurer les variables d'environnement** :
 
@@ -47,17 +47,17 @@
 
 3.  **Installer les dépendances** :
 
-        ```bash
+     
         npm install
-        ```
+    
 
 ### Utilisation
 
 1.  **Démarrer le serveur de développement Vite** :
 
-        ```bash
+        
         npm run dev
-        ```
+   
 
 <br><br>
 
