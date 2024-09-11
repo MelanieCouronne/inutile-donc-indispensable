@@ -49,19 +49,36 @@
 </template>
 
 <script setup>
-  import { computed, provide, ref } from "vue";
+  import { computed, defineAsyncComponent, provide, ref } from "vue";
 
-  import ColorfulRods from "@/components/layouts/ColorfulRods.vue";
   import GitHubActivity from "@/components/layouts/GithubActivity.vue";
-  import ElusiveView from "@/components/layouts/ElusiveView.vue";
-  import MondrianFrames from "@/components/layouts/MondrianFrames.vue";
-  import ConferenceGallery from "@/components/layouts/ConferenceGallery.vue";
   import SideBar from "@/components/navigation/SideBar.vue";
   import NotificationView from "@/components/commun/ui/NotificationTemplate.vue";
-  import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
-  import { getViewportDimensions } from "@/utils/toolsBox";
   import PresentationView from "@/components/layouts/PresentationView.vue";
+  import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
+
+  import { getViewportDimensions } from "@/utils/toolsBox";
   import eventBus from "@/utils/directives/eventBus";
+
+  /*****************************************
+   *            Imports dynamiques            *
+   ******************************************/
+
+  const ColorfulRods = defineAsyncComponent(() =>
+    import("@/components/layouts/ColorfulRods.vue")
+  );
+
+  const ElusiveView = defineAsyncComponent(() =>
+    import("@/components/layouts/ElusiveView.vue")
+  );
+
+  const MondrianFrames = defineAsyncComponent(() =>
+    import("@/components/layouts/MondrianFrames.vue")
+  );
+
+  const ConferenceGallery = defineAsyncComponent(() =>
+    import("@/components/layouts/ConferenceGallery.vue")
+  );
 
   /*****************************************
    *      Activation des composants          *
