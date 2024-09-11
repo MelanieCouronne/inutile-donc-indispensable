@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="refresh" content="0; url=./index.html">
+  <script>
+    // Redirige vers index.html en conservant le chemin
+    var path = window.location.pathname;
+    var query = window.location.search;
+    window.location.replace("/index.html?redirect=" + path + query);
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>
