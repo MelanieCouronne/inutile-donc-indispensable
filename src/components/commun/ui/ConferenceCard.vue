@@ -19,9 +19,11 @@
               jour
             }}</span>
           </div>
-          <div class="text-secondary dark:text-gray-200 text-left ml-2.5">
+          <div
+            class="text-secondary dark:text-gray-200 text-left ml-2.5 overflow-hidden"
+          >
             <h2 class="text-md font-bold text-left leading-tight">
-              {{ getTruncateText(conference.titre, 70) }}
+              {{ conference.titre }}
             </h2>
             <h5 class="text-secondary dark:text-gray-400 text-sm mt-1">
               <svg
@@ -105,9 +107,8 @@
 
 <script setup>
   import { computed } from "vue";
-  // import { toRefs } from "vue";
-  import { getTruncateText } from "@/utils/toolsBox";
   import moment from "moment";
+  import { getImgUrl } from "@/utils/toolsBox";
 
   const { conference, lien } = defineProps({
     conference: {
@@ -138,17 +139,11 @@
    ******************************************/
 
   const imgConferenceUrl = computed(() => {
-    return `${import.meta.env.VITE_APP_BASE_URL}${conference.urlConference}`;
-    // return new URL(
-    //   `${conference.urlConference}`,
-    //   import.meta.env.VITE_APP_BASE_URL
-    // ).href;
+    return getImgUrl(conference.urlConference);
   });
 
   const imgAuteurUrl = computed(() => {
-    return `${import.meta.env.VITE_APP_BASE_URL}${conference.urlAuteur}`;
-    // return new URL(`${conference.urlAuteur}`, import.meta.env.VITE_APP_BASE_URL)
-    //   .href;
+    return getImgUrl(conference.urlAuteur);
   });
 </script>
 

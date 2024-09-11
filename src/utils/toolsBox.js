@@ -18,6 +18,20 @@ const getTruncateText = (text, maxLength) => {
   return text.slice(0, maxLength) + "...";
 };
 
+/**
+ * Helper function pour récupérer l'url d'une image en fonction de l'environnement
+ * @param {String} path
+ * @returns String
+ */
+
+const getImgUrl = (path) => {
+  const base =
+    process.env.NODE_ENV === "production"
+      ? import.meta.env.VITE_APP_BASE_URL
+      : "/";
+  return `${base}${path}`;
+};
+
 /***
  * Helper function pour récupérer les dimensions d'un container en ref dans le DOM
  * @param {Variable} refContainer nom du container en ref
@@ -60,6 +74,7 @@ export {
   getRandomIndex,
   getRandomNumber,
   getTruncateText,
+  getImgUrl,
   getContainerDimensions,
   getViewportDimensions,
 };
