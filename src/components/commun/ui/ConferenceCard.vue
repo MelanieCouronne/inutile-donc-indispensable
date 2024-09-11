@@ -4,10 +4,14 @@
       class="flex flex-col md:flex-row w-auto items-center bg-white dark:bg-slate-800 rounded-xl shadow dark:shadow-gray-700 m-4 md:m-3 px-5 py-6 md:p-5"
     >
       <img
+        v-if="imageLoaded"
         :src="imgConferenceUrl"
         :alt="`${conference.auteur}`"
+        @load="onImageLoad"
+        @error="onImageError"
         class="w-auto md:w-44 mb-5 md:mb-0 rounded-3xl"
       />
+      <div v-else class="loading-placeholder">Loading...</div>
       <div class="mx-5 my-0">
         <div class="flex justify-between items-start">
           <div
@@ -103,8 +107,8 @@
 </template>
 
 <script setup>
-  import { computed } from "vue";
-  import { toRefs } from "vue";
+  import { computed, onMounted, ref } from "vue";
+  // import { toRefs } from "vue";
   import { getTruncateText } from "@/utils/toolsBox";
   import moment from "moment";
 
@@ -119,7 +123,16 @@
     },
   });
 
+  const imageLoaded = ref(false);
   // const { conference } = toRefs(props);
+
+  const onImageLoad = () => {
+    imageLoaded.value = true;
+  };
+
+  const onImageError = () => {
+    console.error("Failed to load image:", imgConferenceUrl.value);
+  };
 
   /*****************************************
    *         Définition de la date            *
@@ -144,6 +157,13 @@
 
   const imgAuteurUrl = computed(() => {
     return new URL(`${conference.urlAuteur}`, import.meta.url).href;
+  });
+
+  onMounted(() => {
+    const img = new Image();
+    img.src = imgConferenceUrl.value;
+    img.onload = onImageLoad;
+    img.onerror = onImageError;
   });
 </script>
 
