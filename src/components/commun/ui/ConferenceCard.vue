@@ -4,7 +4,7 @@
       class="flex flex-col md:flex-row w-auto items-center bg-white dark:bg-slate-800 rounded-xl shadow dark:shadow-gray-700 m-4 md:m-3 px-5 py-6 md:p-5"
     >
       <img
-        :src="`@/assets/${conference.urlConference}`"
+        :src="imgConferenceUrl"
         :alt="`${conference.auteur}`"
         class="w-auto md:w-44 mb-5 md:mb-0 rounded-3xl"
       />
@@ -60,7 +60,7 @@
           ></div>
 
           <img
-            :src="`${conference.urlAuteur}`"
+            :src="imgAuteurUrl"
             alt=""
             class="z-20 absolute left-5 w-12 rounded-full speaker-animation"
           />
@@ -103,10 +103,23 @@
 </template>
 
 <script setup>
+  import { computed } from "vue";
+  import { toRefs } from "vue";
   import { getTruncateText } from "@/utils/toolsBox";
   import moment from "moment";
 
-  const { conference, lien } = defineProps(["conference", "lien"]);
+  const { conference, lien } = defineProps({
+    conference: {
+      type: Object,
+      required: true,
+    },
+    lien: {
+      type: Object,
+      required: true,
+    },
+  });
+
+  // const { conference } = toRefs(props);
 
   /*****************************************
    *         Définition de la date            *
@@ -120,6 +133,18 @@
   // console.log("🚀 ~ mois ~ " + mois);
   const heure = moment(conference.date).format("kk:mm");
   // console.log("🚀 ~ heure ~ " + heure);
+
+  /*****************************************
+   *             Img dynamiques             *
+   ******************************************/
+
+  const imgConferenceUrl = computed(() => {
+    return new URL(`${conference.urlConference}`, import.meta.url).href;
+  });
+
+  const imgAuteurUrl = computed(() => {
+    return new URL(`${conference.urlAuteur}`, import.meta.url).href;
+  });
 </script>
 
 <style scoped>
