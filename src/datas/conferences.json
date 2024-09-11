@@ -7,8 +7,8 @@
       "date": "2025-01-01 18:15:00",
       "lieu": "Paris",
       "quota": 402,
-      "urlAuteur": "/images/portraits/2387345324582372373272452458.png",
-      "urlConference": "/images/conferences/conference.jpg"
+      "urlAuteur": "images/portraits/2387345324582372373272452458.png",
+      "urlConference": "images/conferences/conference.jpg"
     },
     {
       "id": 2,
@@ -17,8 +17,8 @@
       "date": "2025-02-15 16:00:00",
       "lieu": "Montpellier",
       "quota": 200,
-      "urlAuteur": "/images/portraits/123786782453786245237837.png",
-      "urlConference": "/images/conferences/cemetery.jpg"
+      "urlAuteur": "images/portraits/123786782453786245237837.png",
+      "urlConference": "images/conferences/cemetery.jpg"
     },
     {
       "id": 3,
@@ -27,8 +27,8 @@
       "date": "2025-03-02 14:30:00",
       "lieu": "Strasbourg",
       "quota": 200,
-      "urlAuteur": "/images/portraits/234586578642268678.png",
-      "urlConference": "/images/conferences/anastasiya-badun-EbLYbIy4jAQ-unsplash.jpg"
+      "urlAuteur": "images/portraits/234586578642268678.png",
+      "urlConference": "images/conferences/anastasiya-badun-EbLYbIy4jAQ-unsplash.jpg"
     },
     {
       "id": 4,
@@ -37,8 +37,8 @@
       "date": "2025-05-01 15:30:00",
       "lieu": "Lille",
       "quota": 300,
-      "urlAuteur": "/images/portraits/7536743248964524584.png",
-      "urlConference": "/images/conferences/igor-omilaev-4KFAGIu-Abk-unsplash.jpg"
+      "urlAuteur": "images/portraits/7536743248964524584.png",
+      "urlConference": "images/conferences/igor-omilaev-4KFAGIu-Abk-unsplash.jpg"
     },
     {
       "id": 5,
@@ -47,8 +47,8 @@
       "date": "2025-05-18 12:12:00",
       "lieu": "Paris",
       "quota": 102,
-      "urlAuteur": "/images/portraits/11234834832486483467867.png",
-      "urlConference": "/images/conferences/timothy-dykes-yd4ubMUNTG0-unsplash.jpg"
+      "urlAuteur": "images/portraits/11234834832486483467867.png",
+      "urlConference": "images/conferences/timothy-dykes-yd4ubMUNTG0-unsplash.jpg"
     },
     {
       "id": 6,
@@ -57,8 +57,8 @@
       "date": "2025-06-01 17:15:00",
       "lieu": "Lyon",
       "quota": 403,
-      "urlAuteur": "/images/portraits/36967823452348248245.png",
-      "urlConference": "/images/conferences/austin-chan-ukzHlkoz1IE-unsplash.jpg"
+      "urlAuteur": "images/portraits/36967823452348248245.png",
+      "urlConference": "images/conferences/austin-chan-ukzHlkoz1IE-unsplash.jpg"
     },
     {
       "id": 7,
@@ -67,8 +67,8 @@
       "date": "2025-04-01 17:00:00",
       "lieu": "Paris",
       "quota": 103,
-      "urlAuteur": "/images/portraits/123798696562456786764.png",
-      "urlConference": "/images/conferences/tim-mossholder-vdhNO4mGQ14-unsplash.jpg"
+      "urlAuteur": "images/portraits/123798696562456786764.png",
+      "urlConference": "images/conferences/tim-mossholder-vdhNO4mGQ14-unsplash.jpg"
     },
     {
       "id": 8,
@@ -77,8 +77,8 @@
       "date": "2025-11-29 09:15:00",
       "lieu": "Metz",
       "quota": 409,
-      "urlAuteur": "/images/portraits/4537893452782.png",
-      "urlConference": "/images/conferences/harli-marten-M9jrKDXOQoU-unsplash.jpg"
+      "urlAuteur": "images/portraits/4537893452782.png",
+      "urlConference": "images/conferences/harli-marten-M9jrKDXOQoU-unsplash.jpg"
     },
     {
       "id": 9,
@@ -87,8 +87,8 @@
       "date": "2025-12-24 09:15:00",
       "lieu": "Marseille",
       "quota": 417,
-      "urlAuteur": "/images/portraits/453483645278278237.png",
-      "urlConference": "/images/conferences/charlesdeluvio-_p-DIj5LJKc-unsplash.jpg"
+      "urlAuteur": "images/portraits/453483645278278237.png",
+      "urlConference": "images/conferences/charlesdeluvio-_p-DIj5LJKc-unsplash.jpg"
     },
     {
       "id": 10,
@@ -97,8 +97,8 @@
       "date": "2025-02-01 15:15:00",
       "lieu": "Paris",
       "quota": 451,
-      "urlAuteur": "/images/portraits/239876978678687324567867345.png",
-      "urlConference": "/images/conferences/pineapple-supply-co-qWlkCwBnwOE-unsplash.jpg"
+      "urlAuteur": "images/portraits/239876978678687324567867345.png",
+      "urlConference": "images/conferences/pineapple-supply-co-qWlkCwBnwOE-unsplash.jpg"
     },
     {
       "id": 11,
@@ -107,8 +107,8 @@
       "date": "2025-03-01 10:30:00",
       "lieu": "Paris",
       "quota": 425,
-      "urlAuteur": "/images/portraits/4787753827525735732786724.png",
-      "urlConference": "/images/conferences/vadim-bogulov-MfBnqUOz_qY-unsplash.jpg"
+      "urlAuteur": "images/portraits/4787753827525735732786724.png",
+      "urlConference": "images/conferences/vadim-bogulov-MfBnqUOz_qY-unsplash.jpg"
     },
     {
       "id": 12,
@@ -117,8 +117,8 @@
       "date": "2025-11-14 11:00:00",
       "lieu": "Bordeaux",
       "quota": 407,
-      "urlAuteur": "/images/portraits/9678234537752453286578248.png",
-      "urlConference": "/images/conferences/jeshoots-com-fzOITuS1DIQ-unsplash.jpg"
+      "urlAuteur": "images/portraits/9678234537752453286578248.png",
+      "urlConference": "images/conferences/jeshoots-com-fzOITuS1DIQ-unsplash.jpg"
     },
     {
       "id": 13,
@@ -127,8 +127,8 @@
       "date": "2025-09-07 09:15:00",
       "lieu": "Paris",
       "quota": 426,
-      "urlAuteur": "/images/portraits/134863453248678876786.png",
-      "urlConference": "/images/conferences/smart.jpg"
+      "urlAuteur": "images/portraits/134863453248678876786.png",
+      "urlConference": "images/conferences/smart.jpg"
     },
     {
       "id": 14,
@@ -137,8 +137,8 @@
       "date": "2025-11-12 11:00:00",
       "lieu": "Sherwood",
       "quota": 502,
-      "urlAuteur": "/images/portraits/4234536453245836783782.png",
-      "urlConference": "/images/conferences/ian-talmacs-4kuAvNfHEzI-unsplash.jpg"
+      "urlAuteur": "images/portraits/4234536453245836783782.png",
+      "urlConference": "images/conferences/ian-talmacs-4kuAvNfHEzI-unsplash.jpg"
     }
   ]
 }

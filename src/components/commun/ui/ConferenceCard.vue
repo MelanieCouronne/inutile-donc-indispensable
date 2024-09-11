@@ -138,15 +138,17 @@
    ******************************************/
 
   const imgConferenceUrl = computed(() => {
-    return new URL(
-      `${conference.urlConference}`,
-      import.meta.env.VITE_APP_BASE_URL
-    ).href;
+    return `${import.meta.env.VITE_APP_BASE_URL}${conference.urlConference}`;
+    // return new URL(
+    //   `${conference.urlConference}`,
+    //   import.meta.env.VITE_APP_BASE_URL
+    // ).href;
   });
 
   const imgAuteurUrl = computed(() => {
-    return new URL(`${conference.urlAuteur}`, import.meta.env.VITE_APP_BASE_URL)
-      .href;
+    return `${import.meta.env.VITE_APP_BASE_URL}${conference.urlAuteur}`;
+    // return new URL(`${conference.urlAuteur}`, import.meta.env.VITE_APP_BASE_URL)
+    //   .href;
   });
 </script>
 
