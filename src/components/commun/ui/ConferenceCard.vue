@@ -4,8 +4,8 @@
       class="flex flex-col md:flex-row w-auto items-center bg-white dark:bg-slate-800 rounded-xl shadow dark:shadow-gray-700 m-4 md:m-3 px-5 py-6 md:p-5"
     >
       <img
-        :src="`${conference.urlConference}`"
-        alt=""
+        :src="`@/assets/${conference.urlConference}`"
+        :alt="`${conference.auteur}`"
         class="w-auto md:w-44 mb-5 md:mb-0 rounded-3xl"
       />
       <div class="mx-5 my-0">
