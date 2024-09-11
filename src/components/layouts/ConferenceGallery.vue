@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="(isMobile && isSidebarToggled) || !isMobile"
-    class="relative grid gap-2 grid-cols-1 md:grid-cols-2 bg-slate-100 dark:bg-slate-900 mt-12 md:mt-0"
+    class="relative grid sm:grid-cols-1 md:grid-cols-2 bg-slate-100 dark:bg-slate-900 sm:mt-12 md:mt-0"
   >
     <ConferenceCard
       v-for="(conference, index) in conferences"
