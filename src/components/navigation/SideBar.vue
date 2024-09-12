@@ -1,6 +1,6 @@
 <template>
   <div id="view" class="h-screen flex flex-col">
-    <div id="sidebar" class="relative">
+    <div id="sidebar">
       <button
         @click="toggleNavigation"
         class="z-50 p-2 border-2 bg-white dark:bg-slate-800 rounded-md border-gray-200 shadow-lg text-gray-500 dark:text-white focus:bg-teal-500 dark:focus:bg-emerald-400 focus:outline-none focus:text-white absolute top-3 left-3 md:hidden"
@@ -18,51 +18,56 @@
           ></path>
         </svg>
       </button>
+
       <div
         v-if="showNavigation"
-        class="relative bg-white dark:bg-slate-800 h-screen w-screen md:w-60 lg:w-60 md:block shadow-xl px-3 pt-20 md:pt-4 w-30 overflow-x-hidden transition-transform duration-300 ease-in-out space-y-6 md:space-y-10"
+        class="relative bg-white dark:bg-slate-800 h-screen w-screen md:w-80 lg:w-80 md:block shadow-xl px-5 pt-4 w-30 overflow-x-hidden transition-transform duration-300 ease-in-out space-y-8 md:space-y-10"
       >
         <!-- Dark / Light mode -->
-        <button
-          class="relative cursor-pointer p-2"
-          id="light-switch"
-          @click="toggleTheme"
-        >
-          <svg
-            class="dark:hidden"
-            width="16"
-            height="16"
-            xmlns="http://www.w3.org/2000/svg"
+        <div class="flex justify-end">
+          <button
+            class="cursor-pointer p-2"
+            id="light-switch"
+            @click="toggleTheme"
           >
-            <path
-              class="fill-gray-300"
-              d="M7 0h2v2H7zM12.88 1.637l1.414 1.415-1.415 1.413-1.413-1.414zM14 7h2v2h-2zM12.95 14.433l-1.414-1.413 1.413-1.415 1.415 1.414zM7 14h2v2H7zM2.98 14.364l-1.413-1.415 1.414-1.414 1.414 1.415zM0 7h2v2H0zM3.05 1.706 4.463 3.12 3.05 4.535 1.636 3.12z"
-            />
-            <path
-              class="fill-gray-400"
-              d="M8 4C5.8 4 4 5.8 4 8s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4Z"
-            />
-          </svg>
-          <svg
-            class="hidden dark:block"
-            width="16"
-            height="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              class="fill-slate-400"
-              d="M6.2 1C3.2 1.8 1 4.6 1 7.9 1 11.8 4.2 15 8.1 15c3.3 0 6-2.2 6.9-5.2C9.7 11.2 4.8 6.3 6.2 1Z"
-            />
-            <path
-              class="fill-slate-500"
-              d="M12.5 5a.625.625 0 0 1-.625-.625 1.252 1.252 0 0 0-1.25-1.25.625.625 0 1 1 0-1.25 1.252 1.252 0 0 0 1.25-1.25.625.625 0 1 1 1.25 0c.001.69.56 1.249 1.25 1.25a.625.625 0 1 1 0 1.25c-.69.001-1.249.56-1.25 1.25A.625.625 0 0 1 12.5 5Z"
-            />
-          </svg>
-          <span class="sr-only">Switch to light / dark version</span>
-        </button>
+            <svg
+              class="dark:hidden"
+              width="16"
+              height="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fill-gray-300"
+                d="M7 0h2v2H7zM12.88 1.637l1.414 1.415-1.415 1.413-1.413-1.414zM14 7h2v2h-2zM12.95 14.433l-1.414-1.413 1.413-1.415 1.415 1.414zM7 14h2v2H7zM2.98 14.364l-1.413-1.415 1.414-1.414 1.414 1.415zM0 7h2v2H0zM3.05 1.706 4.463 3.12 3.05 4.535 1.636 3.12z"
+              />
+              <path
+                class="fill-gray-400"
+                d="M8 4C5.8 4 4 5.8 4 8s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4Z"
+              />
+            </svg>
+            <svg
+              class="hidden dark:block"
+              width="16"
+              height="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fill-slate-400"
+                d="M6.2 1C3.2 1.8 1 4.6 1 7.9 1 11.8 4.2 15 8.1 15c3.3 0 6-2.2 6.9-5.2C9.7 11.2 4.8 6.3 6.2 1Z"
+              />
+              <path
+                class="fill-slate-500"
+                d="M12.5 5a.625.625 0 0 1-.625-.625 1.252 1.252 0 0 0-1.25-1.25.625.625 0 1 1 0-1.25 1.252 1.252 0 0 0 1.25-1.25.625.625 0 1 1 1.25 0c.001.69.56 1.249 1.25 1.25a.625.625 0 1 1 0 1.25c-.69.001-1.249.56-1.25 1.25A.625.625 0 0 1 12.5 5Z"
+              />
+            </svg>
+            <span class="sr-only">Switch to light / dark version</span>
+          </button>
+        </div>
 
-        <!-- Profile -->
-        <h1 class="font-bold text-4xl text-center md:hidden dark:text-white">
+        <!-- Nom -->
+        <h1
+          class="font-bold text-4xl text-center py-3 md:hidden dark:text-white"
+        >
           C<span class="text-teal-600 dark:text-emerald-400">.</span>
         </h1>
         <h1
@@ -71,6 +76,7 @@
           Couronne<span class="text-teal-600 dark:text-emerald-400">.</span>
         </h1>
 
+        <!-- Profile -->
         <div id="profile" class="space-y-3">
           <img
             src="/baf30a1701736c9d20c8214fbc31cb84.png"
@@ -79,7 +85,7 @@
           />
           <div>
             <h2
-              class="font-medium text-xs md:text-sm text-center text-teal-500 dark:text-emerald-400"
+              class="font-medium text-sm text-center text-teal-500 dark:text-emerald-400"
             >
               Mélanie Couronne
             </h2>
@@ -162,7 +168,10 @@
         </div>
 
         <!-- Menu -->
-        <div id="menu" class="flex flex-col items-start space-y-2 text-left">
+        <div
+          id="menu"
+          class="flex flex-col items-start space-y-2 md:space-y-3 text-left"
+        >
           <ButtonSideBar
             @buttonClicked="selectComponent"
             @toggleSideBar="toggleNavigation"
