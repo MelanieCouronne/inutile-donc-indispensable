@@ -5,6 +5,7 @@ import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const hash = Math.floor(Math.random() * 90000) + 10000;
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
@@ -23,6 +24,20 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
+      },
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: `assets/[name]` + hash + `.js`,
+          chunkFileNames: `assets/[name]` + hash + `.js`,
+          assetFileNames: `assets/[name]` + hash + `.[ext]`,
+        },
+      },
+      server: {
+        watch: {
+          usePolling: true,
+        },
       },
     },
   };
