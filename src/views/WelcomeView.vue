@@ -6,7 +6,7 @@
       @animationend="handleAnimationEnd"
       v-if="isWelcomeVisible"
       id="cartouche"
-      class="border-4 border-black bg-white py-2 px-6 rounded-3xl flex items-center leading-relaxed drop-shadow-custom hinge"
+      class="border-4 border-black bg-white -mt-12 md:mt-0 py-2 px-6 rounded-3xl flex items-center leading-relaxed drop-shadow-custom hinge"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -66,11 +66,11 @@
     filter: drop-shadow(0 15px 0px rgb(0 0 0 / 0.1));
   }
 
-  .hinge {
+  /* .hinge {
     animation: hinge 2s ease infinite;
     animation-delay: 2s;
     animation-iteration-count: 1;
-  }
+  } */
   @keyframes hinge {
     0% {
       transform: rotate(0);
