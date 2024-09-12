@@ -85,7 +85,7 @@
           />
           <div>
             <h2
-              class="font-medium text-sm text-center text-teal-500 dark:text-emerald-400"
+              class="font-medium text-sm text-center md:tracking-wide text-teal-500 dark:text-emerald-400"
             >
               Mélanie Couronne
             </h2>
@@ -170,7 +170,7 @@
         <!-- Menu -->
         <div
           id="menu"
-          class="flex flex-col items-start space-y-2 md:space-y-3 text-left"
+          class="flex flex-col items-start space-y-2 md:space-y-2 text-left"
         >
           <ButtonSideBar
             @buttonClicked="selectComponent"
@@ -215,10 +215,10 @@
           <button
             :disabled="remainingMessages <= 0"
             @click="emitMessageOnClick()"
-            class="relative w-full text-left text-sm font-medium text-gray-700 dark:text-gray-600 py-2 px-2 hover:bg-teal-500 dark:hover:bg-emerald-400 hover:text-white dark:hover:text-slate-800 rounded-md transition duration-150 ease-in-out cursor-pointer disabled:bg-slate-50 dark:disabled:bg-slate-900 disabled:text-slate-500 dark:disabled:text-slate-800 disabled:border-slate-200 dark:disabled:border-slate-800"
+            class="relative w-full text-left text-sm md:text-xs font-medium text-gray-700 dark:text-gray-600 py-2 px-2 hover:bg-teal-500 dark:hover:bg-emerald-400 hover:text-white dark:hover:text-slate-800 rounded-md transition duration-150 ease-in-out cursor-pointer disabled:bg-slate-50 dark:disabled:bg-slate-900 disabled:text-slate-500 dark:disabled:text-slate-800 disabled:border-slate-200 dark:disabled:border-slate-800"
           >
             <svg
-              class="w-6 h-6 fill-current inline-block"
+              class="w-6 h-6 md:w-5 md:h-5 fill-current inline-block"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -232,7 +232,7 @@
             </svg>
             <span
               v-if="remainingMessages > 0"
-              class="absolute -top-1 left-4 rounded-full bg-red-500 dark:bg-rose-700 p-0.5 px-1.5 text-xs text-red-50 dark:text-rose-300"
+              class="absolute -top-1 left-4 rounded-full bg-red-500 dark:bg-rose-700 p-0.5 px-1.5 sm:text-xs md:text-[10px] text-red-50 dark:text-rose-300"
               >{{ remainingMessages }}</span
             >
             <span
