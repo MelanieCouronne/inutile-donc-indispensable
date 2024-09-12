@@ -85,6 +85,7 @@
    ******************************************/
 
   const activeComponent = ref("PresentationView");
+
   provide("activeComponentKey", activeComponent);
 
   const componentsMap = {

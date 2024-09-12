@@ -62,6 +62,7 @@
     font-size: 40px;
   }
   .drop-shadow-custom {
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
     filter: drop-shadow(0 15px 0px rgb(0 0 0 / 0.1));
   }
 
