@@ -10,6 +10,7 @@
         :key="index"
         class="activity bg-gray-200 dark:bg-slate-800"
         @mouseover="addColor"
+        @touchstart="addColor"
         @touchmove="addColor"
       ></div>
     </div>
@@ -61,15 +62,18 @@
    * ne pas avoir un tableau vide.
    */
   const updateSquares = () => {
-    const totalSquares = getTotalSquares();
+    requestAnimationFrame(() => {
+      const totalSquares = getTotalSquares();
 
-    if (totalSquares < 1) return;
-    squares.value = Array(totalSquares).fill(null);
+      if (totalSquares < 1) return;
+      squares.value = Array(totalSquares).fill(null);
+    });
   };
 
   let stopWatcher;
 
-  onMounted(() => {
+  onMounted(async () => {
+    await nextTick();
     updateSquares();
     window.addEventListener("resize", updateSquares);
 
