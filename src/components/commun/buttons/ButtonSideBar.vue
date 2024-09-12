@@ -29,7 +29,7 @@
 
   const emit = defineEmits(["buttonClicked", "toggleSideBar"]);
 
-  const isMobile = computed(() => getViewportDimensions().viewportWidth < 768);
+  const isMobile = computed(() => getViewportDimensions().viewportWidth < 767);
 
   const emitOnClick = () => {
     emit("buttonClicked", props.componentName);
