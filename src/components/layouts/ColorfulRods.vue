@@ -71,10 +71,10 @@
     // console.log("🚀 ~ Total ~ " + totalRods);
 
     if (totalRods < 1) return;
-    rods.value = Array(getTotalRods()).fill(null);
+    rods.value = Array(totalRods).fill(null);
   };
 
-  let catchWatcher;
+  let stopWatcher;
 
   onMounted(async () => {
     // On attend la mise à jour du DOM avant de calculer le nombre de carrés
@@ -84,7 +84,7 @@
     window.addEventListener("resize", updateRods);
 
     // On surveille le changement de la sidebar pour mettre à jour les barres
-    catchWatcher = watch(() => eventBus.sidebarToggled, updateRods);
+    stopWatcher = watch(() => eventBus.sidebarToggled, updateRods);
 
     // Changer d'array de couleurs toutes les 3 secondes
     setInterval(() => {
@@ -95,7 +95,7 @@
 
   onBeforeUnmount(() => {
     mainRodsContainer.value = null;
-    catchWatcher();
+    stopWatcher();
   });
 
   onUnmounted(() => {

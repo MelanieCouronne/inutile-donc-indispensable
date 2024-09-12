@@ -61,8 +61,13 @@
    * ne pas avoir un tableau vide.
    */
   const updateSquares = () => {
-    squares.value = Array(getTotalSquares()).fill(null);
+    const totalSquares = getTotalSquares();
+
+    if (totalSquares < 1) return;
+    squares.value = Array(totalSquares).fill(null);
   };
+
+  let stopWatcher;
 
   onMounted(async () => {
     // On attend la mise à jour du DOM avant de calculer le nombre de carrés
@@ -71,17 +76,13 @@
 
     window.addEventListener("resize", updateSquares);
 
-    // On écoute le changement de la variable `sidebarToggled` (sur Mobile) pour mettre à jour les carrés
-    watch(
-      () => eventBus.sidebarToggled,
-      () => {
-        updateSquares();
-      }
-    );
+    // On surveille le changement de la sidebar pour mettre à jour les barres
+    stopWatcher = watch(() => eventBus.sidebarToggled, updateSquares);
   });
 
   onBeforeUnmount(() => {
     mainContainer.value = null;
+    stopWatcher();
   });
 
   onUnmounted(() => {
