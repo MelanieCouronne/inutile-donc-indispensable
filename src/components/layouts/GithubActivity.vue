@@ -69,11 +69,8 @@
 
   let stopWatcher;
 
-  onMounted(async () => {
-    // On attend la mise à jour du DOM avant de calculer le nombre de carrés
-    await nextTick();
+  onMounted(() => {
     updateSquares();
-
     window.addEventListener("resize", updateSquares);
 
     // On surveille le changement de la sidebar pour mettre à jour les barres

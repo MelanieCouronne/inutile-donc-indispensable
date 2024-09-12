@@ -6,7 +6,7 @@
       @animationend="handleAnimationEnd"
       v-if="isWelcomeVisible"
       id="cartouche"
-      class="border-4 border-black bg-white -mt-12 md:mt-0 py-2 px-6 rounded-3xl flex items-center leading-relaxed drop-shadow-custom hinge"
+      class="border-4 border-black bg-white -mt-14 md:mt-0 py-2 px-6 rounded-3xl flex items-center leading-relaxed drop-shadow-custom hinge"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
