@@ -66,11 +66,11 @@
     filter: drop-shadow(0 15px 0px rgb(0 0 0 / 0.1));
   }
 
-  /* .hinge {
+  .hinge {
     animation: hinge 2s ease infinite;
     animation-delay: 2s;
     animation-iteration-count: 1;
-  } */
+  }
   @keyframes hinge {
     0% {
       transform: rotate(0);
