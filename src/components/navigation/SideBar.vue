@@ -180,9 +180,10 @@
             componentName="PresentationView"
           />
 
-          <ButtonSideBar
+          <ButtonSideBarLoading
             @buttonClicked="selectComponent"
             @toggleSideBar="toggleNavigation"
+            :isLoading="isLoading"
             svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
             title="Composant inutile n°1"
             componentName="GitHubActivity"
@@ -249,6 +250,7 @@
 <script setup>
   import { computed, inject, onMounted, onUnmounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/buttons/ButtonSideBar.vue";
+  import ButtonSideBarLoading from "@/components/commun/buttons/ButtonSideBarLoading.vue";
   import { useSideBarToggle } from "@/utils/composables/useSidebarToggle.js";
   import { getRandomItem, getViewportDimensions } from "@/utils/toolsBox.js";
 
@@ -256,6 +258,12 @@
 
   const searchQuery = ref("");
   const isDarkMode = ref(false);
+
+  /*****************************************
+   *               Is Loading                 *
+   ******************************************/
+
+  const isLoading = ref(false);
 
   /*****************************************
    *           Dark mode toggle             *
@@ -278,12 +286,12 @@
   const activeComponentKey = inject("activeComponentKey");
 
   const selectComponent = (componentName) => {
-    // if (componentName === "GitHubActivity") {
-    //   // store.isLoading = true;
-    //   setTimeout(() => {
-    //     // store.isLoading = false;
-    //   }, 6000);
-    // }
+    if (componentName === "GitHubActivity" && isMobile.value) {
+      isLoading.value = true;
+      setTimeout(() => {
+        isLoading.value = false;
+      }, 8000);
+    }
     activeComponentKey.value = componentName;
   };
 
