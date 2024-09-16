@@ -27,7 +27,11 @@
     watch,
   } from "vue";
   import { useSideBarToggle } from "@/utils/composables/useSidebarToggle.js";
-  import { getContainerDimensions, getRandomItem } from "@/utils/toolsBox.js";
+  import {
+    getContainerDimensions,
+    getRandomItem,
+    getViewportDimensions,
+  } from "@/utils/toolsBox.js";
 
   const { showNavigation } = useSideBarToggle();
 
@@ -48,6 +52,8 @@
 
     const squareWidth = 16; /* w 12 + ml 2 + mr 2 */
     const squareHeight = 14; /* 12 + 1 + 1 */
+
+    console.log("🚀 ~ w, h ~ : ", containerWidth, containerHeight);
 
     const totalSquares =
       Math.floor((containerWidth - 24) / squareWidth) *
@@ -73,24 +79,26 @@
     });
   };
 
-  let stopWatcher;
+  // let stopWatcher;
 
   onMounted(async () => {
     await nextTick();
     updateSquares();
-    window.addEventListener("resize", updateSquares);
+    // if (!isMobile.value) {
+    //   window.addEventListener("resize", updateSquares);
+    // }
 
     // On surveille le changement de la sidebar pour mettre à jour les squares
-    stopWatcher = watch(() => showNavigation.value, updateSquares);
+    // stopWatcher = watch(() => showNavigation.value, updateSquares);
   });
 
   onBeforeUnmount(() => {
     mainContainer.value = null;
-    stopWatcher();
+    // stopWatcher();
   });
 
   onUnmounted(() => {
-    window.removeEventListener("resize", updateSquares);
+    // window.removeEventListener("resize", updateSquares);
   });
 </script>
 
@@ -99,7 +107,7 @@
     width: 100%;
     height: 100%;
     max-height: 100vh;
-    margin: 0;
+    margin: 0 auto;
 
     overflow: hidden;
   }
@@ -126,5 +134,12 @@
   .activity:hover {
     transition: background-color 0.3s;
     overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    #squares-container {
+      width: 300px;
+      height: 500px;
+    }
   }
 </style>
