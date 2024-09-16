@@ -6,8 +6,8 @@
         :key="index"
         class="rod-activity bg-gray-200 dark:bg-slate-800"
         @mouseover="addColor"
-        @touchstart="addColor"
-        @touchmove="addColor"
+        @touchstart.passive="addColor"
+        @touchmove.passive="addColor"
       ></div>
     </div>
   </div>
