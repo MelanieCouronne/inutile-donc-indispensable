@@ -58,7 +58,7 @@
   import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
 
   import { getViewportDimensions } from "@/utils/toolsBox";
-  import eventBus from "@/utils/directives/eventBus";
+  import { eventBus } from "@/utils/directives/eventBus";
 
   /*****************************************
    *            Imports dynamiques            *

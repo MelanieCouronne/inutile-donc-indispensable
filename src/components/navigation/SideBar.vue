@@ -244,12 +244,21 @@
       </div>
     </div>
   </div>
+
+  <ModalSimple v-if="store.isLoading" @close="toggleNavigation">
+    <template #titre>
+      <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg> En
+      cours de chargement
+    </template>
+    <template #texte> Merci de patienter. </template>
+  </ModalSimple>
 </template>
 
 <script setup>
   import { computed, inject, onMounted, onUnmounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/buttons/ButtonSideBar.vue";
-  import eventBus from "@/utils/directives/eventBus.js";
+  import ModalSimple from "../commun/ui/ModalSimple.vue";
+  import { eventBus, store } from "@/utils/directives/eventBus.js";
   import { getRandomItem, getViewportDimensions } from "@/utils/toolsBox";
 
   import citations from "@/datas/sagesse_jcvd.json";
@@ -278,6 +287,12 @@
   const activeComponentKey = inject("activeComponentKey");
 
   const selectComponent = (componentName) => {
+    if (componentName === "GitHubActivity") {
+      store.isLoading = true;
+      setTimeout(() => {
+        store.isLoading = false;
+      }, 6000);
+    }
     activeComponentKey.value = componentName;
   };
 

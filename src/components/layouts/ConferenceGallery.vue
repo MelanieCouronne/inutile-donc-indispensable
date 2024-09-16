@@ -40,7 +40,7 @@
   import ModalSimple from "@/components/commun/ui/ModalSimple.vue";
   import datasImported from "@/datas/conferences.json";
   import { computed, onMounted, ref } from "vue";
-  import eventBus from "@/utils/directives/eventBus.js";
+  import { eventBus } from "@/utils/directives/eventBus.js";
   import { getViewportDimensions } from "@/utils/toolsBox";
 
   const conferences = ref([]);

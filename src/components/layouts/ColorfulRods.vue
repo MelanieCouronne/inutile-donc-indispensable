@@ -22,7 +22,7 @@
     onUnmounted,
     watch,
   } from "vue";
-  import eventBus from "@/utils/directives/eventBus.js";
+  import { eventBus } from "@/utils/directives/eventBus.js";
   import { getRandomItem, getContainerDimensions } from "@/utils/toolsBox";
 
   const greenColors = ["#22577A", "#38A3A5", "#57CC99", "#80ED99", "#C7F9CC"];

@@ -26,7 +26,7 @@
     onUnmounted,
     watch,
   } from "vue";
-  import eventBus from "@/utils/directives/eventBus.js";
+  import { eventBus } from "@/utils/directives/eventBus.js";
   import { getContainerDimensions, getRandomItem } from "@/utils/toolsBox";
 
   const greenColors = ["#9be9a8", "#40c463", "#30a14e", "#216e39"];
@@ -62,6 +62,7 @@
    * ne pas avoir un tableau vide.
    */
   const updateSquares = () => {
+    // Pour les mises à jour afin de synchroniser les modifications avec le cycle de rendu du navigateur.
     requestAnimationFrame(() => {
       const totalSquares = getTotalSquares();
 
