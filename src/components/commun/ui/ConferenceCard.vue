@@ -109,7 +109,7 @@
 <script setup>
   import { computed } from "vue";
   import moment from "moment";
-  import { getImgUrl } from "@/utils/toolsBox";
+  import { getImgUrl } from "@/utils/toolsBox.js";
 
   const { conference, lien } = defineProps({
     conference: {

@@ -26,8 +26,10 @@
     onUnmounted,
     watch,
   } from "vue";
-  import { sidebarEvent } from "@/utils/directives/eventBus.js";
-  import { getContainerDimensions, getRandomItem } from "@/utils/toolsBox";
+  import { useSideBarToggle } from "@/utils/composables/useSidebarToggle.js";
+  import { getContainerDimensions, getRandomItem } from "@/utils/toolsBox.js";
+
+  const { showNavigation } = useSideBarToggle();
 
   const greenColors = ["#9be9a8", "#40c463", "#30a14e", "#216e39"];
 
@@ -78,8 +80,8 @@
     updateSquares();
     window.addEventListener("resize", updateSquares);
 
-    // On surveille le changement de la sidebar pour mettre à jour les barres
-    stopWatcher = watch(() => sidebarEvent.isSidebarToggled, updateSquares);
+    // On surveille le changement de la sidebar pour mettre à jour les squares
+    stopWatcher = watch(() => showNavigation.value, updateSquares);
   });
 
   onBeforeUnmount(() => {

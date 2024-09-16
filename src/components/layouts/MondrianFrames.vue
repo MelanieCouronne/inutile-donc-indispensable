@@ -29,7 +29,7 @@
 <script setup>
   import { ref, onMounted, onUnmounted } from "vue";
   import ButtonRounded from "@/components/commun/buttons/ButtonRounded.vue";
-  import { getRandomItem } from "@/utils/toolsBox";
+  import { getRandomItem } from "@/utils/toolsBox.js";
 
   const mainFrameContainer = ref(null);
   const frames = ref([]);

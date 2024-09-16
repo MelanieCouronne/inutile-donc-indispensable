@@ -8,7 +8,7 @@
     </nav>
   </header>
   <main
-    v-if="(isMobile && isSidebarToggled) || !isMobile"
+    v-if="(isMobile && isSideBarHidden) || !isMobile"
     class="relative md:max-h-screen flex-1 md:w-full"
   >
     <Transition
@@ -57,8 +57,8 @@
   import PresentationView from "@/components/layouts/PresentationView.vue";
   import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
 
-  import { getViewportDimensions } from "@/utils/toolsBox";
-  import { sidebarEvent } from "@/utils/directives/eventBus";
+  import { getViewportDimensions } from "@/utils/toolsBox.js";
+  import { useSideBarToggle } from "@/utils/composables/useSidebarToggle.js";
 
   /*****************************************
    *            Imports dynamiques            *
@@ -117,6 +117,9 @@
    *         Mobile Viewport + Toggle        *
    ******************************************/
 
+  const { showNavigation } = useSideBarToggle();
+
+  const isSideBarHidden = computed(() => showNavigation.value);
+
   const isMobile = computed(() => getViewportDimensions().viewportWidth < 768);
-  const isSidebarToggled = computed(() => sidebarEvent.isSidebarToggled);
 </script>

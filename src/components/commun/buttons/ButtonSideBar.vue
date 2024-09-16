@@ -19,7 +19,7 @@
 
 <script setup>
   import { computed } from "vue";
-  import { getViewportDimensions } from "@/utils/toolsBox";
+  import { getViewportDimensions } from "@/utils/toolsBox.js";
 
   const props = defineProps({
     svgPath: { String, required: true },

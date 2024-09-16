@@ -244,22 +244,13 @@
       </div>
     </div>
   </div>
-
-  <ModalSimple v-if="store.isLoading" @close="toggleNavigation">
-    <template #titre>
-      <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg> En
-      cours de chargement
-    </template>
-    <template #texte> Merci de patienter. </template>
-  </ModalSimple>
 </template>
 
 <script setup>
   import { computed, inject, onMounted, onUnmounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/buttons/ButtonSideBar.vue";
-  import ModalSimple from "../commun/ui/ModalSimple.vue";
-  import { sidebarEvent, store } from "@/utils/directives/eventBus.js";
-  import { getRandomItem, getViewportDimensions } from "@/utils/toolsBox";
+  import { useSideBarToggle } from "@/utils/composables/useSidebarToggle.js";
+  import { getRandomItem, getViewportDimensions } from "@/utils/toolsBox.js";
 
   import citations from "@/datas/sagesse_jcvd.json";
 
@@ -287,12 +278,12 @@
   const activeComponentKey = inject("activeComponentKey");
 
   const selectComponent = (componentName) => {
-    if (componentName === "GitHubActivity") {
-      store.isLoading = true;
-      setTimeout(() => {
-        store.isLoading = false;
-      }, 6000);
-    }
+    // if (componentName === "GitHubActivity") {
+    //   // store.isLoading = true;
+    //   setTimeout(() => {
+    //     // store.isLoading = false;
+    //   }, 6000);
+    // }
     activeComponentKey.value = componentName;
   };
 
@@ -337,17 +328,12 @@
    *             SideBar Mobile             *
    ******************************************/
 
-  const showNavigation = ref(true);
+  const { showNavigation, toggleNavigation } = useSideBarToggle();
 
   const viewportDimensions = ref({
     width: window.innerWidth,
     height: window.innerHeight,
   });
-
-  const toggleNavigation = () => {
-    showNavigation.value = !showNavigation.value;
-    sidebarEvent.isSidebarToggled = !sidebarEvent.isSidebarToggled;
-  };
 
   const updateViewportDimensions = () => {
     viewportDimensions.value = {

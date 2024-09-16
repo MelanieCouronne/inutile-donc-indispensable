@@ -40,12 +40,13 @@
   import ModalSimple from "@/components/commun/ui/ModalSimple.vue";
   import datasImported from "@/datas/conferences.json";
   import { computed, onMounted, ref } from "vue";
-  import { sidebarEvent } from "@/utils/directives/eventBus.js";
-  import { getViewportDimensions } from "@/utils/toolsBox";
+  import { useSideBarToggle } from "@/utils/composables/useSidebarToggle.js";
+  import { getViewportDimensions } from "@/utils/toolsBox.js";
 
   const conferences = ref([]);
   const isMobile = ref(false);
   const showModal = ref(false);
+  const { showNavigation } = useSideBarToggle();
 
   const listeRedirections = [
     {
@@ -78,7 +79,7 @@
     .sort(() => Math.random() - Math.random())
     .slice(0, 6);
 
-  const isSidebarToggled = computed(() => sidebarEvent.isSidebarToggled);
+  const isSidebarToggled = computed(() => showNavigation.value);
 
   /*****************************************
    *               Modal                 *
