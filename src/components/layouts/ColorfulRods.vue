@@ -22,7 +22,7 @@
     onUnmounted,
     watch,
   } from "vue";
-  import { eventBus } from "@/utils/directives/eventBus.js";
+  import { sidebarEvent } from "@/utils/directives/eventBus.js";
   import { getRandomItem, getContainerDimensions } from "@/utils/toolsBox";
 
   const greenColors = ["#22577A", "#38A3A5", "#57CC99", "#80ED99", "#C7F9CC"];
@@ -84,7 +84,7 @@
     window.addEventListener("resize", updateRods);
 
     // On surveille le changement de la sidebar pour mettre à jour les barres
-    stopWatcher = watch(() => eventBus.sidebarToggled, updateRods);
+    stopWatcher = watch(() => sidebarEvent.isSidebarToggled, updateRods);
 
     // Changer d'array de couleurs toutes les 3 secondes
     setInterval(() => {

@@ -258,7 +258,7 @@
   import { computed, inject, onMounted, onUnmounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/buttons/ButtonSideBar.vue";
   import ModalSimple from "../commun/ui/ModalSimple.vue";
-  import { eventBus, store } from "@/utils/directives/eventBus.js";
+  import { sidebarEvent, store } from "@/utils/directives/eventBus.js";
   import { getRandomItem, getViewportDimensions } from "@/utils/toolsBox";
 
   import citations from "@/datas/sagesse_jcvd.json";
@@ -346,7 +346,7 @@
 
   const toggleNavigation = () => {
     showNavigation.value = !showNavigation.value;
-    eventBus.sidebarToggled = !eventBus.sidebarToggled;
+    sidebarEvent.isSidebarToggled = !sidebarEvent.isSidebarToggled;
   };
 
   const updateViewportDimensions = () => {

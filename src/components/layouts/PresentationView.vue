@@ -26,13 +26,13 @@
 <script setup>
   import { onMounted, ref } from "vue";
   import ModalSimple from "@/components/commun/ui/ModalSimple.vue";
-  // import {eventBus} from "@/utils/directives/eventBus.js";
+  // import {sidebarEvent} from "@/utils/directives/eventBus.js";
   import { getViewportDimensions } from "@/utils/toolsBox";
 
   const isMobile = ref(false);
   const showModal = ref(false);
 
-  // const isSidebarToggled = computed(() => eventBus.sidebarToggled);
+  // const isSidebarToggled = computed(() => sidebarEvent.isSidebarToggled);
 
   onMounted(() => {
     isMobile.value = getViewportDimensions().viewportWidth < 768;

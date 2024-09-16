@@ -58,7 +58,7 @@
   import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
 
   import { getViewportDimensions } from "@/utils/toolsBox";
-  import { eventBus } from "@/utils/directives/eventBus";
+  import { sidebarEvent } from "@/utils/directives/eventBus";
 
   /*****************************************
    *            Imports dynamiques            *
@@ -118,5 +118,5 @@
    ******************************************/
 
   const isMobile = computed(() => getViewportDimensions().viewportWidth < 768);
-  const isSidebarToggled = computed(() => eventBus.sidebarToggled);
+  const isSidebarToggled = computed(() => sidebarEvent.isSidebarToggled);
 </script>

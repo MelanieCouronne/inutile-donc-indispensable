@@ -1,9 +1,9 @@
 import { reactive } from "vue";
 
-const eventBus = reactive({ sidebarToggled: false });
+const sidebarEvent = reactive({ isSidebarToggled: false });
 
 const store = reactive({
   isLoading: false,
 });
 
-export { eventBus, store };
+export { sidebarEvent, store };

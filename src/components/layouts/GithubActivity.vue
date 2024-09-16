@@ -26,7 +26,7 @@
     onUnmounted,
     watch,
   } from "vue";
-  import { eventBus } from "@/utils/directives/eventBus.js";
+  import { sidebarEvent } from "@/utils/directives/eventBus.js";
   import { getContainerDimensions, getRandomItem } from "@/utils/toolsBox";
 
   const greenColors = ["#9be9a8", "#40c463", "#30a14e", "#216e39"];
@@ -79,7 +79,7 @@
     window.addEventListener("resize", updateSquares);
 
     // On surveille le changement de la sidebar pour mettre à jour les barres
-    stopWatcher = watch(() => eventBus.sidebarToggled, updateSquares);
+    stopWatcher = watch(() => sidebarEvent.isSidebarToggled, updateSquares);
   });
 
   onBeforeUnmount(() => {
