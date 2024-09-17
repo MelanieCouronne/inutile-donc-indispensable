@@ -27,11 +27,7 @@
     watch,
   } from "vue";
   import { useSideBarToggle } from "@/utils/composables/useSidebarToggle.js";
-  import {
-    getContainerDimensions,
-    getRandomItem,
-    getViewportDimensions,
-  } from "@/utils/toolsBox.js";
+  import { getContainerDimensions, getRandomItem } from "@/utils/toolsBox.js";
 
   const { showNavigation } = useSideBarToggle();
 
@@ -79,26 +75,25 @@
     });
   };
 
-  // let stopWatcher;
+  let stopWatcher;
 
   onMounted(async () => {
     await nextTick();
     updateSquares();
-    // if (!isMobile.value) {
-    //   window.addEventListener("resize", updateSquares);
-    // }
+
+    window.addEventListener("resize", updateSquares);
 
     // On surveille le changement de la sidebar pour mettre à jour les squares
-    // stopWatcher = watch(() => showNavigation.value, updateSquares);
+    stopWatcher = watch(() => showNavigation.value, updateSquares);
   });
 
   onBeforeUnmount(() => {
     mainContainer.value = null;
-    // stopWatcher();
+    stopWatcher();
   });
 
   onUnmounted(() => {
-    // window.removeEventListener("resize", updateSquares);
+    window.removeEventListener("resize", updateSquares);
   });
 </script>
 
@@ -136,10 +131,10 @@
     overflow: hidden;
   }
 
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     #squares-container {
       width: 300px;
       height: 500px;
     }
-  }
+  } */
 </style>
