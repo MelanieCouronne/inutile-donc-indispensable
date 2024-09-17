@@ -290,7 +290,7 @@
       isLoading.value = true;
       setTimeout(() => {
         isLoading.value = false;
-      }, 8000);
+      }, 3000);
     }
     activeComponentKey.value = componentName;
   };
