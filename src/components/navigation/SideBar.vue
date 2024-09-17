@@ -322,7 +322,7 @@
       randomItem = getRandomItem(datas);
     }
 
-    console.log(messagesViewedId);
+    // console.log(messagesViewedId);
 
     const message = randomItem.citation;
 
@@ -338,17 +338,17 @@
 
   const { showNavigation, toggleNavigation } = useSideBarToggle();
 
-  const viewportDimensions = ref({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
+  // const viewportDimensions = ref({
+  //   width: window.innerWidth,
+  //   height: window.innerHeight,
+  // });
 
-  const updateViewportDimensions = () => {
-    viewportDimensions.value = {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
-  };
+  // const updateViewportDimensions = () => {
+  //   viewportDimensions.value = {
+  //     width: window.innerWidth,
+  //     height: window.innerHeight,
+  //   };
+  // };
 
   /*****************************************
    *                Search                  *
@@ -369,11 +369,11 @@
       isDarkMode.value = true;
       document.documentElement.classList.add("dark");
     }
-    updateViewportDimensions();
-    window.addEventListener("resize", updateViewportDimensions);
+    // updateViewportDimensions();
+    // window.addEventListener("resize", updateViewportDimensions);
   });
 
   onUnmounted(() => {
-    window.removeEventListener("resize", updateViewportDimensions);
+    // window.removeEventListener("resize", updateViewportDimensions);
   });
 </script>

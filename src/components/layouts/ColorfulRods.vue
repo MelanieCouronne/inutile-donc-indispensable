@@ -77,7 +77,14 @@
   };
 
   let stopWatcher;
-  let stopInterval;
+  let intervalId;
+
+  const stopInterval = () => {
+    if (intervalId) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+  };
 
   onMounted(async () => {
     // On attend la mise à jour du DOM avant de calculer le nombre de carrés
@@ -90,7 +97,7 @@
     stopWatcher = watch(() => showNavigation.value, updateRods);
 
     // Changer d'array de couleurs toutes les 3 secondes
-    stopInterval = setInterval(() => {
+    intervalId = setInterval(() => {
       currentColorArrayIndex =
         (currentColorArrayIndex + 1) % colorArrays.length;
     }, 3000);
