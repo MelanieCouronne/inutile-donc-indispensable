@@ -77,6 +77,7 @@
   };
 
   let stopWatcher;
+  let stopInterval;
 
   onMounted(async () => {
     // On attend la mise à jour du DOM avant de calculer le nombre de carrés
@@ -89,7 +90,7 @@
     stopWatcher = watch(() => showNavigation.value, updateRods);
 
     // Changer d'array de couleurs toutes les 3 secondes
-    setInterval(() => {
+    stopInterval = setInterval(() => {
       currentColorArrayIndex =
         (currentColorArrayIndex + 1) % colorArrays.length;
     }, 3000);
@@ -98,6 +99,7 @@
   onBeforeUnmount(() => {
     mainRodsContainer.value = null;
     stopWatcher();
+    stopInterval();
   });
 
   onUnmounted(() => {
