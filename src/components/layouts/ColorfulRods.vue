@@ -76,6 +76,10 @@
     rods.value = Array(totalRods).fill(null);
   };
 
+  /*****************************************
+   *      Clean watcher et interval         *
+   ******************************************/
+
   let stopWatcher;
   let intervalId;
 

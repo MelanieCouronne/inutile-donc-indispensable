@@ -174,7 +174,6 @@
         >
           <ButtonSideBar
             @buttonClicked="selectComponent"
-            @toggleSideBar="toggleNavigation"
             svgPath="M8.543 2.232a.75.75 0 0 0-1.085 0l-5.25 5.5A.75.75 0 0 0 2.75 9H4v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V9h1.25a.75.75 0 0 0 .543-1.268l-5.25-5.5Z"
             title="Accueil"
             componentName="PresentationView"
@@ -182,7 +181,6 @@
 
           <ButtonSideBarLoading
             @buttonClicked="selectComponent"
-            @toggleSideBar="toggleNavigation"
             :isLoading="isLoading"
             svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
             title="Composant inutile n°1"
@@ -191,7 +189,6 @@
 
           <ButtonSideBar
             @buttonClicked="selectComponent"
-            @toggleSideBar="toggleNavigation"
             svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
             title="Composant inutile n°2"
             componentName="ColorfulRods"
@@ -199,7 +196,6 @@
 
           <ButtonSideBar
             @buttonClicked="selectComponent"
-            @toggleSideBar="toggleNavigation"
             svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
             title="Composant inutile n°3"
             componentName="ElusiveView"
@@ -207,7 +203,6 @@
 
           <ButtonSideBar
             @buttonClicked="selectComponent"
-            @toggleSideBar="toggleNavigation"
             svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
             title="Composant inutile n°4"
             componentName="MondrianFrames"
@@ -251,13 +246,15 @@
   import { computed, inject, onMounted, onUnmounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/buttons/ButtonSideBar.vue";
   import ButtonSideBarLoading from "@/components/commun/buttons/ButtonSideBarLoading.vue";
-  import { useSideBarToggle } from "@/utils/composables/useSidebarToggle.js";
+  // import { useSideBarToggle } from "@/utils/composables/useSidebarToggle.js";
   import { getRandomItem, getViewportDimensions } from "@/utils/toolsBox.js";
 
   import citations from "@/datas/sagesse_jcvd.json";
 
   const searchQuery = ref("");
-  const isDarkMode = ref(false);
+  const isDarkMode = ref(true);
+
+  const emit = defineEmits(["displayNotification", "showNav"]);
 
   /*****************************************
    *               Is Loading                 *
@@ -292,14 +289,16 @@
         isLoading.value = false;
       }, 3000);
     }
+
+    if (isMobile.value) {
+      toggleNavigation();
+    }
     activeComponentKey.value = componentName;
   };
 
   /*****************************************
    *              Notification              *
    ******************************************/
-
-  const emit = defineEmits(["displayNotification"]);
 
   let messagesViewedId = [];
 
@@ -335,8 +334,7 @@
   /*****************************************
    *             SideBar Mobile             *
    ******************************************/
-
-  const { showNavigation, toggleNavigation } = useSideBarToggle();
+  // const { showNavigation, toggleNavigation } = useSideBarToggle();
 
   // const viewportDimensions = ref({
   //   width: window.innerWidth,
@@ -349,6 +347,13 @@
   //     height: window.innerHeight,
   //   };
   // };
+
+  const showNavigation = ref(true);
+
+  const toggleNavigation = () => {
+    showNavigation.value = !showNavigation.value;
+    emit("showNav", showNavigation.value);
+  };
 
   /*****************************************
    *                Search                  *

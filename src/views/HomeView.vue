@@ -1,14 +1,14 @@
 <template>
-  <header class="h-auto md:flex-[0.2]">
-    <nav>
-      <SideBar
-        @selectComponent="activeComponent = $event"
-        @displayNotification="handleNotification"
-      />
-    </nav>
-  </header>
+  <nav class="h-auto md:flex-[0.2]">
+    <SideBar
+      @selectComponent="activeComponent = $event"
+      @displayNotification="handleNotification"
+      @showNav="handleShowNav"
+    />
+  </nav>
+
   <main
-    v-if="(isMobile && isSideBarHidden) || !isMobile"
+    v-if="!isMobile || (isMobile && sidebarHidden)"
     class="relative md:max-h-screen flex-1 md:w-full"
   >
     <Transition
@@ -31,6 +31,7 @@
       <component :is="componentsMap[activeComponent]" />
     </Transition>
   </main>
+
   <Transition
     enter-active-class="transform ease-out duration-300 transition"
     enter-from-class="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
@@ -58,7 +59,8 @@
   import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
 
   import { getViewportDimensions } from "@/utils/toolsBox.js";
-  import { useSideBarToggle } from "@/utils/composables/useSidebarToggle.js";
+  // import { useSideBarToggle } from "@/utils/composables/useSidebarToggle";
+  // const { showNavigation } = useSideBarToggle();
 
   /*****************************************
    *            Imports dynamiques            *
@@ -117,9 +119,12 @@
    *         Mobile Viewport + Toggle        *
    ******************************************/
 
-  const { showNavigation } = useSideBarToggle();
-
-  const isSideBarHidden = computed(() => showNavigation.value);
-
   const isMobile = computed(() => getViewportDimensions().viewportWidth < 768);
+
+  const sidebarHidden = ref(false);
+
+  const handleShowNav = (newValue) => {
+    sidebarHidden.value = !newValue;
+    console.log("🚀 ~ handleShowNav ~ showNavigation:", sidebarHidden.value);
+  };
 </script>

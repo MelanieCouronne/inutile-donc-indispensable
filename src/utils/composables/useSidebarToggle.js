@@ -11,9 +11,7 @@ export function useSideBarToggle() {
   const showNavigation = ref(true);
 
   const toggleNavigation = () => {
-    // console.log("🚀 ~ showNavigation depart ~ : ", showNavigation.value);
     showNavigation.value = !showNavigation.value;
-    // console.log("🚀 ~ showNavigation fin ~ : ", showNavigation.value);
   };
 
   return { showNavigation, toggleNavigation };

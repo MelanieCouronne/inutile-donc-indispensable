@@ -18,23 +18,15 @@
 </template>
 
 <script setup>
-  import { computed } from "vue";
-  import { getViewportDimensions } from "@/utils/toolsBox.js";
-
   const props = defineProps({
     svgPath: { String, required: true },
     title: { String, required: true },
     componentName: { String, required: true },
   });
 
-  const emit = defineEmits(["buttonClicked", "toggleSideBar"]);
-
-  const isMobile = computed(() => getViewportDimensions().viewportWidth < 768);
+  const emit = defineEmits(["buttonClicked"]);
 
   const emitOnClick = () => {
     emit("buttonClicked", props.componentName);
-    if (isMobile.value) {
-      emit("toggleSideBar");
-    }
   };
 </script>
