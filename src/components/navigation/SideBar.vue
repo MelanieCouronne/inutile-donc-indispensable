@@ -21,7 +21,7 @@
 
       <div
         v-if="showNavigation"
-        class="relative bg-white dark:bg-slate-800 h-screen w-screen md:w-80 lg:w-80 md:block shadow-xl px-5 pt-4 w-30 overflow-x-hidden transition-transform duration-300 ease-in-out space-y-8 md:space-y-10"
+        class="relative bg-white dark:bg-slate-800 h-screen w-screen md:w-80 lg:w-80 md:block shadow-xl px-5 pt-4 pb-6 md:pb-0 md:mb-0 w-30 overflow-x-hidden transition-transform duration-300 ease-in-out space-y-8 md:space-y-10"
       >
         <!-- Dark / Light mode -->
         <div class="flex justify-end">
