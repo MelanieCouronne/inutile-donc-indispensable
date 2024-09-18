@@ -1,29 +1,22 @@
-# Use an official Node.js runtime as a parent image
-FROM node:18 AS build
+FROM node:lts-alpine
 
-# Set the working directory to /app
+# installe un simple serveur http pour servir un contenu statique
+RUN npm install -g http-server
+
+# définit le dossier 'app' comme dossier de travail
 WORKDIR /app
 
-# Copy package.json and package-lock.json into the working directory
+# copie 'package.json' et 'package-lock.json' (si disponible)
 COPY package*.json ./
 
-# Install any needed packages
+# installe les dépendances du projet
 RUN npm install
 
-# Copy the rest of the application code into the working directory
+# copie les fichiers et dossiers du projet dans le dossier de travail (par exemple : le dossier 'app')
 COPY . .
 
-# Build the application for production
+# construit l'app pour la production en la minifiant
 RUN npm run build
 
-# Use an Nginx server to serve the application
-FROM nginx:alpine
-
-# Copy the built application files from the parent image
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Expose port 80 for the Nginx server
-EXPOSE 80
-
-# Start the Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 8080
+CMD [ "http-server", "dist" ]
