@@ -40,8 +40,6 @@
   import ModalSimple from "@/components/commun/ui/ModalSimple.vue";
   import datasImported from "@/datas/conferences.json";
 
-  // import { getViewportDimensions } from "@/utils/toolsBox.js";
-
   const conferences = ref([]);
   const showModal = ref(false);
 
@@ -83,8 +81,6 @@
   const handleCloseModal = () => {
     showModal.value = false;
   };
-
-  // const isMobile = computed(() => getViewportDimensions().viewportWidth < 768);
 
   onMounted(() => {
     setTimeout(() => {

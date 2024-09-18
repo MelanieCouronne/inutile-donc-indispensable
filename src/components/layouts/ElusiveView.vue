@@ -53,8 +53,6 @@
     return { x, y };
   };
 
-  // let catchSetTimeout;
-
   const runAway = () => {
     const { containerWidth, containerHeight } = getContainerDimensions(
       mainContainerToRunAway
@@ -85,7 +83,6 @@
   });
 
   onUnmounted(() => {
-    // clearTimeout(catchSetTimeout);
     window.removeEventListener("mousemove", runAway);
     window.addEventListener("touchmove", runAway);
   });
