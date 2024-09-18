@@ -1,15 +1,29 @@
-bashCopy code
-# Use the official Node.js image as the base image
-FROM node:18
+# Use an official Node.js runtime as a parent image
+FROM node:18 AS build
 
-# Set the working directory in the container
+# Set the working directory to /app
 WORKDIR /app
 
-# Copy the application files into the working directory
-COPY . /app
+# Copy package.json and package-lock.json into the working directory
+COPY package*.json ./
 
-# Install the application dependencies
+# Install any needed packages
 RUN npm install
 
-# Define the entry point for the container
-CMD ["npm", "start"]
+# Copy the rest of the application code into the working directory
+COPY . .
+
+# Build the application for production
+RUN npm run build
+
+# Use an Nginx server to serve the application
+FROM nginx:alpine
+
+# Copy the built application files from the parent image
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Expose port 80 for the Nginx server
+EXPOSE 80
+
+# Start the Nginx server
+CMD ["nginx", "-g", "daemon off;"]
