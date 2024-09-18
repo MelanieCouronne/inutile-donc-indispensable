@@ -243,24 +243,18 @@
 </template>
 
 <script setup>
-  import { computed, inject, onMounted, onUnmounted, ref } from "vue";
+  import { computed, inject, onMounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/buttons/ButtonSideBar.vue";
   import ButtonSideBarLoading from "@/components/commun/buttons/ButtonSideBarLoading.vue";
-  // import { useSideBarToggle } from "@/utils/composables/useSidebarToggle.js";
   import { getRandomItem, getViewportDimensions } from "@/utils/toolsBox.js";
 
   import citations from "@/datas/sagesse_jcvd.json";
 
   const searchQuery = ref("");
   const isDarkMode = ref(true);
+  const isLoading = ref(false);
 
   const emit = defineEmits(["displayNotification", "showNav"]);
-
-  /*****************************************
-   *               Is Loading                 *
-   ******************************************/
-
-  const isLoading = ref(false);
 
   /*****************************************
    *           Dark mode toggle             *
@@ -297,7 +291,7 @@
   };
 
   /*****************************************
-   *              Notification              *
+   *              Notifications              *
    ******************************************/
 
   let messagesViewedId = [];
@@ -306,7 +300,7 @@
    * @param {Array} datas les données à parcourir
    */
 
-  const datas = citations.datas; // import du fichier JSON
+  const datas = citations.datas; // stockage des données
   const remainingMessages = ref(datas.length);
 
   const emitMessageOnClick = () => {
@@ -316,12 +310,10 @@
       messagesViewedId.includes(randomItem.id) &&
       messagesViewedId.length < datas.length
     ) {
-      // console.log("🚀 ~ Deja vu ~ ");
+      // console.log("🚀 ~ Déjà vu ~ ");
 
       randomItem = getRandomItem(datas);
     }
-
-    // console.log(messagesViewedId);
 
     const message = randomItem.citation;
 
@@ -332,21 +324,8 @@
   };
 
   /*****************************************
-   *             SideBar Mobile             *
+   *          SideBar pour mobile           *
    ******************************************/
-  // const { showNavigation, toggleNavigation } = useSideBarToggle();
-
-  // const viewportDimensions = ref({
-  //   width: window.innerWidth,
-  //   height: window.innerHeight,
-  // });
-
-  // const updateViewportDimensions = () => {
-  //   viewportDimensions.value = {
-  //     width: window.innerWidth,
-  //     height: window.innerHeight,
-  //   };
-  // };
 
   const showNavigation = ref(true);
 
@@ -361,9 +340,6 @@
 
   const handleSearchClick = () => {
     selectComponent("ConferenceGallery");
-    if (isMobile.value) {
-      toggleNavigation();
-    }
     searchQuery.value = "";
   };
 
@@ -374,11 +350,5 @@
       isDarkMode.value = true;
       document.documentElement.classList.add("dark");
     }
-    // updateViewportDimensions();
-    // window.addEventListener("resize", updateViewportDimensions);
-  });
-
-  onUnmounted(() => {
-    // window.removeEventListener("resize", updateViewportDimensions);
   });
 </script>

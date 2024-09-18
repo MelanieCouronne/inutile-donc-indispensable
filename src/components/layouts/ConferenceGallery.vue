@@ -1,6 +1,5 @@
 <template>
   <div
-    v-show="(isMobile && isSidebarToggled) || !isMobile"
     class="relative grid sm:grid-cols-1 md:grid-cols-2 bg-slate-100 dark:bg-slate-900 sm:mt-12 md:mt-0"
   >
     <ConferenceCard
@@ -22,7 +21,7 @@
       v-show="
         (isMobile && isSidebarToggled && showModal) || (!isMobile && showModal)
       "
-      class="absolute w-80 md:w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center"
+      class="absolute w-80 md:w-full top-20 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 flex flex-col items-center justify-center"
       @closeModal="handleCloseModal"
     >
       <template #titre> Super 👍🏻 ! Mais non... </template>
@@ -36,17 +35,15 @@
 </template>
 
 <script setup>
+  import { onMounted, ref } from "vue";
   import ConferenceCard from "@/components/commun/ui/ConferenceCard.vue";
   import ModalSimple from "@/components/commun/ui/ModalSimple.vue";
   import datasImported from "@/datas/conferences.json";
-  import { computed, onMounted, ref } from "vue";
-  import { useSideBarToggle } from "@/utils/composables/useSidebarToggle.js";
-  import { getViewportDimensions } from "@/utils/toolsBox.js";
+
+  // import { getViewportDimensions } from "@/utils/toolsBox.js";
 
   const conferences = ref([]);
-  const isMobile = ref(false);
   const showModal = ref(false);
-  const { showNavigation } = useSideBarToggle();
 
   const listeRedirections = [
     {
@@ -79,8 +76,6 @@
     .sort(() => Math.random() - Math.random())
     .slice(0, 6);
 
-  const isSidebarToggled = computed(() => showNavigation.value);
-
   /*****************************************
    *               Modal                 *
    ******************************************/
@@ -89,10 +84,11 @@
     showModal.value = false;
   };
 
+  // const isMobile = computed(() => getViewportDimensions().viewportWidth < 768);
+
   onMounted(() => {
-    isMobile.value = getViewportDimensions().viewportWidth < 768;
     setTimeout(() => {
       showModal.value = true;
-    }, 1200);
+    }, 1000);
   });
 </script>

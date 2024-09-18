@@ -59,8 +59,6 @@
   import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
 
   import { getViewportDimensions } from "@/utils/toolsBox.js";
-  // import { useSideBarToggle } from "@/utils/composables/useSidebarToggle";
-  // const { showNavigation } = useSideBarToggle();
 
   /*****************************************
    *            Imports dynamiques            *
@@ -100,7 +98,7 @@
   };
 
   /*****************************************
-   *              Notification              *
+   *              Notifications              *
    ******************************************/
 
   const notification = ref({ display: false, message: "" });
@@ -125,6 +123,5 @@
 
   const handleShowNav = (newValue) => {
     sidebarHidden.value = !newValue;
-    console.log("🚀 ~ handleShowNav ~ showNavigation:", sidebarHidden.value);
   };
 </script>
