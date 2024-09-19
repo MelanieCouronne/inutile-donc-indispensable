@@ -16,5 +16,5 @@ EXPOSE 8080
 # Lister les fichiers dans le répertoire de travail pour vérification
 RUN ls -la /usr/src/app
 
-# Démarrer le serveur http-server
-CMD ["http-server", "-p", "8080", "-c-1"]
+# Démarrer le serveur http-server avec les options appropriées
+CMD ["http-server", "-p", "8080", "-c-1", "-a", "0.0.0.0"]
