@@ -17,4 +17,4 @@ EXPOSE 8080
 #RUN ls -la /usr/src/app
 
 # Démarrer le serveur http-server avec les options appropriées
-CMD ["http-server", "-p", "8080", "-c-1", "-a", "0.0.0.0", "-P", "/index.html"]
+CMD ["http-server", "-p", "8080", "-c-1", "-a", "0.0.0.0", "-P", "./index.html"]
