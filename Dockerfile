@@ -33,4 +33,4 @@ WORKDIR /usr/src/app/dist
 EXPOSE 8080
 
 # Démarrer le serveur http-server
-CMD ["http-server", "-p", "8080", "-c-1", "-P", "index.html"]
+CMD ["http-server", "-p", "8080", "-c-1"]
