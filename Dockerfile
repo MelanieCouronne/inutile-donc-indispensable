@@ -1,22 +1,36 @@
-FROM node:lts-alpine
+# Utiliser une image Node.js pour construire l'application
+FROM node:18-alpine AS build
 
-# installe un simple serveur http pour servir un contenu statique
-RUN npm install -g http-server
+# Définir le répertoire de travail
+WORKDIR /usr/src/app
 
-# définit le dossier 'app' comme dossier de travail
-WORKDIR /app
-
-# copie 'package.json' et 'package-lock.json' (si disponible)
+# Copier les fichiers package.json, package-lock.json et .env.production
 COPY package*.json ./
+COPY .env.production ./
 
-# installe les dépendances du projet
+# Installer les dépendances
 RUN npm install
 
-# copie les fichiers et dossiers du projet dans le dossier de travail (par exemple : le dossier 'app')
+# Copier le reste du code de l'application dans le répertoire de travail
 COPY . .
 
-# construit l'app pour la production en la minifiant
+# Construire l'application pour la production
 RUN npm run build
 
+# Utiliser un serveur HTTP pour servir l'application
+FROM node:18-alpine
+
+# Installer http-server globalement
+RUN npm install -g http-server
+
+# Copier les fichiers de l'application construite depuis l'image précédente
+COPY --from=build /usr/src/app/dist /usr/src/app/dist
+
+# Définir le répertoire de travail pour http-server
+WORKDIR /usr/src/app/dist
+
+# Exposer le port 8080
 EXPOSE 8080
-CMD [ "http-server", "dist" ]
+
+# Démarrer le serveur http-server
+CMD ["http-server", "-p", "8080", "-c-1"]

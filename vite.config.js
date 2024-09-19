@@ -8,6 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const hash = Math.floor(Math.random() * 90000) + 10000;
 
 export default defineConfig(({ mode }) => {
+  // Charger les variables d'environnement
   const env = loadEnv(mode, process.cwd());
 
   console.log("🚀 ~ Config VITE ~ ");
@@ -34,10 +35,10 @@ export default defineConfig(({ mode }) => {
           assetFileNames: `assets/[name]` + hash + `.[ext]`,
         },
       },
-      server: {
-        watch: {
-          usePolling: true,
-        },
+    },
+    server: {
+      watch: {
+        usePolling: true,
       },
     },
   };
