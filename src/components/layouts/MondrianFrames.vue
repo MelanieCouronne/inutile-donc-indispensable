@@ -72,7 +72,7 @@
     generateFrames(2);
     catchSetInterval = setInterval(() => {
       generateFrames(2);
-    }, 4000);
+    }, 3000);
   });
 
   onUnmounted(() => {
