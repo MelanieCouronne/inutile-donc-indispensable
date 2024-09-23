@@ -28,9 +28,13 @@
 
 ## 🔄 Installation et Utilisation
 
+<br>
+
 ### Prérequis
 
 **Node.js & npm** : Node.js est requis pour exécuter Vite. [Lien d'installation Node.js](https://nodejs.org/)
+
+<br>
 
 ### Installation
 
@@ -47,6 +51,8 @@
 
         npm install
 
+<br>
+
 ### Utilisation
 
 1.  **Démarrer le serveur de développement Vite** :
@@ -55,7 +61,7 @@
 
 <br><br>
 
-### 🚀 Fonctionnalités
+## 🚀 Fonctionnalités
 
 - Génération de messages de JCVD aléatoires, pour UNE VIE PLUS BELLE.
 - Affichage de composants inutiles MAIS indispensables.
@@ -64,7 +70,7 @@
 
 <br><br>
 
-### 🛠️ Technologies utilisées
+## 🛠️ Technologies utilisées
 
 **Vue.js** : Framework JavaScript pour le frontend.<br>
 **Vite** : Bundler moderne pour le développement rapide avec Vue.js.<br>
@@ -72,4 +78,4 @@
 
 <br><br>
 
-### 👋🏻 Merci !
+## 👋🏻 Merci !
