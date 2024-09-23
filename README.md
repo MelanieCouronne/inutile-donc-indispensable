@@ -5,7 +5,7 @@
 # 👍🏻 Inutile, donc indispensable
 
 <br><br>
-<br><br>
+<br>
 
 ## 🧪 Table des matières
 
@@ -36,10 +36,8 @@
 
 1.  **Cloner le dépôt** :
 
-       
         git clone git@github.com:MelanieCouronne/inutile-donc-indispensable.git
         cd inutile-donc-indispensable
- 
 
 2.  **Configurer les variables d'environnement** :
 
@@ -47,17 +45,13 @@
 
 3.  **Installer les dépendances** :
 
-     
         npm install
-    
 
 ### Utilisation
 
 1.  **Démarrer le serveur de développement Vite** :
 
-        
         npm run dev
-   
 
 <br><br>
 
@@ -72,9 +66,9 @@
 
 ### 🛠️ Technologies utilisées
 
-**Vue.js** : Framework JavaScript pour le frontend.
-**Vite** : Bundler moderne pour le développement rapide avec Vue.js.
-**Tailwind CSS** : Framework CSS utilitaire pour le design.
+**Vue.js** : Framework JavaScript pour le frontend.<br>
+**Vite** : Bundler moderne pour le développement rapide avec Vue.js.<br>
+**Tailwind CSS** : Framework CSS utilitaire pour le design.<br>
 
 <br><br>
 
