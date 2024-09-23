@@ -19,8 +19,7 @@
           rel="noopener noreferrer"
           class="text-gray-400 hover:text-gray-800 dark:text-emerald-400 dark:hover:text-emerald-500"
           >LinkedIn</a
-        >.<br /><br />Il y a bien plus à voir sur le site et sur mon LinkedIn
-        que sur cette page qui restera désespérément vide&nbsp;! 🙂
+        >. 🙂
       </template>
     </ModalSimple>
   </div>
