@@ -8,36 +8,35 @@
       :conference="conference"
       :lien="listeRedirections[index]"
     />
-  </div>
 
-  <!-- MODAL -->
-  <Transition
-    enter-from-class="opacity-0"
-    enter-active-class="transition ease-in duration-900"
-    leave-to-class="opacity-0"
-    leave-active-class="transition ease-in duration-700"
-  >
-    <ModalSimple
-      v-show="
-        (isMobile && isSidebarToggled && showModal) || (!isMobile && showModal)
-      "
-      class="absolute w-80 md:w-full top-20 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 flex flex-col items-center justify-center"
-      @closeModal="handleCloseModal"
+    <!-- MODAL -->
+    <Transition
+      v-show="showModal"
+      enter-from-class="opacity-0"
+      enter-active-class="transition ease-in duration-900"
+      leave-to-class="opacity-0"
+      leave-active-class="transition ease-in duration-700"
     >
-      <template #titre> Super 👍🏻 ! Mais non... </template>
-      <template #texte>
-        Ce que vous cherchiez était sûrement intéressant, mais voilà des
-        conférences qui pourraient bien révolutionner votre vie pour devenir la
-        meilleure version de vous-même, ou presque.
-      </template>
-    </ModalSimple>
-  </Transition>
+      <ModalSimple
+        class="absolute w-80 md:w-full top-20 md:top-1/2 left-1/2 transform -translate-x-1/2 md:-translate-y-1/2 flex flex-col items-center justify-center"
+        @closeModal="handleCloseModal"
+      >
+        <template #titre> Super 👍🏻 ! Mais non... </template>
+        <template #texte>
+          Ce que vous cherchiez était sûrement intéressant, mais voilà des
+          conférences qui pourraient bien révolutionner votre vie pour devenir
+          la meilleure version de vous-même, ou presque.
+        </template>
+      </ModalSimple>
+    </Transition>
+  </div>
 </template>
 
 <script setup>
   import { onMounted, ref } from "vue";
   import ConferenceCard from "@/components/commun/ui/ConferenceCard.vue";
   import ModalSimple from "@/components/commun/ui/ModalSimple.vue";
+  //import { getViewportDimensions } from "@/utils/toolsBox.js";
   import datasImported from "@/datas/conferences.json";
 
   const conferences = ref([]);
@@ -82,9 +81,11 @@
     showModal.value = false;
   };
 
+  //const isMobile = computed(() => getViewportDimensions().viewportWidth < 768);
+
   onMounted(() => {
     setTimeout(() => {
       showModal.value = true;
-    }, 1000);
+    }, 1200);
   });
 </script>
