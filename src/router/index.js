@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
-import PresentationView from "@/components/layouts/PresentationView.vue";
+import ShowEdito from "@/components/layouts/ShowEdito.vue";
 import GitHubActivity from "@/components/layouts/GithubActivity.vue";
 import WelcomeView from "@/views/WelcomeView.vue";
 
@@ -26,7 +26,7 @@ const router = createRouter({
         {
           path: "make-my-point",
           name: "make-my-point",
-          component: PresentationView,
+          component: ShowEdito,
         },
         {
           path: "composant-inutile-1",

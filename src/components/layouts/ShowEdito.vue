@@ -4,20 +4,23 @@
     class="flex flex-col items-center justify-center p-6 md:p-4"
   >
     <ModalSimple v-show="showModal" :showCloseBtn="false">
-      <template #titre>🫶🏻 Merci de votre visite !</template>
+      <template #titre>Merci d'avoir osé cliquer&nbsp;! 🫶🏻 </template>
       <template #texte>
-        Ci-gît la page fantôme de mon CV, où auraient dû trôner mes compétences
-        légendaires, mes soft skills d'extra-terrestre et les détails d'une
-        reconversion professionnelle digne d’un film épique...<br /><br />En
-        attendant l'apparition miraculeuse de cette page, vous pouvez jeter un
-        œil à la suite du site, ainsi qu'à mon profil
+        👋🏻 Bienvenue sur cette page qui, soyons réalistes, ne contiendra jamais
+        mon CV...<br /><br />
+        Ici auraient dû figurer mes compétences, mes soft skills, et peut-être
+        même l’histoire épique de ma reconversion professionnelle. Mais entre
+        nous, ça n’arrivera jamais.<br /><br />
+        Alors en attendant (et pour toujours), vous pouvez explorer le reste du
+        site ou faire un tour sur mon
         <a
           href="https://www.linkedin.com/in/melanie-couronne/"
           target="_blank"
           rel="noopener noreferrer"
           class="text-gray-400 hover:text-gray-800 dark:text-emerald-400 dark:hover:text-emerald-500"
           >LinkedIn</a
-        >.<br /><br />Promis, il est bien plus détaillé que cette page fantôme !
+        >.<br /><br />Il y a bien plus à voir sur le site et sur mon LinkedIn
+        que sur cette page qui restera désespérément vide&nbsp;! 🙂
       </template>
     </ModalSimple>
   </div>

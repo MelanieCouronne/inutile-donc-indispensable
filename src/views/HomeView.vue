@@ -12,13 +12,13 @@
     class="relative md:max-h-screen flex-1 md:w-full"
   >
     <Transition
-      v-if="activeComponent === 'PresentationView'"
+      v-if="activeComponent === 'ShowEdito'"
       enter-from-class="opacity-0"
       enter-active-class="transition ease-in duration-900"
       leave-to-class="opacity-0"
       leave-active-class="transition ease-in duration-700"
     >
-      <component :is="componentsMap.PresentationView" />
+      <component :is="componentsMap.ShowEdito" />
     </Transition>
 
     <Transition
@@ -55,7 +55,7 @@
   import GitHubActivity from "@/components/layouts/GithubActivity.vue";
   import SideBar from "@/components/navigation/SideBar.vue";
   import NotificationView from "@/components/commun/ui/NotificationTemplate.vue";
-  import PresentationView from "@/components/layouts/PresentationView.vue";
+  import ShowEdito from "@/components/layouts/ShowEdito.vue";
   import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
 
   import { getViewportDimensions } from "@/utils/toolsBox.js";
@@ -84,12 +84,12 @@
    *      Activation des composants          *
    ******************************************/
 
-  const activeComponent = ref("PresentationView");
+  const activeComponent = ref("ShowEdito");
 
   provide("activeComponentKey", activeComponent);
 
   const componentsMap = {
-    PresentationView,
+    ShowEdito,
     ColorfulRods,
     GitHubActivity,
     ElusiveView,
