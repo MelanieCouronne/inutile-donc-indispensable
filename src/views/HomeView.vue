@@ -1,7 +1,6 @@
 <template>
   <nav class="h-auto md:flex-[0.2]">
     <SideBar
-      @selectComponent="activeComponent = $event"
       @displayNotification="handleNotification"
       @showNav="handleShowNav"
     />
@@ -11,25 +10,26 @@
     v-if="!isMobile || (isMobile && sidebarHidden)"
     class="relative md:max-h-screen flex-1 md:w-full"
   >
-    <Transition
-      v-if="activeComponent === 'ShowEdito'"
-      enter-from-class="opacity-0"
-      enter-active-class="transition ease-in duration-900"
-      leave-to-class="opacity-0"
-      leave-active-class="transition ease-in duration-700"
-    >
-      <component :is="componentsMap.ShowEdito" />
-    </Transition>
+    <RouterView v-if="isShowEditoRoute" v-slot="{ Component }">
+      <Transition
+        enter-from-class="opacity-0"
+        enter-active-class="transition ease-in duration-900"
+        leave-to-class="opacity-0"
+        leave-active-class="transition ease-in duration-700"
+      >
+        <component :is="Component" />
+      </Transition>
+    </RouterView>
 
-    <Transition
-      v-else
-      enter-from-class="translate-x-full opacity-0"
-      enter-active-class="transition ease-in duration-1000"
-      leave-to-class="translate-x-full opacity-0"
-      leave-active-class="transition ease-in duration-700"
-    >
-      <component :is="componentsMap[activeComponent]" />
-    </Transition>
+    <RouterView v-else v-slot="{ Component }">
+      <Transition
+        enter-from-class="translate-x-full opacity-0"
+        enter-active-class="transition ease-in duration-1000"
+        leave-to-class="translate-x-full opacity-0"
+        leave-active-class="transition ease-in duration-700"
+      >
+        <component :is="Component" /></Transition
+    ></RouterView>
   </main>
 
   <Transition
@@ -50,53 +50,24 @@
 </template>
 
 <script setup>
-  import { computed, defineAsyncComponent, provide, ref } from "vue";
+  import { computed, ref } from "vue";
+  import { useRoute } from "vue-router";
 
-  import GitHubActivity from "@/components/layouts/GithubActivity.vue";
   import SideBar from "@/components/navigation/SideBar.vue";
   import NotificationView from "@/components/commun/ui/NotificationTemplate.vue";
-  import ShowEdito from "@/components/layouts/ShowEdito.vue";
   import FooterLayout from "@/components/commun/ui/FooterLayout.vue";
 
   import { getViewportDimensions } from "@/utils/toolsBox.js";
 
   /*****************************************
-   *            Imports dynamiques            *
+   *             Route edito                *
    ******************************************/
 
-  const ColorfulRods = defineAsyncComponent(() =>
-    import("@/components/layouts/ColorfulRods.vue")
+  const route = useRoute();
+
+  const isShowEditoRoute = computed(
+    () => route.path === "/accueil/make-my-point" || route.path === "/accueil"
   );
-
-  const ElusiveView = defineAsyncComponent(() =>
-    import("@/components/layouts/ElusiveView.vue")
-  );
-
-  const MondrianFrames = defineAsyncComponent(() =>
-    import("@/components/layouts/MondrianFrames.vue")
-  );
-
-  const ConferenceGallery = defineAsyncComponent(() =>
-    import("@/components/layouts/ConferenceGallery.vue")
-  );
-
-  /*****************************************
-   *      Activation des composants          *
-   ******************************************/
-
-  const activeComponent = ref("ShowEdito");
-
-  provide("activeComponentKey", activeComponent);
-
-  const componentsMap = {
-    ShowEdito,
-    ColorfulRods,
-    GitHubActivity,
-    ElusiveView,
-    MondrianFrames,
-    ConferenceGallery,
-  };
-
   /*****************************************
    *              Notifications              *
    ******************************************/

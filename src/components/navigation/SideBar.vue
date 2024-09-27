@@ -172,70 +172,79 @@
           id="menu"
           class="flex flex-col items-start space-y-2 md:space-y-2 text-left"
         >
-          <ButtonSideBar
-            @buttonClicked="selectComponent"
-            svgPath="M8.543 2.232a.75.75 0 0 0-1.085 0l-5.25 5.5A.75.75 0 0 0 2.75 9H4v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V9h1.25a.75.75 0 0 0 .543-1.268l-5.25-5.5Z"
-            title="Accueil"
-            componentName="ShowEdito"
-          />
+          <RouterLink :to="{ name: 'make-my-point' }">
+            <ButtonSideBar
+              svgPath="M8.543 2.232a.75.75 0 0 0-1.085 0l-5.25 5.5A.75.75 0 0 0 2.75 9H4v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V9h1.25a.75.75 0 0 0 .543-1.268l-5.25-5.5Z"
+              title="Accueil"
+              componentName="ShowEdito"
+            />
+          </RouterLink>
 
-          <ButtonSideBarLoading
-            @buttonClicked="selectComponent"
-            :isLoading="isLoading"
-            svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-            title="Composant inutile n°1"
-            componentName="GitHubActivity"
-          />
+          <RouterLink :to="{ name: 'squares' }">
+            <ButtonSideBarLoading
+              :isLoading="isLoading"
+              svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+              title="Composant inutile n°1"
+              componentName="GitHubActivity"
+          /></RouterLink>
 
-          <ButtonSideBar
-            @buttonClicked="selectComponent"
-            svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-            title="Composant inutile n°2"
-            componentName="ColorfulRods"
-          />
+          <RouterLink :to="{ name: 'rods' }">
+            <ButtonSideBar
+              svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+              title="Composant inutile n°2"
+              componentName="ColorfulRods"
+            />
+          </RouterLink>
 
-          <ButtonSideBar
-            @buttonClicked="selectComponent"
-            svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-            title="Composant inutile n°3"
-            componentName="ElusiveView"
-          />
+          <RouterLink :to="{ name: 'elusive' }">
+            <ButtonSideBar
+              svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0
+            002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0
+            002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2
+            2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2
+            2h-2a2 2 0 01-2-2v-2z"
+              title="Composant inutile n°3"
+              componentName="ElusiveView"
+            />
+          </RouterLink>
 
-          <ButtonSideBar
-            @buttonClicked="selectComponent"
-            svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-            title="Composant inutile n°4"
-            componentName="MondrianFrames"
-          />
+          <RouterLink :to="{ name: 'mondrian' }">
+            <ButtonSideBar
+              svgPath="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+              title="Composant inutile n°4"
+              componentName="MondrianFrames"
+            />
+          </RouterLink>
 
-          <button
-            :disabled="remainingMessages <= 0"
-            @click="emitMessageOnClick()"
-            class="relative w-full text-left text-sm md:text-xs font-medium text-gray-700 dark:text-gray-600 py-2 px-2 hover:bg-teal-500 dark:hover:bg-emerald-400 hover:text-white dark:hover:text-slate-800 rounded-md transition duration-150 ease-in-out cursor-pointer disabled:bg-slate-50 dark:disabled:bg-slate-900 disabled:text-slate-500 dark:disabled:text-slate-800 disabled:border-slate-200 dark:disabled:border-slate-800"
-          >
-            <svg
-              class="w-6 h-6 md:w-5 md:h-5 fill-current inline-block"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
+          <RouterLink :to="{ name: 'conferences' }">
+            <button
+              :disabled="remainingMessages <= 0"
+              class="relative w-full text-left text-sm md:text-xs font-medium text-gray-700 dark:text-gray-600 py-2 px-2 hover:bg-teal-500 dark:hover:bg-emerald-400 hover:text-white dark:hover:text-slate-800 rounded-md transition duration-150 ease-in-out cursor-pointer disabled:bg-slate-50 dark:disabled:bg-slate-900 disabled:text-slate-500 dark:disabled:text-slate-800 disabled:border-slate-200 dark:disabled:border-slate-800"
             >
-              <path
-                d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"
-              ></path>
-              <path
-                d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"
-              ></path>
-            </svg>
-            <span
-              v-if="remainingMessages > 0"
-              class="absolute -top-1 left-4 rounded-full bg-red-500 dark:bg-rose-700 p-0.5 px-1.5 sm:text-xs md:text-[10px] text-red-50 dark:text-rose-300"
-              >{{ remainingMessages }}</span
-            >
-            <span
-              >&nbsp; Message{{ remainingMessages <= 1 ? "" : "s" }} de
-              JCVD</span
-            >
-          </button>
+              <svg
+                class="w-6 h-6 md:w-5 md:h-5 fill-current inline-block"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"
+                ></path>
+                <path
+                  d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"
+                ></path>
+              </svg>
+              <span
+                v-if="remainingMessages > 0"
+                class="absolute -top-1 left-4 rounded-full bg-red-500 dark:bg-rose-700 p-0.5 px-1.5 sm:text-xs md:text-[10px] text-red-50 dark:text-rose-300"
+                >{{ remainingMessages }}</span
+              >
+              <span
+                >&nbsp; Message{{ remainingMessages <= 1 ? "" : "s" }} de
+                JCVD</span
+              >
+            </button>
+          </RouterLink>
         </div>
       </div>
     </div>
@@ -243,7 +252,7 @@
 </template>
 
 <script setup>
-  import { computed, inject, onMounted, ref } from "vue";
+  import { computed, onMounted, ref } from "vue";
   import ButtonSideBar from "@/components/commun/buttons/ButtonSideBar.vue";
   import ButtonSideBarLoading from "@/components/commun/buttons/ButtonSideBarLoading.vue";
   import { getRandomItem, getViewportDimensions } from "@/utils/toolsBox.js";
@@ -274,21 +283,21 @@
   /*****************************************
    *       Activation des composants       *
    ******************************************/
-  const activeComponentKey = inject("activeComponentKey");
+  // const activeComponentKey = inject("activeComponentKey");
 
-  const selectComponent = (componentName) => {
-    if (componentName === "GitHubActivity" && isMobile.value) {
-      isLoading.value = true;
-      setTimeout(() => {
-        isLoading.value = false;
-      }, 3000);
-    }
+  // const selectComponent = (componentName) => {
+  //   if (componentName === "GitHubActivity" && isMobile.value) {
+  //     isLoading.value = true;
+  //     setTimeout(() => {
+  //       isLoading.value = false;
+  //     }, 3000);
+  //   }
 
-    if (isMobile.value) {
-      toggleNavigation();
-    }
-    activeComponentKey.value = componentName;
-  };
+  //   if (isMobile.value) {
+  //     toggleNavigation();
+  //   }
+  //   activeComponentKey.value = componentName;
+  // };
 
   /*****************************************
    *              Notifications              *
@@ -339,7 +348,7 @@
    ******************************************/
 
   const handleSearchClick = () => {
-    selectComponent("ConferenceGallery");
+    // selectComponent("ConferenceGallery");
     searchQuery.value = "";
   };
 
