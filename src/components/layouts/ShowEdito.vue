@@ -6,13 +6,13 @@
     <ModalSimple v-show="showModal" :showCloseBtn="false">
       <template #titre>Merci d'avoir osé cliquer&nbsp;! 🫶🏻 </template>
       <template #texte>
-        👋🏻 Bienvenue sur cette page qui, soyons réalistes, ne contiendra jamais
-        mon CV...<br /><br />
-        Ici auraient dû figurer mes compétences, mes soft skills, et peut-être
-        même l’histoire épique de ma reconversion professionnelle. Mais entre
-        nous, ça n’arrivera jamais.<br /><br />
-        Alors en attendant (et pour toujours), vous pouvez explorer le reste du
-        site ou faire un tour sur mon
+        Ici, l'inutile devient un art de vivre.<br /><br />Vous pensiez que les
+        applications web ne servaient qu'à vous simplifier la vie, à vous rendre
+        plus productif, ou à vous aider à organiser votre quotidien&nbsp;?<br /><br />
+        Détrompez-vous&nbsp;! Parfois, l'essentiel, c'est de se perdre dans
+        l'inutile.<br /><br />
+        Si vous aussi vous aimez l'absurde, vous pouvez explorer sans
+        modération... ou faire un tour sur mon
         <a
           href="https://www.linkedin.com/in/melanie-couronne/"
           target="_blank"
