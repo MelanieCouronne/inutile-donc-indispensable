@@ -41,7 +41,6 @@
   const props = defineProps({
     svgPath: { String, required: true },
     title: { String, required: true },
-    componentName: { String, required: true },
     isLoading: { Boolean, required: true },
   });
 

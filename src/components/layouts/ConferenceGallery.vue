@@ -36,7 +36,6 @@
   import { onMounted, ref } from "vue";
   import ConferenceCard from "@/components/commun/ui/ConferenceCard.vue";
   import ModalSimple from "@/components/commun/ui/ModalSimple.vue";
-  //import { getViewportDimensions } from "@/utils/toolsBox.js";
   import datasImported from "@/datas/conferences.json";
 
   const conferences = ref([]);

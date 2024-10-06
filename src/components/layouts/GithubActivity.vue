@@ -49,7 +49,7 @@
     const squareWidth = 16; /* w 12 + ml 2 + mr 2 */
     const squareHeight = 14; /* 12 + 1 + 1 */
 
-    console.log("🚀 ~ w, h ~ : ", containerWidth, containerHeight);
+    // console.log("🚀 ~ w, h ~ : ", containerWidth, containerHeight);
 
     const totalSquares =
       Math.floor((containerWidth - 24) / squareWidth) *
